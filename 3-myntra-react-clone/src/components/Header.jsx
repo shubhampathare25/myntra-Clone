@@ -1,3 +1,6 @@
+import { BsFillPersonFill } from "react-icons/bs";
+import { FaFaceGrinHearts, FaBagShopping } from "react-icons/fa6";
+
 const Header = () => {
   return (
     <header>

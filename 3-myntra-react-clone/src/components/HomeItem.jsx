@@ -1,7 +1,7 @@
 const HomeItems = ({ item }) => {
   return (
     <div className="item-container">
-      <img className="item-image" src={item.image} alt="item image" />
+      <img className="item-image" src={itemImage} alt="item image" />
       <div className="rating">
         {item.rating.stars} ⭐ | {item.rating.count}
       </div>
