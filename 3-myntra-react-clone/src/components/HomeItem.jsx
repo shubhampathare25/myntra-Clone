@@ -1,7 +1,7 @@
 const HomeItems = ({ item }) => {
   return (
     <div className="item-container">
-      <img className="item-image" src={itemImage} alt="item image" />
+      <img className="item-image" src={item.Image} alt="item image" />
       <div className="rating">
         {item.rating.stars} ⭐ | {item.rating.count}
       </div>
@@ -22,4 +22,4 @@ const HomeItems = ({ item }) => {
   );
 };
 
-export default HomeItem;
+export default HomeItems;
