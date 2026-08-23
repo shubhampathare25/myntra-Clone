@@ -381,3 +381,7 @@ a.action_container:link {
 .spinner {
   margin: 100px 0px;
 }
+
+*{
+  margin: 0;
+}
