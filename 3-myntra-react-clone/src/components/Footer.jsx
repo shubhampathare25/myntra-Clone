@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
     <footer>
-      <div class="footer_container">
-        <div class="footer_column">
+      <div className="footer_container">
+        <div className="footer_column">
           <h3>ONLINE SHOPPING</h3>
 
           <a href="#">Men</a>
@@ -14,7 +14,7 @@ const Footer = () => {
           <a href="#">Myntra Insider</a>
         </div>
 
-        <div class="footer_column">
+        <div className="footer_column">
           <h3>ONLINE SHOPPING</h3>
 
           <a href="#">Men</a>
@@ -26,7 +26,7 @@ const Footer = () => {
           <a href="#">Myntra Insider</a>
         </div>
 
-        <div class="footer_column">
+        <div className="footer_column">
           <h3>ONLINE SHOPPING</h3>
 
           <a href="#">Men</a>
@@ -40,7 +40,9 @@ const Footer = () => {
       </div>
       <hr />
 
-      <div class="copyright">© 2023 www.myntra.com. All rights reserved.</div>
+      <div className="copyright">
+        © 2023 www.myntra.com. All rights reserved.
+      </div>
     </footer>
   );
 };
