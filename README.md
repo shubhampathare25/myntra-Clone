@@ -13,18 +13,18 @@ A fully functional e-commerce web application inspired by Myntra, built using **
 
 ---
 
-## 🛠️ Tech Stack
+# Tech Stack
 
 * **Frontend:** React.js, Vite, HTML5, CSS3, JavaScript (ES6+)
 * **Routing:** React Router DOM
 * **Version Control:** Git & GitHub
 
-## 📦 Getting Started Locally
+# Getting Started Locally
 
 To run this project on your local machine, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/shubhampathare25/myntra-Clone.git](https://github.com/shubhampathare25/myntra-Clone.git)
+   git clone [https://github.com/shubhampathare25/myntra-Clone.git]
    ```
    
