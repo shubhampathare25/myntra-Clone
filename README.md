@@ -24,9 +24,9 @@ A fully functional e-commerce web application inspired by Myntra, built using **
 To run this project on your local machine, follow these steps:
 
 1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/shubhampathare25/myntra-Clone.git]
-   ```
+ ```bash
+git clone [https://github.com/shubhampathare25/myntra-Clone.git]
+```
 1. Navigate to the project directory:
 ```
 cd "9-Myntra Clone/3-myntra-react-clone"
@@ -39,6 +39,12 @@ npm install
 ```
 npm run dev
 ```
+Preview:
+
+c:\Users\HP\OneDrive\Pictures\Screenshots\Screenshot 2026-08-25 221108.png
+![alt text](<Screenshot 2026-08-25 221921.png>)
+
+
 
 
 
