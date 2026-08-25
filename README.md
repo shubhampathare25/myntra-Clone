@@ -40,9 +40,12 @@ npm install
 npm run dev
 ```
 Preview:
+Home page
+<img width="960" height="505" alt="Screenshot 2026-08-25 221108" src="https://github.com/user-attachments/assets/75db59bb-010f-447c-b483-e396289fd32c" />
+Bag page
+<img width="949" height="392" alt="Screenshot 2026-08-25 221921" src="https://github.com/user-attachments/assets/e3796698-a4fa-45e6-805e-1efe58f07ff6" />
 
-c:\Users\HP\OneDrive\Pictures\Screenshots\Screenshot 2026-08-25 221108.png
-![alt text](<Screenshot 2026-08-25 221921.png>)
+
 
 
 
