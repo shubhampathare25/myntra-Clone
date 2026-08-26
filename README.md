@@ -19,6 +19,21 @@ A fully functional e-commerce web application inspired by Myntra, built using **
 * **Routing:** React Router DOM
 * **Version Control:** Git & GitHub
 
+## Project Structure
+
+myntra-react-clone/
+│
+├── public/              # Static assets and images
+├── src/
+│   ├── components/      # Reusable React components (Header, Footer, ItemCard, etc.)
+│   ├── store/           # Redux / Context state management files
+│   ├── routes/          # App pages (Home, Bag, App.jsx)
+│   ├── App.jsx          # Main root component
+│   └── main.jsx         # React entry point
+│
+├── package.json         # Dependencies and scripts
+└── README.md
+
 ## Getting Started Locally
 
 To run this project on your local machine, follow these steps:
