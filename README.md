@@ -20,7 +20,7 @@ A fully functional e-commerce web application inspired by Myntra, built using **
 * **Version Control:** Git & GitHub
 
 ## Project Structure
-
+```
 myntra-react-clone/
 │
 ├── public/              # Static assets and images
@@ -33,7 +33,7 @@ myntra-react-clone/
 │
 ├── package.json         # Dependencies and scripts
 └── README.md
-
+```
 ## Getting Started Locally
 
 To run this project on your local machine, follow these steps:
