@@ -10,6 +10,11 @@ https://myntra-clone-shubz.vercel.app/
 
 ---
 
+## Overview
+The **Myntra React Clone** is a fully responsive, feature-rich front-end web application that replicates the core user experience of Myntra. It allows users to browse through clothing and lifestyle products, manage their shopping bag dynamically, and experience real-time price calculations (including MRP, discounts, and delivery charges) with smooth client-side routing.
+
+---
+
 ## Features
 
 * **Product Catalog:** Browse through a variety of fashion and lifestyle items with ratings, company names, and pricing.
@@ -18,21 +23,28 @@ https://myntra-clone-shubz.vercel.app/
 * **Responsive Navigation:** Clean header, search bar, wishlist, and bag counter indicators.
 
 ---
+## Technologies Used
 
-## Tech Stack
+### Frontend
+* React.js
+* JavaScript (ES6+)
+* Redux Toolkit
+* React Router DOM
+* Bootstrap
+* Vite
+* Fetch API
 
-* **Frontend:** React.js, Vite, HTML5, CSS3, JavaScript (ES6+)
-* **Routing:** React Router DOM
-* **Version Control:** Git & GitHub
+### Backend
+* Node.js
+* Express.js
 
----
-
-## Key Learnings
-
-* Built a fully component-driven user interface using **React.js** and **Vite**.
-* Managed complex global state efficiently using **Redux Toolkit** (for items, bag operations, and fetch statuses).
-* Implemented **React Router** for smooth client-side navigation between Home and Bag views.
-* Handled modern CSS layouts to precisely replicate the UI/UX of a major e-commerce platform like Myntra.
+### Development Tools
+* Git
+* GitHub
+* VS Code
+* MongoDB Compass
+* Render
+* Vercel
 
 ---
 
@@ -77,7 +89,7 @@ To run this project on your local machine, follow these steps:
  ```bash
 git clone [https://github.com/shubhampathare25/myntra-Clone.git]
 ```
-1. Navigate to the project directory:
+1. Frontend Setup
 ```
 cd "9-Myntra Clone/3-myntra-react-clone"
 ```
@@ -89,10 +101,29 @@ npm install
 ```
 npm run dev
 ```
-Preview:
-Home page
+---
+##  Backend Setup
+
+To run the backend server locally, follow these steps:
+
+1. **Navigate to the backend directory**
+   ```bash
+   cd 2-actual-backend
+
+2. Install backend dependencies
+   ```
+   npm install
+   ```
+3. Start the backend server
+   ```
+   npm start
+---
+## Preview
+
+### Home page
 <img width="960" height="505" alt="Screenshot 2026-08-25 221108" src="https://github.com/user-attachments/assets/75db59bb-010f-447c-b483-e396289fd32c" />
-Bag page
+
+### Bag page
 <img width="949" height="392" alt="Screenshot 2026-08-25 221921" src="https://github.com/user-attachments/assets/e3796698-a4fa-45e6-805e-1efe58f07ff6" />
 
 ## Usage
