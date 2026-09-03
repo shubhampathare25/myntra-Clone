@@ -1,17 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import { bagActions } from "../store/bagSlice";
-import { wishlistActions } from "../store/wishlistSlice"; // Wishlist action import keli
+import { wishlistActions } from "../store/wishlistSlice"; // 1. Wishlist actions import kara
 import { GrAddCircle } from "react-icons/gr";
-import { AiFillDelete, AiFillHeart, AiOutlineHeart } from "react-icons/ai"; // Heart icons import kele
+import { AiFillDelete, AiFillHeart } from "react-icons/ai"; // 2. AiFillHeart icon import kara
 
 const HomeItem = ({ item }) => {
   const dispatch = useDispatch();
 
-  // Bag state
+  // Bag (Cart) state
   const bagItems = useSelector((store) => store.bag);
-  const elementFound = bagItems.indexOf(item.id) >= 0;
+  const elementFoundInBag = bagItems.indexOf(item.id) >= 0;
 
-  // Wishlist state (Wishlist store madhun data ghenyasathi)
+  // Wishlist state (navin state Redux madhun)
   const wishlistItems = useSelector((store) => store.wishlist);
   const isWishlisted = wishlistItems.indexOf(item.id) >= 0;
 
@@ -19,11 +19,11 @@ const HomeItem = ({ item }) => {
     dispatch(bagActions.addToBag(item.id));
   };
 
-  const handleRemove = () => {
+  const handleRemoveFromBag = () => {
     dispatch(bagActions.removeFromBag(item.id));
   };
 
-  // Wishlist toggle function
+  // Wishlist toggle function (Add/Remove logic)
   const handleToggleWishlist = () => {
     if (isWishlisted) {
       dispatch(wishlistActions.removeFromWishlist(item.id));
@@ -46,12 +46,12 @@ const HomeItem = ({ item }) => {
         <span className="discount">({item.discount_percentage}% OFF)</span>
       </div>
 
-      {/* Add to Bag / Remove Button */}
-      {elementFound ? (
+      {/* Add to Bag / Remove Button (Already implemented) */}
+      {elementFoundInBag ? (
         <button
           type="button"
           className="btn btn-add-bag btn-danger"
-          onClick={handleRemove}
+          onClick={handleRemoveFromBag}
         >
           <AiFillDelete /> Remove
         </button>
@@ -65,37 +65,30 @@ const HomeItem = ({ item }) => {
         </button>
       )}
 
-      {/* Wishlist Button (Add to Bag chya exactly khali) */}
+      {/* Wishlist Button (Screenshot sarakha disnyasathi) */}
       <button
         type="button"
-        className="btn btn-wishlist"
+        className="btn"
         onClick={handleToggleWishlist}
         style={{
           marginTop: "8px",
-          backgroundColor: "white",
-          border: "1px solid #d4d5d9",
-          color: "#282c3f",
           width: "100%",
-          padding: "8px",
+          padding: "8px 16px",
+          // Rang change logic: wishlisted asel tar red, nasel tar white
+          backgroundColor: isWishlisted ? "#f15b6c" : "#ffffff",
+          color: isWishlisted ? "#ffffff" : "#282c3f",
+          border: isWishlisted ? "none" : "1px solid #d4d5d9",
           borderRadius: "4px",
+          fontWeight: "600",
+          cursor: "pointer",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           gap: "6px",
-          fontWeight: "600",
-          cursor: "pointer",
         }}
       >
-        {isWishlisted ? (
-          <>
-            <AiFillHeart style={{ color: "#ff3f6c", fontSize: "18px" }} />{" "}
-            Wishlisted
-          </>
-        ) : (
-          <>
-            <AiOutlineHeart style={{ fontSize: "18px" }} /> Wishlist
-          </>
-        )}
+        <AiFillHeart style={{ color: isWishlisted ? "#ffffff" : "#ff3f6c" }} />
+        {isWishlisted ? "Remove Wishlist" : "Wishlist"}
       </button>
     </div>
   );
