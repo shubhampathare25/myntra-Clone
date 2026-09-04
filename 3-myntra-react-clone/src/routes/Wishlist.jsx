@@ -1,18 +1,14 @@
 import { useSelector } from "react-redux";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import HomeItem from "../components/HomeItem";
-import { DEFAULT_ITEMS } from "../data/items"; // Tumchya project madhe items data kuthun import hoto te check kara
 
 const Wishlist = () => {
   const wishlistIds = useSelector((store) => store.wishlist);
-  const items = useSelector((store) => store.items); // Jar items store madhun yet asatil tr
+  const items = useSelector((store) => store.items); // Redux store madhun items get karat ahot
 
   const wishlistItems = items.filter((item) => wishlistIds.includes(item.id));
 
   return (
     <>
-      <Header />
       <main>
         <div
           className="wishlist-page"
@@ -38,7 +34,6 @@ const Wishlist = () => {
           )}
         </div>
       </main>
-      <Footer />
     </>
   );
 };
