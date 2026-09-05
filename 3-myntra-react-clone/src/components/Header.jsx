@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { BsHeart } from "react-icons/bs"; // Icon import kara jar nasel tar
+import { CgProfile } from "react-icons/cg";     // Solid Profile Icon
+import { IoHeart } from "react-icons/io5";       // Solid Wishlist Heart Icon
+import { RiShoppingBagFill } from "react-icons/ri"; // Solid Bag Icon
 
 const Header = () => {
-  // Bag ani Wishlist che items fetch kara
   const bag = useSelector((store) => store.bag);
-  const wishlist = useSelector((store) => store.wishlist); // 1. Wishlist state anli
+  const wishlist = useSelector((store) => store.wishlist);
 
   return (
     <header>
@@ -36,30 +37,39 @@ const Header = () => {
         />
       </div>
       <div className="action_bar">
-        <div className="action_container">
+        
+        {/* Profile Link & Solid Icon */}
+        <div className="action_container" style={{ cursor: "pointer" }}>
+          <CgProfile style={{ fontSize: "22px" }} />
           <span className="action_name">Profile</span>
         </div>
 
-        {/* Wishlist Link ani Count */}
+        {/* Wishlist Link, Solid Heart Icon & Count */}
         <Link
           to="/wishlist"
           className="action_container"
           style={{ textDecoration: "none", color: "black" }}
         >
+          <IoHeart style={{ fontSize: "22px" }} />
           <span className="action_name">Wishlist</span>
-          <span className="count_badge">{wishlist.length}</span>{" "}
-          {/* 2. Ithe count disel */}
+          {wishlist.length > 0 && (
+            <span className="count_badge">{wishlist.length}</span>
+          )}
         </Link>
 
-        {/* Bag Link ani Count */}
+        {/* Bag Link, Solid Bag Icon & Count */}
         <Link
           to="/bag"
           className="action_container"
           style={{ textDecoration: "none", color: "black" }}
         >
+          <RiShoppingBagFill style={{ fontSize: "20px" }} />
           <span className="action_name">Bag</span>
-          <span className="count_badge">{bag.length}</span>
+          {bag.length > 0 && (
+            <span className="count_badge">{bag.length}</span>
+          )}
         </Link>
+
       </div>
     </header>
   );
