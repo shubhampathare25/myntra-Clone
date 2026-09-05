@@ -381,3 +381,19 @@ a.action_container:link {
 .spinner {
   margin: 100px 0px;
 }
+
+.action_container {
+  position: relative; /* Badge la position karnyasaathi he garjeche ahe */
+}
+
+.count_badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #ff3f6c; /* Myntra cha famous red/pink color */
+  color: white;
+  border-radius: 50%;
+  padding: 1px 6px;
+  font-size: 11px;
+  font-weight: bold;
+}
