@@ -13,6 +13,8 @@ import Wishlist from "./routes/Wishlist.jsx";
 import Men from "./Pages/Men.jsx";
 import Women from "./Pages/Women.jsx";
 import Kids from "./Pages/Kids.jsx";
+import HomeLiving from "./Pages/Home&Living.jsx";
+import Beauty from "./Pages/Beauty.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,12 +44,12 @@ const router = createBrowserRouter([
         element: <Kids />,
       },
       {
-        path: "/beauty",
-        element: <Home />,
+        path: "/home-living",
+        element: <HomeLiving />,
       },
       {
-        path: "/home-living",
-        element: <Home />,
+        path: "/Beauty",
+        element: <Beauty />,
       },
       {
         path: "/studio",

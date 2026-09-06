@@ -7,7 +7,7 @@ const kids = () => {
   console.log("All Store Items");
 
   const kidsItems = items.filter(
-    (item) => item.category?.toLowerCase() === "women",
+    (item) => item.category?.toLowerCase() === "kids",
   );
 
   return (
