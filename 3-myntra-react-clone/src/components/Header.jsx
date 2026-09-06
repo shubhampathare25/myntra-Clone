@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { CgProfile } from "react-icons/cg";     // Solid Profile Icon
-import { IoHeart } from "react-icons/io5";       // Solid Wishlist Heart Icon
+import { CgProfile } from "react-icons/cg"; // Solid Profile Icon
+import { IoHeart } from "react-icons/io5"; // Solid Wishlist Heart Icon
 import { RiShoppingBagFill } from "react-icons/ri"; // Solid Bag Icon
 
 const Header = () => {
-  const bag = useSelector((store) => store.bag);
-  const wishlist = useSelector((store) => store.wishlist);
+  const bag = useSelector((store) => store.bag || []);
+  const wishlist = useSelector((store) => store.wishlist || []);
 
   return (
     <header>
@@ -19,16 +19,18 @@ const Header = () => {
           />
         </Link>
       </div>
+
       <nav className="nav_bar">
-        <a href="#">Men</a>
-        <a href="#">Women</a>
-        <a href="#">Kids</a>
-        <a href="#">Home & Living</a>
-        <a href="#">Beauty</a>
-        <a href="#">
+        <Link to="/men">Men</Link>
+        <Link to="/women">Women</Link>
+        <Link to="/kids">Kids</Link>
+        <Link to="/home-living">Home & Living</Link>
+        <Link to="/beauty">Beauty</Link>
+        <Link to="/studio">
           Studio <sup>NEW</sup>
-        </a>
+        </Link>
       </nav>
+
       <div className="search_bar">
         <span className="search_icon material-symbols-outlined">search</span>
         <input
@@ -36,8 +38,8 @@ const Header = () => {
           placeholder="Search for products, brands and more"
         />
       </div>
+
       <div className="action_bar">
-        
         {/* Profile Link & Solid Icon */}
         <div className="action_container" style={{ cursor: "pointer" }}>
           <CgProfile style={{ fontSize: "22px" }} />
@@ -65,11 +67,8 @@ const Header = () => {
         >
           <RiShoppingBagFill style={{ fontSize: "20px" }} />
           <span className="action_name">Bag</span>
-          {bag.length > 0 && (
-            <span className="count_badge">{bag.length}</span>
-          )}
+          {bag.length > 0 && <span className="count_badge">{bag.length}</span>}
         </Link>
-
       </div>
     </header>
   );

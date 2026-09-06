@@ -10,6 +10,10 @@ import { Provider } from "react-redux";
 import myntraStore from "./store/index.js";
 import Wishlist from "./routes/Wishlist.jsx";
 
+import Men from "./Pages/Men.jsx";
+import Women from "./Pages/Women.jsx";
+import Kids from "./Pages/Kids.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,9 +28,35 @@ const router = createBrowserRouter([
         path: "/wishlist",
         element: <Wishlist />,
       },
+
+      {
+        path: "/men",
+        element: <Men />,
+      },
+      {
+        path: "/women",
+        element: <Women />,
+      },
+      {
+        path: "/kids",
+        element: <Kids />,
+      },
+      {
+        path: "/beauty",
+        element: <Home />,
+      },
+      {
+        path: "/home-living",
+        element: <Home />,
+      },
+      {
+        path: "/studio",
+        element: <Home />,
+      },
     ],
   },
 ]);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={myntraStore}>
