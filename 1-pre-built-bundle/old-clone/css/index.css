@@ -132,6 +132,7 @@ header {
 }
 
 .nav_bar a:hover {
+    color: #ff3f6c;
     border-bottom: 4px solid #f54e77; 
 }
 
@@ -178,7 +179,6 @@ header {
     align-items: center;
 }
 
-/* Main section */
 .banner_container {
     margin: 40px 0;
 }
@@ -243,12 +243,15 @@ header {
     width: 80%;
     margin: 40px 10%;
 }
-.item-container {
-    width: 250px;
-    margin: 10px;
+.item-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .1);
+  transform: scale(1.05);
 }
+
 .item-image {
     width: 100%;
+     transition: transform 0.3s ease;
 }
 .rating {
     font-size: 12px;

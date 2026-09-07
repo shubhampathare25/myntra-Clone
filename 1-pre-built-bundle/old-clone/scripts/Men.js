@@ -1,7 +1,6 @@
-// men.js
+
 const menContainer = document.getElementById('men-items-container');
 
-// Items filter karne (tumchya data nusar 'category' kinwa 'categories' check karne)
 const menItems = items.filter(item => {
     const cat = item.category || item.categories || item.gender;
     return cat && cat.toLowerCase() === 'men';
