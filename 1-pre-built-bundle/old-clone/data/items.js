@@ -46,6 +46,7 @@ const items = [
     },
     {
         id: '004',
+        categories:'Men',
         image: 'images/4.jpg',
         company: 'ADIDAS',
         item_name: 'Indian Cricket ODI Jersey',
@@ -61,6 +62,7 @@ const items = [
     },
     {
         id: '005',
+        categories:'Men',
         image: 'images/5.jpg',
         company: 'Roadster',
         item_name: 'Pure Cotton T-shirt',

@@ -99,6 +99,8 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #b6b1b1;
+    position: relative; 
+
 }
 .myntra_home {
     height: 45px;
@@ -111,7 +113,9 @@ header {
 }
 .nav_bar {
     display: flex;
+    gap: 30px;
     min-width: 500px;
+    align-items: center;
     justify-content: space-evenly;
 }
 .nav_bar a {
@@ -121,11 +125,14 @@ header {
     font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 28px 0;
-    border-bottom: 5px solid #ffffff;
+    height: 80px; 
+    display: flex;
+    align-items: center;
+    border-bottom: 4px solid transparent;
 }
+
 .nav_bar a:hover {
-    border-bottom: 4px solid #f54e77;
+    border-bottom: 4px solid #f54e77; 
 }
 
 .nav_bar a sup {
