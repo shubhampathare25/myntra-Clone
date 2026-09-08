@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { CgProfile } from "react-icons/cg"; // Solid Profile Icon
-import { IoHeart } from "react-icons/io5"; // Solid Wishlist Heart Icon
-import { RiShoppingBagFill } from "react-icons/ri"; // Solid Bag Icon
+import { CgProfile } from "react-icons/cg";
+import { IoHeart } from "react-icons/io5";
+import { RiShoppingBagFill } from "react-icons/ri";
 
 const Header = () => {
   const bag = useSelector((store) => store.bag || []);
@@ -40,11 +40,15 @@ const Header = () => {
       </div>
 
       <div className="action_bar">
-        {/* Profile Link & Solid Icon */}
-        <div className="action_container" style={{ cursor: "pointer" }}>
+        {/* Profile Link updated with <Link to="/"> for Home Page redirection */}
+        <Link
+          to="/"
+          className="action_container"
+          style={{ textDecoration: "none", color: "black" }}
+        >
           <CgProfile style={{ fontSize: "22px" }} />
           <span className="action_name">Profile</span>
-        </div>
+        </Link>
 
         {/* Wishlist Link, Solid Heart Icon & Count */}
         <Link
