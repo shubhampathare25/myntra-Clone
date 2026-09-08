@@ -3,6 +3,7 @@
     [
       {
         "id": "001",
+        "category": "beauty",
         "image": "images/1.jpg",
         "company": "Carlton London",
         "item_name": "Rhodium-Plated CZ Floral Studs",
@@ -15,6 +16,7 @@
       },
       {
         "id": "002",
+        "category": "women",
         "image": "images/2.jpg",
         "company": "CUKOO",
         "item_name": "Women Padded Halter Neck Swimming Dress",
@@ -27,6 +29,7 @@
       },
       {
         "id": "003",
+        "category": "women",
         "image": "images/3.jpg",
         "company": "NUEVOSDAMAS",
         "item_name": "Women Red & White Printed A-Line Knee-Length Skirts",
@@ -39,6 +42,7 @@
       },
       {
         "id": "004",
+        "category": "men",
         "image": "images/4.jpg",
         "company": "ADIDAS",
         "item_name": "Indian Cricket ODI Jersey",
@@ -51,6 +55,7 @@
       },
       {
         "id": "005",
+        "category": "men",
         "image": "images/5.jpg",
         "company": "Roadster",
         "item_name": "Pure Cotton T-shirt",
@@ -63,6 +68,7 @@
       },
       {
         "id": "006",
+        "category":"kids",
         "image": "images/6.jpg",
         "company": "Nike",
         "item_name": "Men ReactX Running Shoes",
@@ -75,6 +81,7 @@
       },
       {
         "id": "007",
+        "category": "HomeLiving",
         "image": "images/7.jpg",
         "company": "The Indian Garage Co",
         "item_name": "Men Slim Fit Regular Shorts",
@@ -85,6 +92,7 @@
       },
       {
         "id": "008",
+        "category": "Beauty",
         "image": "images/8.jpg",
         "company": "Nivea",
         "item_name": "Men Fresh Deodrant 150ml",
