@@ -1,6 +1,7 @@
 const items = [
     {
         id: '001',
+        categories:'Home&Living',
         image: 'images/1.jpg',
         company: 'Carlton London',
         item_name: 'Rhodium-Plated CZ Floral Studs',
@@ -16,6 +17,7 @@ const items = [
     },
     {
         id: '002',
+        categories:'Women',
         image: 'images/2.jpg',
         company: 'CUKOO',
         item_name: 'Women Padded Halter Neck Swimming Dress',
@@ -31,6 +33,7 @@ const items = [
     },
     {
         id: '003',
+        categories:'Women',
         image: 'images/3.jpg',
         company: 'NUEVOSDAMAS',
         item_name: 'Women Red & White Printed A-Line Knee-Length Skirts',
@@ -78,6 +81,7 @@ const items = [
     },
     {
         id: '006',
+        categories:'Kids',
         image: 'images/6.jpg',
         company: 'Nike',
         item_name: 'Men ReactX Running Shoes',
@@ -93,6 +97,7 @@ const items = [
     },
     {
         id: '007',
+        categories:'Men',
         image: 'images/7.jpg',
         company: 'The Indian Garage Co',
         item_name: 'Men Slim Fit Regular Shorts',
@@ -106,6 +111,7 @@ const items = [
     },
     {
         id: '008',
+        categories:'Beauty',
         image: 'images/8.jpg',
         company: 'Nivea',
         item_name: 'Men Fresh Deodrant 150ml',
