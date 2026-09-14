@@ -1,5 +1,6 @@
 {
   "items": [
+    [
     {
       "id": "001",
       "category": "beauty",
@@ -101,27 +102,7 @@
       "return_period": 14,
       "delivery_date": "10 Oct 2023",
       "rating": { "stars": 4.2, "count": 5200 }
-    },
-    {
-      "id": "BEA003",
-      "category": "beauty",
-      "subcategory": "fragrance",
-      "brand": "Engage",
-      "company": "Engage",
-      "item_name": "Perfume Spray",
-      "description": "Fresh long-lasting fragrance.",
-      "image": "images/beauty3.jpg",
-      "original_price": 699,
-      "current_price": 399,
-      "discount_percentage": 43,
-      "stock": 80,
-      "sizes": [],
-      "colors": [],
-      "isFeatured": true,
-      "isActive": true,
-      "return_period": 14,
-      "delivery_date": "12 Oct 2023",
-      "rating": { "stars": 4.3, "count": 2100 }
     }
   ]
+]
 }
