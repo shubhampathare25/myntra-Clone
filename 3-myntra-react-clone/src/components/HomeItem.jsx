@@ -1,17 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { bagActions } from "../store/bagSlice";
-import { wishlistActions } from "../store/wishlistSlice"; // 1. Wishlist actions import kara
+import { wishlistActions } from "../store/wishlistSlice"; 
 import { GrAddCircle } from "react-icons/gr";
-import { AiFillDelete, AiFillHeart } from "react-icons/ai"; // 2. AiFillHeart icon import kara
-
+import { AiFillDelete, AiFillHeart } from "react-icons/ai"; 
 const HomeItem = ({ item }) => {
   const dispatch = useDispatch();
 
-  // Bag (Cart) state
   const bagItems = useSelector((store) => store.bag);
   const elementFoundInBag = bagItems.indexOf(item.id) >= 0;
 
-  // Wishlist state (navin state Redux madhun)
   const wishlistItems = useSelector((store) => store.wishlist);
   const isWishlisted = wishlistItems.indexOf(item.id) >= 0;
 
@@ -23,7 +20,6 @@ const HomeItem = ({ item }) => {
     dispatch(bagActions.removeFromBag(item.id));
   };
 
-  // Wishlist toggle function (Add/Remove logic)
   const handleToggleWishlist = () => {
     if (isWishlisted) {
       dispatch(wishlistActions.removeFromWishlist(item.id));
@@ -46,7 +42,7 @@ const HomeItem = ({ item }) => {
         <span className="discount">({item.discount_percentage}% OFF)</span>
       </div>
 
-      {/* Add to Bag / Remove Button (Already implemented) */}
+      {}
       {elementFoundInBag ? (
         <button
           type="button"
@@ -65,7 +61,7 @@ const HomeItem = ({ item }) => {
         </button>
       )}
 
-      {/* Wishlist Button (Screenshot sarakha disnyasathi) */}
+      {}
       <button
         type="button"
         className="btn"
@@ -74,7 +70,6 @@ const HomeItem = ({ item }) => {
           marginTop: "8px",
           width: "100%",
           padding: "8px 16px",
-          // Rang change logic: wishlisted asel tar red, nasel tar white
           backgroundColor: isWishlisted ? "#f15b6c" : "#ffffff",
           color: isWishlisted ? "#ffffff" : "#282c3f",
           border: isWishlisted ? "none" : "1px solid #d4d5d9",

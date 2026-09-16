@@ -40,7 +40,7 @@ const Header = () => {
       </div>
 
       <div className="action_bar">
-        {/* Profile Link updated with <Link to="/"> for Home Page redirection */}
+        {}
         <Link
           to="/"
           className="action_container"
@@ -50,7 +50,7 @@ const Header = () => {
           <span className="action_name">Profile</span>
         </Link>
 
-        {/* Wishlist Link, Solid Heart Icon & Count */}
+        {}
         <Link
           to="/wishlist"
           className="action_container"
@@ -63,7 +63,7 @@ const Header = () => {
           )}
         </Link>
 
-        {/* Bag Link, Solid Bag Icon & Count */}
+        {}
         <Link
           to="/bag"
           className="action_container"
