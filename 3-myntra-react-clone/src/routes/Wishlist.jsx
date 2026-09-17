@@ -3,7 +3,7 @@ import HomeItem from "../components/HomeItem";
 
 const Wishlist = () => {
   const wishlistIds = useSelector((store) => store.wishlist);
-  const items = useSelector((store) => store.items); // Redux store madhun items get karat ahot
+  const items = useSelector((store) => store.items); 
 
   const wishlistItems = items.filter((item) => wishlistIds.includes(item.id));
 
