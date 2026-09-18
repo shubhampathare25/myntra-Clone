@@ -3,14 +3,16 @@ import itemsSlice from "./itemsSlice";
 import fetchStatusSlice from "./fetchStatusSlice";
 import bagSlice from "./bagSlice";
 import wishlistSlice from "./wishlistSlice";
+import searchSlice from "./searchSlice";
 
 const myntraStore = configureStore({
   reducer: {
     items: itemsSlice.reducer,
     fetchStatus: fetchStatusSlice.reducer,
     bag: bagSlice.reducer,
-    wishlist: wishlistSlice.reducer
-  }
+    wishlist: wishlistSlice.reducer,
+    search: searchSlice.reducer,
+  },
 });
 
 export default myntraStore;

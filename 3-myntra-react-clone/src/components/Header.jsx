@@ -1,12 +1,18 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { searchActions } from "../store/searchSlice";
 import { Link } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { IoHeart } from "react-icons/io5";
 import { RiShoppingBagFill } from "react-icons/ri";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const bag = useSelector((store) => store.bag || []);
   const wishlist = useSelector((store) => store.wishlist || []);
+
+  const handleSearchChange = (e) => {
+    dispatch(searchActions.setSearchQuery(e.target.value));
+  };
 
   return (
     <header>
@@ -36,6 +42,7 @@ const Header = () => {
         <input
           className="search_input"
           placeholder="Search for products, brands and more"
+          onChange={handleSearchChange}
         />
       </div>
 
