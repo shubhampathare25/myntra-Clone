@@ -143,3 +143,14 @@ To run the backend server locally, follow these steps:
 * Implement dark mode
 * Add notifications system
 * Store posts in a database
+
+## Learning Outcomes
+
+- Mastered state management using **Redux Toolkit** in React.
+- Integrated frontend with **Node.js & Express.js** backend.
+- Designed responsive user interfaces replicating real-world e-commerce platforms.
+- Handled API requests using Fetch/Axios.
+
+* ## Repository
+---
+GitHub Repository: https://github.com/shubhampathare25/myntra-Clone.git
