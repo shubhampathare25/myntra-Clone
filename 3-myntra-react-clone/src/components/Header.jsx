@@ -41,7 +41,7 @@ const Header = () => {
         <span className="search_icon material-symbols-outlined">search</span>
         <input
           className="search_input"
-          placeholder="Search for products, brands and more"
+          placeholder="Search products...."
           onChange={handleSearchChange}
         />
       </div>
