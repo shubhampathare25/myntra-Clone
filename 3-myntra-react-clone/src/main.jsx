@@ -15,6 +15,8 @@ import Women from "./Pages/Women.jsx";
 import Kids from "./Pages/Kids.jsx";
 import HomeLiving from "./Pages/Home&Living.jsx";
 import Beauty from "./Pages/Beauty.jsx";
+import Login from "./Pages/UserLogin.jsx";
+import AdminLogin from "./Pages/AdminLogin.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +32,6 @@ const router = createBrowserRouter([
         path: "/wishlist",
         element: <Wishlist />,
       },
-
       {
         path: "/men",
         element: <Men />,
@@ -55,14 +56,28 @@ const router = createBrowserRouter([
         path: "/studio",
         element: <Home />,
       },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/admin/login",
+        element: <AdminLogin />,
+      },
     ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(getElementByIdOrThrow("root")).render(
   <React.StrictMode>
     <Provider store={myntraStore}>
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,
 );
+
+function getElementByIdOrThrow(id) {
+  const el = document.getElementById(id);
+  if (!el) throw new Error("Root element not found");
+  return el;
+}
