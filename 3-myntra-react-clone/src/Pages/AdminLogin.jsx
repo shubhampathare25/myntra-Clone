@@ -3,11 +3,18 @@ import { useState } from "react";
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
+
+    setTimeout(() => {
     alert(`Admin login successful for: ${email}`);
-  };
+    setLoading(false);
+  }, 1500);
+};
 
   return (
     <div
@@ -91,6 +98,7 @@ const AdminLogin = () => {
 
           <button
             type="submit"
+            disabled={loading}
             style={{
               padding: "12px",
               backgroundColor: "#2874f0",
@@ -98,12 +106,13 @@ const AdminLogin = () => {
               border: "none",
               borderRadius: "4px",
               fontWeight: "600",
-              cursor: "pointer",
+              cursor: loading ? "not-allowed" : "pointer",
               fontSize: "15px",
               marginTop: "5px",
+              opacity: loading ? 0.7 : 1,
             }}
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
       </div>
