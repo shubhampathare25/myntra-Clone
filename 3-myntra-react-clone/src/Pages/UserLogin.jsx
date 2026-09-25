@@ -7,12 +7,17 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`${loginType === "admin" ? "Admin" : "User"} login successful for: ${email}`);
-  };
+    setLoading(true);
 
+    setTimeout(() => {
+    alert(`${loginType === "admin" ? "Admin" : "User"} login successful for: ${email}`);
+    setLoading(false);
+  }, 1500);
+};
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "75vh", backgroundColor: "#ffffff" }}>
       <div style={{ backgroundColor: "white", padding: "40px", width: "400px", textAlign: "left" }}>
@@ -50,14 +55,15 @@ const Login = () => {
 
           <button
             type="submit"
-            style={{ padding: "12px", backgroundColor: "#2874f0", color: "white", border: "none", borderRadius: "4px", fontWeight: "600", cursor: "pointer", fontSize: "15px", marginTop: "5px" }}
+            disabled={loading}
+            style={{ padding: "12px", backgroundColor: "#2874f0", color: "white", border: "none", borderRadius: "4px", fontWeight: "600",cursor: loading ? "not-allowed" : "pointer", fontSize: "15px", marginTop: "5px", opacity: loading ? 0.7 : 1 }}
           >
-            Login
+            {loading ? "Please wait..." : "Login"}
           </button>
         </form>
 
         <div style={{ marginTop: "20px", textAlign: "center", fontSize: "13px", color: "#535766" }}>
-          New to StyleKart? <span style={{ color: "#ff3f6c", fontWeight: "bold", cursor: "pointer" }}>Create an account</span>
+          New to Myntra-Clone <span style={{ color: "#ff3f6c", fontWeight: "bold", cursor: "pointer" }}>Create an account</span>
         </div>
 
       </div>
