@@ -1,21 +1,16 @@
-import { useSelector } from "react-redux";
-
-const BagSummary = () => {
-  const bagItemIds = useSelector((state) => state.bag);
-  const items = useSelector((state) => state.items);
-  const finalItems = items.filter((item) => {
-    const itemIndex = bagItemIds.indexOf(item.id);
-    return itemIndex >= 0;
-  });
-
+const BagSummary = ({ finalItems }) => {
   const CONVENIENCE_FEES = 99;
-  let totalItem = bagItemIds.length;
+  
+  let totalItemCount = 0;
   let totalMRP = 0;
   let totalDiscount = 0;
 
-  finalItems.forEach((bagItem) => {
-    totalMRP += bagItem.original_price;
-    totalDiscount += bagItem.original_price - bagItem.current_price;
+  // Pratyek item chi quantity ghyun total calculate karu
+  finalItems.forEach((item) => {
+    const qty = item.quantity || 1;
+    totalItemCount += qty;
+    totalMRP += item.original_price * qty;
+    totalDiscount += (item.original_price - item.current_price) * qty;
   });
 
   let finalPayment = totalMRP - totalDiscount + CONVENIENCE_FEES;
@@ -23,7 +18,7 @@ const BagSummary = () => {
   return (
     <div className="bag-summary">
       <div className="bag-details-container">
-        <div className="price-header">PRICE DETAILS ({totalItem} Items) </div>
+        <div className="price-header">PRICE DETAILS ({totalItemCount} Items) </div>
         <div className="price-item">
           <span className="price-item-tag">Total MRP</span>
           <span className="price-item-value">₹{totalMRP}</span>
