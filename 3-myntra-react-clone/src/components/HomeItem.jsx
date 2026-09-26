@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { bagActions } from "../store/bagSlice";
 import { wishlistActions } from "../store/wishlistSlice"; 
 import { GrAddCircle } from "react-icons/gr";
-import { AiFillDelete, AiFillHeart } from "react-icons/ai"; 
+import { AiFillDelete, AiFillHeart, AiOutlineHeart } from "react-icons/ai"; 
+
 const HomeItem = ({ item }) => {
   const dispatch = useDispatch();
 
@@ -30,7 +31,35 @@ const HomeItem = ({ item }) => {
 
   return (
     <div className="item-container">
-      <img className="item-image" src={item.image} alt="item image" />
+      <div style={{ position: "relative", width: "100%" }}>
+        <img className="item-image" src={item.image} alt="item image" style={{ width: "100%", display: "block" }} />
+        
+        <div 
+          onClick={handleToggleWishlist}
+          style={{
+            position: "absolute",
+            top: "10px",
+            right: "10px",
+            backgroundColor: "#ffffff",
+            borderRadius: "50%",
+            width: "32px",
+            height: "32px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+            cursor: "pointer",
+            zIndex: 2
+          }}
+        >
+          {isWishlisted ? (
+            <AiFillHeart style={{ fontSize: "18px", color: "#ff3f6c" }} />
+          ) : (
+            <AiOutlineHeart style={{ fontSize: "18px", color: "#282c3f" }} />
+          )}
+        </div>
+      </div>
+
       <div className="rating">
         {item.rating.stars} ⭐ | {item.rating.count}
       </div>
@@ -42,7 +71,6 @@ const HomeItem = ({ item }) => {
         <span className="discount">({item.discount_percentage}% OFF)</span>
       </div>
 
-      {}
       {elementFoundInBag ? (
         <button
           type="button"
@@ -60,31 +88,6 @@ const HomeItem = ({ item }) => {
           <GrAddCircle /> Add to Bag
         </button>
       )}
-
-      {}
-      <button
-        type="button"
-        className="btn"
-        onClick={handleToggleWishlist}
-        style={{
-          marginTop: "8px",
-          width: "100%",
-          padding: "8px 16px",
-          backgroundColor: isWishlisted ? "#f15b6c" : "#ffffff",
-          color: isWishlisted ? "#ffffff" : "#282c3f",
-          border: isWishlisted ? "none" : "1px solid #d4d5d9",
-          borderRadius: "4px",
-          fontWeight: "600",
-          cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "6px",
-        }}
-      >
-        <AiFillHeart style={{ color: isWishlisted ? "#ffffff" : "#ff3f6c" }} />
-        {isWishlisted ? "Remove Wishlist" : "Wishlist"}
-      </button>
     </div>
   );
 };
