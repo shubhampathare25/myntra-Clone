@@ -330,8 +330,8 @@ a.action_container:link {
 .item-left-part {
   position: absolute;
   background: rgb(255, 242, 223);
-  height: 148px;
-  width: 111px;
+  height: 150px;
+  width: 120px;
 }
 
 .item-right-part {
@@ -343,8 +343,10 @@ a.action_container:link {
 }
 
 .bag-item-img {
+  height: 100;
   width: 100%;
   transition: transform 0.3s ease;
+  object-fit: cover;
 }
 .item-container:hover {
   transform: translateY(-5px);
@@ -421,4 +423,55 @@ a.action_container:link {
 .wishlist-remove-btn:hover {
   background-color: #fff5f7; 
   border-color: #ff3f6c;    
+}
+
+.bag-custom-page {
+  margin-top: 40px;
+  padding: 0 40px;
+}
+
+.bag-custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.bag-custom-title {
+  font-size: 40px;
+  font-weight: 900;
+  color: #282c3f;
+}
+
+.btn-continue-shopping {
+  background-color: #141a29;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  width: auto; 
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.bag-custom-container {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bag-summary {
+  background-color: #ffffff;
+  border: 1px solid #eaeaec;
+  border-radius: 4px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box; 
 }
