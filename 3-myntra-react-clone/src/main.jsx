@@ -17,6 +17,7 @@ import HomeLiving from "./Pages/Home&Living.jsx";
 import Beauty from "./Pages/Beauty.jsx";
 import Login from "./Pages/UserLogin.jsx";
 import AdminLogin from "./Pages/AdminLogin.jsx";
+import Checkout from "./Pages/Checkout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/login",
         element: <AdminLogin />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />
       },
     ],
   },
