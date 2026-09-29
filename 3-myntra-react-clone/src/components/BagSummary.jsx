@@ -1,11 +1,14 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom'; 
+
 const BagSummary = ({ finalItems }) => {
+  const navigate = useNavigate(); 
   const CONVENIENCE_FEES = 99;
   
   let totalItemCount = 0;
   let totalMRP = 0;
   let totalDiscount = 0;
 
-  // Pratyek item chi quantity ghyun total calculate karu
   finalItems.forEach((item) => {
     const qty = item.quantity || 1;
     totalItemCount += qty;
@@ -14,6 +17,10 @@ const BagSummary = ({ finalItems }) => {
   });
 
   let finalPayment = totalMRP - totalDiscount + CONVENIENCE_FEES;
+
+  const handleCheckout = () => {
+    navigate("/checkout");
+  };
 
   return (
     <div className="bag-summary">
@@ -39,7 +46,8 @@ const BagSummary = ({ finalItems }) => {
           <span className="price-item-value">₹{finalPayment}</span>
         </div>
       </div>
-      <button className="btn-place-order">
+      
+      <button className="btn-place-order" onClick={handleCheckout}>
         <div className="css-xjhrni">PLACE ORDER</div>
       </button>
     </div>
