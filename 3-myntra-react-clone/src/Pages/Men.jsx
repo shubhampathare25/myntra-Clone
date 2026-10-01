@@ -5,25 +5,18 @@ import HomeItem from "../components/HomeItem";
 const Men = () => {
   const items = useSelector((store) => store.items || []);
   
-  // Sagle filter states
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("Men");
+  const [selectedCategory, setSelectedCategory] = useState("All"); 
   const [selectedBrand, setSelectedBrand] = useState("");
   const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(5000);
+  const [maxPrice, setMaxPrice] = useState("");
   const [minDiscount, setMinDiscount] = useState(0);
   const [minRating, setMinRating] = useState(0);
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const [availability, setAvailability] = useState("All");
 
-  // Pahile category nusar filter kara
-  const menItems = items.filter(
-    (item) => item.category && item.category.toLowerCase() === "men"
-  );
-
-  // Sagle advanced filters apply karne
-  const filteredMenItems = menItems.filter((item) => {
+  const filteredMenItems = items.filter((item) => {
     const query = searchQuery.toLowerCase();
     
     const matchesSearch = 
@@ -41,7 +34,8 @@ const Men = () => {
       item.company.toLowerCase().includes(selectedBrand.toLowerCase());
 
     const matchesPrice = 
-      item.current_price >= minPrice && item.current_price <= maxPrice;
+      item.current_price >= minPrice && 
+      (maxPrice === "" || item.current_price <= Number(maxPrice));
 
     const matchesDiscount = 
       (item.discount_percentage || 0) >= minDiscount;
@@ -56,7 +50,8 @@ const Men = () => {
       !selectedColor || (item.color && item.color.toLowerCase().includes(selectedColor.toLowerCase()));
 
     const matchesAvailability = 
-      availability === "All" || (availability === "In Stock" ? item.inStock : !item.inStock);
+      availability === "All" || 
+      (availability === "In Stock" ? (item.inStock === true || item.inStock === undefined) : item.inStock === false);
 
     return (
       matchesSearch &&
@@ -73,10 +68,10 @@ const Men = () => {
 
   const clearAllFilters = () => {
     setSearchQuery("");
-    setSelectedCategory("Men");
+    setSelectedCategory("All");
     setSelectedBrand("");
     setMinPrice(0);
-    setMaxPrice(5000);
+    setMaxPrice("");
     setMinDiscount(0);
     setMinRating(0);
     setSelectedSize("");
@@ -86,13 +81,21 @@ const Men = () => {
 
   return (
     <main style={{ padding: "20px" }}>
-      <h2 className="category_heading" style={{ marginBottom: "20px" }}>Men's Collection</h2>
-      
-      <div style={{ display: "flex", gap: "30px" }}>
+  <div style={{ marginBottom: "20px" }}>
+    <p style={{ fontSize: "12px", fontWeight: "bold", color: "#ff3f6c", letterSpacing: "1px", marginBottom: "5px", textTransform: "uppercase" }}>
+      Myntra Catalogue
+    </p>
+    <h2 className="category_heading" style={{ margin: 0, fontSize: "28px", fontWeight: "bold", color: "#282c3f" }}>
+      Men's Collection
+    </h2>
+    <p style={{ fontSize: "14px", color: "#535766", marginTop: "5px" }}>
+      {filteredMenItems.length} products found
+    </p>
+  </div>
+  <div style={{ display: "flex", gap: "30px" }}>
         
         {/* Left Filter Sidebar */}
         <div style={{ width: "260px", borderRight: "1px solid #eaeaec", paddingRight: "20px" }}>
-          
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "15px" }}>
             <h4 style={{ margin: 0, fontWeight: "bold" }}>Filters</h4>
             <button 
@@ -103,7 +106,6 @@ const Men = () => {
             </button>
           </div>
           
-          {/* Search Filter */}
           <div style={{ marginBottom: "15px" }}>
             <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Search</label>
             <input
@@ -115,7 +117,6 @@ const Men = () => {
             />
           </div>
 
-          {/* Category Filter */}
           <div style={{ marginBottom: "15px" }}>
             <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Category</label>
             <select
@@ -127,11 +128,11 @@ const Men = () => {
               <option value="Men">Men</option>
               <option value="Women">Women</option>
               <option value="Kids">Kids</option>
+              <option value="HomeLiving">HomeLiving</option>
               <option value="Beauty">Beauty</option>
             </select>
           </div>
 
-          {/* Brand Filter */}
           <div style={{ marginBottom: "15px" }}>
             <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Brand</label>
             <input
@@ -143,21 +144,27 @@ const Men = () => {
             />
           </div>
 
-          {/* Price Range Filter */}
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Max Price: ₹{maxPrice}</label>
-            <input
-              type="range"
-              min="100"
-              max="5000"
-              step="100"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(Number(e.target.value))}
-              style={{ width: "100%", marginTop: "5px" }}
-            />
+          <div style={{ marginBottom: "15px", display: "flex", gap: "10px" }}>
+            <div style={{ flex: 1 }}>
+              <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Min price</label>
+              <input
+                type="number"
+                value={minPrice}
+                onChange={(e) => setMinPrice(Number(e.target.value))}
+                style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", boxSizing: "border-box" }}
+              />
+            </div>
+            <div style={{ flex: 1 }}>
+              <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Max price</label>
+              <input
+                type="number"
+                value={maxPrice}
+                onChange={(e) => setMaxPrice(e.target.value === "" ? "" : Number(e.target.value))}
+                style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", boxSizing: "border-box" }}
+              />
+            </div>
           </div>
 
-          {/* Minimum Discount Filter */}
           <div style={{ marginBottom: "15px" }}>
             <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Minimum discount</label>
             <select
@@ -173,7 +180,6 @@ const Men = () => {
             </select>
           </div>
 
-          {/* Minimum Rating Filter */}
           <div style={{ marginBottom: "15px" }}>
             <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Minimum rating</label>
             <select
@@ -184,10 +190,10 @@ const Men = () => {
               <option value={0}>Any rating</option>
               <option value={4}>4 Star & above</option>
               <option value={3}>3 Star & above</option>
+              <option value={2}>2 Star & above</option>
             </select>
           </div>
 
-          {/* Size Filter */}
           <div style={{ marginBottom: "15px" }}>
             <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Size</label>
             <input
@@ -199,7 +205,6 @@ const Men = () => {
             />
           </div>
 
-          {/* Color Filter */}
           <div style={{ marginBottom: "15px" }}>
             <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Color</label>
             <input
@@ -211,7 +216,6 @@ const Men = () => {
             />
           </div>
 
-          {/* Availability Filter */}
           <div style={{ marginBottom: "15px" }}>
             <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Availability</label>
             <select
@@ -221,12 +225,12 @@ const Men = () => {
             >
               <option value="All">All products</option>
               <option value="In Stock">In stock</option>
+              <option value="Out of stock">Out of stock</option>
             </select>
           </div>
 
         </div>
 
-        {/* Right Products Listing */}
         <div style={{ flex: 1 }}>
           <div
             className="items-container"
