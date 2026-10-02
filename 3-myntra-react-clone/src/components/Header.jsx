@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { IoHeart } from "react-icons/io5";
 import { RiShoppingBagFill } from "react-icons/ri";
-import { FaUser, FaShieldAlt } from "react-icons/fa";
+import { FaBox, FaShieldAlt, FaHeadset, FaChevronDown } from "react-icons/fa";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const Header = () => {
           <img
             className="myntra_home"
             src="images/myntra_logo.webp"
-            alt="Myntra Home"
+            alt="StyleKart Home"
           />
         </Link>
       </div>
@@ -53,19 +53,22 @@ const Header = () => {
         <div
           className="action_container"
           style={{ position: "relative", cursor: "pointer" }}
-          onClick={() => setShowDropdown(!showDropdown)}
+          onMouseEnter={() => setShowDropdown(true)}
+          onMouseLeave={() => setShowDropdown(false)}
         >
           <div
             style={{
               textDecoration: "none",
               color: "black",
               display: "flex",
-              flexDirection: "column",
+              flexDirection: "row",
               alignItems: "center",
+              gap: "4px",
             }}
           >
-            <CgProfile style={{ fontSize: "22px" }} />
-            <span className="action_name">Login</span>
+            <CgProfile style={{ fontSize: "20px" }} />
+            <span className="action_name" style={{ fontWeight: "600" }}>Log in</span>
+            <FaChevronDown style={{ fontSize: "10px", marginTop: "2px" }} />
           </div>
 
           {showDropdown && (
@@ -76,58 +79,114 @@ const Header = () => {
                 right: 0,
                 backgroundColor: "white",
                 boxShadow: "0px 4px 12px rgba(0,0,0,0.15)",
-                borderRadius: "4px",
-                width: "180px",
-                padding: "10px 0",
+                borderRadius: "8px",
+                width: "240px",
+                padding: "16px",
                 zIndex: 1000,
                 textAlign: "left",
               }}
-              onClick={(e) => e.stopPropagation()}
             >
               <div
                 style={{
-                  padding: "8px 15px",
-                  fontSize: "11px",
+                  fontSize: "15px",
                   fontWeight: "bold",
-                  color: "#333",
-                  borderBottom: "1px solid #f5f5f5",
+                  color: "#282c3f",
+                  marginBottom: "4px",
                 }}
               >
-                SIGN IN TO MYNTRA-CLONE
+                Welcome to StyleKart
               </div>
+              <p style={{ fontSize: "12px", color: "#696e79", margin: "0 0 14px 0", lineHeight: "1.4" }}>
+                Log in to track orders, save favourites and check out faster.
+              </p>
+
               <Link
                 to="/login?type=user"
                 onClick={() => setShowDropdown(false)}
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  padding: "10px 15px",
-                  color: "#282c3f",
+                  display: "block",
+                  textAlign: "center",
+                  background: "#141b2d",
+                  color: "#fff",
+                  padding: "10px",
+                  borderRadius: "6px",
                   textDecoration: "none",
-                  fontSize: "14px",
+                  fontWeight: "bold",
+                  fontSize: "13px",
+                  marginBottom: "12px",
                 }}
               >
-                <FaUser style={{ fontSize: "12px", color: "#535766" }} /> User
-                Login
+                Log in or sign up
               </Link>
 
-              <Link
-                to="/admin/login"
-                onClick={() => setShowDropdown(false)}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  padding: "10px 15px",
-                  color: "#282c3f",
-                  textDecoration: "none",
-                  fontSize: "14px",
-                }}
-              >
-                <FaShieldAlt style={{ fontSize: "12px", color: "#535766" }} />{" "}
-                Admin Login
-              </Link>
+              <div style={{ borderTop: "1px solid #eaeaec", paddingTop: "8px", display: "flex", flexDirection: "column", gap: "2px" }}>
+                <Link
+                  to="/orders"
+                  onClick={() => setShowDropdown(false)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    padding: "8px 4px",
+                    color: "#282c3f",
+                    textDecoration: "none",
+                    fontSize: "13px",
+                  }}
+                >
+                  <FaBox style={{ fontSize: "13px", color: "#535766" }} /> Orders
+                </Link>
+
+                <Link
+                  to="/wishlist"
+                  onClick={() => setShowDropdown(false)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    padding: "8px 4px",
+                    color: "#282c3f",
+                    textDecoration: "none",
+                    fontSize: "13px",
+                  }}
+                >
+                  <IoHeart style={{ fontSize: "14px", color: "#535766" }} /> Wishlist
+                </Link>
+
+                <Link
+                  to="/contact"
+                  onClick={() => setShowDropdown(false)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    padding: "8px 4px",
+                    color: "#282c3f",
+                    textDecoration: "none",
+                    fontSize: "13px",
+                  }}
+                >
+                  <FaHeadset style={{ fontSize: "13px", color: "#535766" }} /> Help and contact
+                </Link>
+
+                <div style={{ borderTop: "1px solid #eaeaec", marginTop: "4px", paddingTop: "4px" }}>
+                  <Link
+                    to="/admin/login"
+                    onClick={() => setShowDropdown(false)}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      padding: "8px 4px",
+                      color: "#282c3f",
+                      textDecoration: "none",
+                      fontSize: "13px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    <FaShieldAlt style={{ fontSize: "13px", color: "#535766" }} /> Admin login
+                  </Link>
+                </div>
+              </div>
             </div>
           )}
         </div>
