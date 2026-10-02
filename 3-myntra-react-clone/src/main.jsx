@@ -18,6 +18,8 @@ import Beauty from "./Pages/Beauty.jsx";
 import Login from "./Pages/UserLogin.jsx";
 import AdminLogin from "./Pages/AdminLogin.jsx";
 import Checkout from "./Pages/Checkout.jsx";
+import HelpContact from "./Pages/HelpContact.jsx";
+import Orders from "./Pages/Orders.jsx";
 
 const router = createBrowserRouter([
   {
@@ -67,7 +69,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/checkout",
-        element: <Checkout />
+        element: <Checkout />,
+      },
+      {
+        path: "/contact",
+        element: <HelpContact />,
+      },
+      {
+        path: "/orders",
+        element: <Orders />,
       },
     ],
   },
