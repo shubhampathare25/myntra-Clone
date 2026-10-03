@@ -6,7 +6,7 @@ const HomeLiving = () => {
   const items = useSelector((store) => store.items || []);
   
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("HomeLiving"); 
+  const [selectedCategory, setSelectedCategory] = useState("All"); 
   const [selectedBrand, setSelectedBrand] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState("");
@@ -15,6 +15,9 @@ const HomeLiving = () => {
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const [availability, setAvailability] = useState("All");
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6; 
 
   const filteredHomeLivingItems = items.filter((item) => {
     const query = searchQuery.toLowerCase();
@@ -27,7 +30,7 @@ const HomeLiving = () => {
 
     const matchesCategory = 
       selectedCategory === "All" || 
-      (item.category && item.category.trim().toLowerCase() === selectedCategory.trim().toLowerCase());
+      (item.category && item.category.toLowerCase() === selectedCategory.toLowerCase());
 
     const matchesBrand = 
       !selectedBrand || 
@@ -66,9 +69,14 @@ const HomeLiving = () => {
     );
   });
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredHomeLivingItems.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredHomeLivingItems.length / itemsPerPage);
+
   const clearAllFilters = () => {
     setSearchQuery("");
-    setSelectedCategory("Home & Living");
+    setSelectedCategory("All");
     setSelectedBrand("");
     setMinPrice(0);
     setMaxPrice("");
@@ -77,40 +85,44 @@ const HomeLiving = () => {
     setSelectedSize("");
     setSelectedColor("");
     setAvailability("All");
+    setCurrentPage(1);
   };
 
   return (
-    <main style={{ padding: "20px" }}>
-      <div style={{ marginBottom: "20px" }}>
-        <p style={{ fontSize: "12px", fontWeight: "bold", color: "#ff3f6c", letterSpacing: "1px", marginBottom: "5px", textTransform: "uppercase" }}>
-          Stylekart Catalogue
-        </p>
-        <h2 className="category_heading" style={{ margin: 0, fontSize: "28px", fontWeight: "bold", color: "#282c3f" }}>
-          Home & Living Collection
-        </h2>
-        <p style={{ fontSize: "14px", color: "#535766", marginTop: "5px" }}>
-          {filteredHomeLivingItems.length} products found
-        </p>
+    <main className="catalogue_main">
+      <div className="catalogue_header">
+        <p className="catalogue_tag">Myntra Catalogue</p>
+        <h2 className="category_heading">Home & Living Collection</h2>
+        <p className="product_count">{filteredHomeLivingItems.length} products found</p>
       </div>
-      
-      <div style={{ display: "flex", gap: "30px" }}>
-        {/* Left Filter Sidebar */}
-        <div style={{ width: "260px", borderRight: "1px solid #eaeaec", paddingRight: "20px" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "15px" }}>
-            <h4 style={{ margin: 0, fontWeight: "bold" }}>Filters</h4>
-            <button onClick={clearAllFilters} style={{ background: "none", border: "none", color: "#ff3f6c", fontWeight: "bold", cursor: "pointer", fontSize: "14px" }}>
+
+      <div className="catalogue_container">
+        <div className="filter_sidebar">
+          <div className="filter_heading_box">
+            <h4 className="filter_title">Filters</h4>
+            <button onClick={clearAllFilters} className="clear_filter_btn">
               Clear all
             </button>
           </div>
           
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Search</label>
-            <input type="text" placeholder="Name, brand, category.." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px" }} />
+          <div className="filter_group">
+            <label className="filter_label">Search</label>
+            <input
+              type="text"
+              placeholder="Name, brand, category.."
+              value={searchQuery}
+              onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
+              className="filter_input"
+            />
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Category</label>
-            <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)} style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", background: "white" }}>
+          <div className="filter_group">
+            <label className="filter_label">Category</label>
+            <select
+              value={selectedCategory}
+              onChange={(e) => { setSelectedCategory(e.target.value); setCurrentPage(1); }}
+              className="filter_select"
+            >
               <option value="All">All categories</option>
               <option value="Men">Men</option>
               <option value="Women">Women</option>
@@ -120,25 +132,45 @@ const HomeLiving = () => {
             </select>
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Brand</label>
-            <input type="text" placeholder="e.g. Nike, Roadster" value={selectedBrand} onChange={(e) => setSelectedBrand(e.target.value)} style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px" }} />
+          <div className="filter_group">
+            <label className="filter_label">Brand</label>
+            <input
+              type="text"
+              placeholder="e.g. HomeCentre, Spaces"
+              value={selectedBrand}
+              onChange={(e) => { setSelectedBrand(e.target.value); setCurrentPage(1); }}
+              className="filter_input"
+            />
           </div>
 
-          <div style={{ marginBottom: "15px", display: "flex", gap: "10px" }}>
-            <div style={{ flex: 1 }}>
-              <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Min price</label>
-              <input type="number" value={minPrice} onChange={(e) => setMinPrice(Number(e.target.value))} style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", boxSizing: "border-box" }} />
+          <div className="filter_group price_group">
+            <div className="price_box">
+              <label className="filter_label">Min price</label>
+              <input
+                type="number"
+                value={minPrice}
+                onChange={(e) => { setMinPrice(Number(e.target.value)); setCurrentPage(1); }}
+                className="filter_input"
+              />
             </div>
-            <div style={{ flex: 1 }}>
-              <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Max price</label>
-              <input type="number" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value === "" ? "" : Number(e.target.value))} style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", boxSizing: "border-box" }} />
+            <div className="price_box">
+              <label className="filter_label">Max price</label>
+              <input
+                type="number"
+                value={maxPrice}
+                onChange={(e) => { setMaxPrice(e.target.value === "" ? "" : Number(e.target.value)); setCurrentPage(1); }}
+                className="filter_input"
+              />
             </div>
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Minimum discount</label>
-            <select value={minDiscount} onChange={(e) => setMinDiscount(Number(e.target.value))} style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", background: "white" }}>
+          <div className="filter_group">
+            <label className="filter_label">Minimum discount</label>
+            <select
+              value={minDiscount}
+              onChange={(e) => { setMinDiscount(Number(e.target.value)); setCurrentPage(1); }}
+              className="filter_select"
+            >
               <option value={0}>Any discount</option>
               <option value={10}>10% and above</option>
               <option value={20}>20% and above</option>
@@ -147,45 +179,90 @@ const HomeLiving = () => {
             </select>
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Minimum rating</label>
-            <select value={minRating} onChange={(e) => setMinRating(Number(e.target.value))} style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", background: "white" }}>
+          <div className="filter_group">
+            <label className="filter_label">Minimum rating</label>
+            <select
+              value={minRating}
+              onChange={(e) => { setMinRating(Number(e.target.value)); setCurrentPage(1); }}
+              className="filter_select"
+            >
               <option value={0}>Any rating</option>
               <option value={4}>4 Star & above</option>
               <option value={3}>3 Star & above</option>
+              <option value={2}>2 Star & above</option>
             </select>
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Size</label>
-            <input type="text" placeholder="e.g. M, L, XL" value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)} style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px" }} />
+          <div className="filter_group">
+            <label className="filter_label">Size</label>
+            <input
+              type="text"
+              placeholder="e.g. King, Queen, Standard"
+              value={selectedSize}
+              onChange={(e) => { setSelectedSize(e.target.value); setCurrentPage(1); }}
+              className="filter_input"
+            />
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Color</label>
-            <input type="text" placeholder="e.g. Black, Blue" value={selectedColor} onChange={(e) => setSelectedColor(e.target.value)} style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px" }} />
+          <div className="filter_group">
+            <label className="filter_label">Color</label>
+            <input
+              type="text"
+              placeholder="e.g. Beige, Brown"
+              value={selectedColor}
+              onChange={(e) => { setSelectedColor(e.target.value); setCurrentPage(1); }}
+              className="filter_input"
+            />
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Availability</label>
-            <select value={availability} onChange={(e) => setAvailability(e.target.value)} style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", background: "white" }}>
+          <div className="filter_group">
+            <label className="filter_label">Availability</label>
+            <select
+              value={availability}
+              onChange={(e) => { setAvailability(e.target.value); setCurrentPage(1); }}
+              className="filter_select"
+            >
               <option value="All">All products</option>
               <option value="In Stock">In stock</option>
+              <option value="Out of stock">Out of stock</option>
             </select>
           </div>
         </div>
 
-        {/* Right Products Listing */}
-        <div style={{ flex: 1 }}>
-          <div className="items-container" style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
-            {filteredHomeLivingItems.length > 0 ? (
-              filteredHomeLivingItems.map((item) => <HomeItem key={item.id} item={item} />)
+        <div className="products_wrapper">
+          <div className="items-container">
+            {currentItems.length > 0 ? (
+              currentItems.map((item) => <HomeItem key={item.id} item={item} />)
             ) : (
-              <h3 style={{ textAlign: "center", width: "100%", margin: "50px", color: "#717171" }}>
+              <h3 className="no_products_msg">
                 No products found matching your filter!
               </h3>
             )}
           </div>
+
+          {totalPages > 1 && (
+            <div className="pagination_container">
+              <button
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className={`page_btn ${currentPage === 1 ? "disabled" : ""}`}
+              >
+                Previous
+              </button>
+
+              <span className="page_info">
+                Page {currentPage} of {totalPages}
+              </span>
+
+              <button
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className={`page_btn ${currentPage === totalPages ? "disabled" : ""}`}
+              >
+                Next
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </main>
