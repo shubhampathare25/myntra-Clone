@@ -16,6 +16,9 @@ const Men = () => {
   const [selectedColor, setSelectedColor] = useState("");
   const [availability, setAvailability] = useState("All");
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6; 
+
   const filteredMenItems = items.filter((item) => {
     const query = searchQuery.toLowerCase();
     
@@ -66,6 +69,11 @@ const Men = () => {
     );
   });
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredMenItems.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredMenItems.length / itemsPerPage);
+
   const clearAllFilters = () => {
     setSearchQuery("");
     setSelectedCategory("All");
@@ -77,24 +85,24 @@ const Men = () => {
     setSelectedSize("");
     setSelectedColor("");
     setAvailability("All");
+    setCurrentPage(1);
   };
 
   return (
     <main style={{ padding: "20px" }}>
-  <div style={{ marginBottom: "20px" }}>
-    <p style={{ fontSize: "12px", fontWeight: "bold", color: "#ff3f6c", letterSpacing: "1px", marginBottom: "5px", textTransform: "uppercase" }}>
-      Myntra Catalogue
-    </p>
-    <h2 className="category_heading" style={{ margin: 0, fontSize: "28px", fontWeight: "bold", color: "#282c3f" }}>
-      Men's Collection
-    </h2>
-    <p style={{ fontSize: "14px", color: "#535766", marginTop: "5px" }}>
-      {filteredMenItems.length} products found
-    </p>
-  </div>
-  <div style={{ display: "flex", gap: "30px" }}>
-        
-        {/* Left Filter Sidebar */}
+      <div style={{ marginBottom: "20px" }}>
+        <p style={{ fontSize: "12px", fontWeight: "bold", color: "#ff3f6c", letterSpacing: "1px", marginBottom: "5px", textTransform: "uppercase" }}>
+          Myntra Catalogue
+        </p>
+        <h2 className="category_heading" style={{ margin: 0, fontSize: "28px", fontWeight: "bold", color: "#282c3f" }}>
+          Men's Collection
+        </h2>
+        <p style={{ fontSize: "14px", color: "#535766", marginTop: "5px" }}>
+          {filteredMenItems.length} products found
+        </p>
+      </div>
+
+      <div style={{ display: "flex", gap: "30px" }}>
         <div style={{ width: "260px", borderRight: "1px solid #eaeaec", paddingRight: "20px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "15px" }}>
             <h4 style={{ margin: 0, fontWeight: "bold" }}>Filters</h4>
@@ -112,7 +120,7 @@ const Men = () => {
               type="text"
               placeholder="Name, brand, category.."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
               style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px" }}
             />
           </div>
@@ -121,7 +129,7 @@ const Men = () => {
             <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Category</label>
             <select
               value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
+              onChange={(e) => { setSelectedCategory(e.target.value); setCurrentPage(1); }}
               style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", background: "white" }}
             >
               <option value="All">All categories</option>
@@ -139,7 +147,7 @@ const Men = () => {
               type="text"
               placeholder="e.g. Nike, Roadster"
               value={selectedBrand}
-              onChange={(e) => setSelectedBrand(e.target.value)}
+              onChange={(e) => { setSelectedBrand(e.target.value); setCurrentPage(1); }}
               style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px" }}
             />
           </div>
@@ -150,7 +158,7 @@ const Men = () => {
               <input
                 type="number"
                 value={minPrice}
-                onChange={(e) => setMinPrice(Number(e.target.value))}
+                onChange={(e) => { setMinPrice(Number(e.target.value)); setCurrentPage(1); }}
                 style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", boxSizing: "border-box" }}
               />
             </div>
@@ -159,7 +167,7 @@ const Men = () => {
               <input
                 type="number"
                 value={maxPrice}
-                onChange={(e) => setMaxPrice(e.target.value === "" ? "" : Number(e.target.value))}
+                onChange={(e) => { setMaxPrice(e.target.value === "" ? "" : Number(e.target.value)); setCurrentPage(1); }}
                 style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", boxSizing: "border-box" }}
               />
             </div>
@@ -169,7 +177,7 @@ const Men = () => {
             <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Minimum discount</label>
             <select
               value={minDiscount}
-              onChange={(e) => setMinDiscount(Number(e.target.value))}
+              onChange={(e) => { setMinDiscount(Number(e.target.value)); setCurrentPage(1); }}
               style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", background: "white" }}
             >
               <option value={0}>Any discount</option>
@@ -184,7 +192,7 @@ const Men = () => {
             <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Minimum rating</label>
             <select
               value={minRating}
-              onChange={(e) => setMinRating(Number(e.target.value))}
+              onChange={(e) => { setMinRating(Number(e.target.value)); setCurrentPage(1); }}
               style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", background: "white" }}
             >
               <option value={0}>Any rating</option>
@@ -200,7 +208,7 @@ const Men = () => {
               type="text"
               placeholder="e.g. M, L, XL"
               value={selectedSize}
-              onChange={(e) => setSelectedSize(e.target.value)}
+              onChange={(e) => { setSelectedSize(e.target.value); setCurrentPage(1); }}
               style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px" }}
             />
           </div>
@@ -211,7 +219,7 @@ const Men = () => {
               type="text"
               placeholder="e.g. Black, Blue"
               value={selectedColor}
-              onChange={(e) => setSelectedColor(e.target.value)}
+              onChange={(e) => { setSelectedColor(e.target.value); setCurrentPage(1); }}
               style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px" }}
             />
           </div>
@@ -220,7 +228,7 @@ const Men = () => {
             <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Availability</label>
             <select
               value={availability}
-              onChange={(e) => setAvailability(e.target.value)}
+              onChange={(e) => { setAvailability(e.target.value); setCurrentPage(1); }}
               style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", background: "white" }}
             >
               <option value="All">All products</option>
@@ -228,24 +236,62 @@ const Men = () => {
               <option value="Out of stock">Out of stock</option>
             </select>
           </div>
-
         </div>
 
-        <div style={{ flex: 1 }}>
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
           <div
             className="items-container"
             style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}
           >
-            {filteredMenItems.length > 0 ? (
-              filteredMenItems.map((item) => <HomeItem key={item.id} item={item} />)
+            {currentItems.length > 0 ? (
+              currentItems.map((item) => <HomeItem key={item.id} item={item} />)
             ) : (
               <h3 style={{ textAlign: "center", width: "100%", margin: "50px", color: "#717171" }}>
                 No products found matching your filter!
               </h3>
             )}
           </div>
-        </div>
 
+          {totalPages > 1 && (
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "20px", marginTop: "40px", marginBottom: "20px" }}>
+              <button
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                style={{
+                  padding: "8px 16px",
+                  borderRadius: "4px",
+                  border: "1px solid #d4d5d9",
+                  background: currentPage === 1 ? "#f5f5f6" : "white",
+                  color: currentPage === 1 ? "#94969f" : "#282c3f",
+                  fontWeight: "bold",
+                  cursor: currentPage === 1 ? "not-allowed" : "pointer",
+                }}
+              >
+                Previous
+              </button>
+
+              <span style={{ fontSize: "14px", fontWeight: "600", color: "#282c3f" }}>
+                Page {currentPage} of {totalPages}
+              </span>
+
+              <button
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                style={{
+                  padding: "8px 16px",
+                  borderRadius: "4px",
+                  border: "1px solid #d4d5d9",
+                  background: currentPage === totalPages ? "#f5f5f6" : "white",
+                  color: currentPage === totalPages ? "#94969f" : "#282c3f",
+                  fontWeight: "bold",
+                  cursor: currentPage === totalPages ? "not-allowed" : "pointer",
+                }}
+              >
+                Next
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </main>
   );
