@@ -18,7 +18,6 @@ const Men = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6; 
-
   const filteredMenItems = items.filter((item) => {
     const query = searchQuery.toLowerCase();
     
@@ -89,48 +88,39 @@ const Men = () => {
   };
 
   return (
-    <main style={{ padding: "20px" }}>
-      <div style={{ marginBottom: "20px" }}>
-        <p style={{ fontSize: "12px", fontWeight: "bold", color: "#ff3f6c", letterSpacing: "1px", marginBottom: "5px", textTransform: "uppercase" }}>
-          Myntra Catalogue
-        </p>
-        <h2 className="category_heading" style={{ margin: 0, fontSize: "28px", fontWeight: "bold", color: "#282c3f" }}>
-          Men's Collection
-        </h2>
-        <p style={{ fontSize: "14px", color: "#535766", marginTop: "5px" }}>
-          {filteredMenItems.length} products found
-        </p>
+    <main className="catalogue_main">
+      <div className="catalogue_header">
+        <p className="catalogue_tag">Myntra Catalogue</p>
+        <h2 className="category_heading">Men's Collection</h2>
+        <p className="product_count">{filteredMenItems.length} products found</p>
       </div>
 
-      <div style={{ display: "flex", gap: "30px" }}>
-        <div style={{ width: "260px", borderRight: "1px solid #eaeaec", paddingRight: "20px" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "15px" }}>
-            <h4 style={{ margin: 0, fontWeight: "bold" }}>Filters</h4>
-            <button 
-              onClick={clearAllFilters}
-              style={{ background: "none", border: "none", color: "#ff3f6c", fontWeight: "bold", cursor: "pointer", fontSize: "14px" }}
-            >
+      <div className="catalogue_container">
+        <div className="filter_sidebar">
+          <div className="filter_heading_box">
+            <h4 className="filter_title">Filters</h4>
+            <button onClick={clearAllFilters} className="clear_filter_btn">
               Clear all
             </button>
           </div>
           
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Search</label>
+          <div className="filter_group">
+            <label className="filter_label">Search</label>
             <input
               type="text"
               placeholder="Name, brand, category.."
               value={searchQuery}
               onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
-              style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px" }}
+              className="filter_input"
             />
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Category</label>
+          <div className="filter_group">
+            <label className="filter_label">Category</label>
             <select
               value={selectedCategory}
               onChange={(e) => { setSelectedCategory(e.target.value); setCurrentPage(1); }}
-              style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", background: "white" }}
+              className="filter_select"
             >
               <option value="All">All categories</option>
               <option value="Men">Men</option>
@@ -141,44 +131,44 @@ const Men = () => {
             </select>
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Brand</label>
+          <div className="filter_group">
+            <label className="filter_label">Brand</label>
             <input
               type="text"
               placeholder="e.g. Nike, Roadster"
               value={selectedBrand}
               onChange={(e) => { setSelectedBrand(e.target.value); setCurrentPage(1); }}
-              style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px" }}
+              className="filter_input"
             />
           </div>
 
-          <div style={{ marginBottom: "15px", display: "flex", gap: "10px" }}>
-            <div style={{ flex: 1 }}>
-              <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Min price</label>
+          <div className="filter_group price_group">
+            <div className="price_box">
+              <label className="filter_label">Min price</label>
               <input
                 type="number"
                 value={minPrice}
                 onChange={(e) => { setMinPrice(Number(e.target.value)); setCurrentPage(1); }}
-                style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", boxSizing: "border-box" }}
+                className="filter_input"
               />
             </div>
-            <div style={{ flex: 1 }}>
-              <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Max price</label>
+            <div className="price_box">
+              <label className="filter_label">Max price</label>
               <input
                 type="number"
                 value={maxPrice}
                 onChange={(e) => { setMaxPrice(e.target.value === "" ? "" : Number(e.target.value)); setCurrentPage(1); }}
-                style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", boxSizing: "border-box" }}
+                className="filter_input"
               />
             </div>
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Minimum discount</label>
+          <div className="filter_group">
+            <label className="filter_label">Minimum discount</label>
             <select
               value={minDiscount}
               onChange={(e) => { setMinDiscount(Number(e.target.value)); setCurrentPage(1); }}
-              style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", background: "white" }}
+              className="filter_select"
             >
               <option value={0}>Any discount</option>
               <option value={10}>10% and above</option>
@@ -188,12 +178,12 @@ const Men = () => {
             </select>
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Minimum rating</label>
+          <div className="filter_group">
+            <label className="filter_label">Minimum rating</label>
             <select
               value={minRating}
               onChange={(e) => { setMinRating(Number(e.target.value)); setCurrentPage(1); }}
-              style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", background: "white" }}
+              className="filter_select"
             >
               <option value={0}>Any rating</option>
               <option value={4}>4 Star & above</option>
@@ -202,34 +192,34 @@ const Men = () => {
             </select>
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Size</label>
+          <div className="filter_group">
+            <label className="filter_label">Size</label>
             <input
               type="text"
-              placeholder="e.g. M, L, XL"
+              placeholder="e.g. S, M, L, XL"
               value={selectedSize}
               onChange={(e) => { setSelectedSize(e.target.value); setCurrentPage(1); }}
-              style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px" }}
+              className="filter_input"
             />
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Color</label>
+          <div className="filter_group">
+            <label className="filter_label">Color</label>
             <input
               type="text"
               placeholder="e.g. Black, Blue"
               value={selectedColor}
               onChange={(e) => { setSelectedColor(e.target.value); setCurrentPage(1); }}
-              style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px" }}
+              className="filter_input"
             />
           </div>
 
-          <div style={{ marginBottom: "15px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "bold", color: "#282c3f" }}>Availability</label>
+          <div className="filter_group">
+            <label className="filter_label">Availability</label>
             <select
               value={availability}
               onChange={(e) => { setAvailability(e.target.value); setCurrentPage(1); }}
-              style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", background: "white" }}
+              className="filter_select"
             >
               <option value="All">All products</option>
               <option value="In Stock">In stock</option>
@@ -238,54 +228,35 @@ const Men = () => {
           </div>
         </div>
 
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-          <div
-            className="items-container"
-            style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}
-          >
+        <div className="products_wrapper">
+          <div className="items-container">
             {currentItems.length > 0 ? (
               currentItems.map((item) => <HomeItem key={item.id} item={item} />)
             ) : (
-              <h3 style={{ textAlign: "center", width: "100%", margin: "50px", color: "#717171" }}>
+              <h3 className="no_products_msg">
                 No products found matching your filter!
               </h3>
             )}
           </div>
 
           {totalPages > 1 && (
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "20px", marginTop: "40px", marginBottom: "20px" }}>
+            <div className="pagination_container">
               <button
                 onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
-                style={{
-                  padding: "8px 16px",
-                  borderRadius: "4px",
-                  border: "1px solid #d4d5d9",
-                  background: currentPage === 1 ? "#f5f5f6" : "white",
-                  color: currentPage === 1 ? "#94969f" : "#282c3f",
-                  fontWeight: "bold",
-                  cursor: currentPage === 1 ? "not-allowed" : "pointer",
-                }}
+                className={`page_btn ${currentPage === 1 ? "disabled" : ""}`}
               >
                 Previous
               </button>
 
-              <span style={{ fontSize: "14px", fontWeight: "600", color: "#282c3f" }}>
+              <span className="page_info">
                 Page {currentPage} of {totalPages}
               </span>
 
               <button
                 onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
                 disabled={currentPage === totalPages}
-                style={{
-                  padding: "8px 16px",
-                  borderRadius: "4px",
-                  border: "1px solid #d4d5d9",
-                  background: currentPage === totalPages ? "#f5f5f6" : "white",
-                  color: currentPage === totalPages ? "#94969f" : "#282c3f",
-                  fontWeight: "bold",
-                  cursor: currentPage === totalPages ? "not-allowed" : "pointer",
-                }}
+                className={`page_btn ${currentPage === totalPages ? "disabled" : ""}`}
               >
                 Next
               </button>
