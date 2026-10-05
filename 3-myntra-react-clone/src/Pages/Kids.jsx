@@ -229,11 +229,10 @@ const Kids = () => {
           </div>
         </div>
 
-        {/* Right Product Grid & Pagination */}
         <div className="products_wrapper">
           <div className="items-container">
             {currentItems.length > 0 ? (
-              currentItems.append ? currentItems.map((item) => <HomeItem key={item.id} item={item} />) : currentItems.map((item) => <HomeItem key={item.id} item={item} />)
+              currentItems.map((item) => <HomeItem key={item.id} item={item} />)
             ) : (
               <h3 className="no_products_msg">
                 No products found matching your filter!
