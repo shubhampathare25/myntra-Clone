@@ -16,6 +16,8 @@ const Women = () => {
   const [selectedColor, setSelectedColor] = useState("");
   const [availability, setAvailability] = useState("All");
 
+  const [sortBy, setSortBy] = useState("Recommended");
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6; 
 
@@ -69,10 +71,25 @@ const Women = () => {
     );
   });
 
+  const sortedWomenItems = [...filteredWomenItems].sort((a, b) => {
+    if (sortBy === "Price: Low to High") {
+      return a.current_price - b.current_price;
+    } else if (sortBy === "Price: High to Low") {
+      return b.current_price - a.current_price;
+    } else if (sortBy === "Highest Rated") {
+      return (b.rating?.stars || 0) - (a.rating?.stars || 0);
+    } else if (sortBy === "Biggest Discount") {
+      return (b.discount_percentage || 0) - (a.discount_percentage || 0);
+    } else if (sortBy === "Newest") {
+      return new Date(b.createdTime || 0) - new Date(a.createdTime || 0);
+    }
+    return 0;
+  });
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredWomenItems.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(filteredWomenItems.length / itemsPerPage);
+  const currentItems = sortedWomenItems.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(sortedWomenItems.length / itemsPerPage);
 
   const clearAllFilters = () => {
     setSearchQuery("");
@@ -85,15 +102,35 @@ const Women = () => {
     setSelectedSize("");
     setSelectedColor("");
     setAvailability("All");
+    setSortBy("Recommended");
     setCurrentPage(1);
   };
 
   return (
     <main className="catalogue_main">
-      <div className="catalogue_header">
-        <p className="catalogue_tag">Myntra Catalogue</p>
-        <h2 className="category_heading">Women's Collection</h2>
-        <p className="product_count">{filteredWomenItems.length} products found</p>
+      <div className="catalogue_header_row" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "20px" }}>
+        <div className="catalogue_header">
+          <p className="catalogue_tag">STYLEKART CATALOGUE</p>
+          <h2 className="category_heading">Women's Collection</h2>
+          <p className="product_count">{filteredWomenItems.length} products found</p>
+        </div>
+
+        <div className="sort_container" style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", fontWeight: "500" }}>
+          <label>Sort by </label>
+          <select 
+            value={sortBy} 
+            onChange={(e) => setSortBy(e.target.value)}
+            className="sort_select"
+            style={{ padding: "8px 12px", border: "1px solid #d4d5d9", borderRadius: "4px", background: "#fff", cursor: "pointer" }}
+          >
+            <option value="Recommended">Recommended</option>
+            <option value="Newest">Newest</option>
+            <option value="Price: Low to High">Price: Low to High</option>
+            <option value="Price: High to Low">Price: High to Low</option>
+            <option value="Highest Rated">Highest Rated</option>
+            <option value="Biggest Discount">Biggest Discount</option>
+          </select>
+        </div>
       </div>
 
       <div className="catalogue_container">
@@ -197,7 +234,7 @@ const Women = () => {
             <label className="filter_label">Size</label>
             <input
               type="text"
-              placeholder="e.g. M, L, XL"
+              placeholder="e.g. S, M, L, XL"
               value={selectedSize}
               onChange={(e) => { setSelectedSize(e.target.value); setCurrentPage(1); }}
               className="filter_input"
@@ -232,7 +269,7 @@ const Women = () => {
         <div className="products_wrapper">
           <div className="items-container">
             {currentItems.length > 0 ? (
-              currentItems.map((item) => <HomeItem key={item.id} item={item} />)
+              currentItems.main ? currentItems.map((item) => <HomeItem key={item.id} item={item} />) : currentItems.map((item) => <HomeItem key={item.id} item={item} />)
             ) : (
               <h3 className="no_products_msg">
                 No products found matching your filter!
