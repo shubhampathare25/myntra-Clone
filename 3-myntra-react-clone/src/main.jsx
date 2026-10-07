@@ -20,6 +20,7 @@ import AdminLogin from "./Pages/AdminLogin.jsx";
 import Checkout from "./Pages/Checkout.jsx";
 import HelpContact from "./Pages/HelpContact.jsx";
 import Orders from "./Pages/Orders.jsx";
+import ProductDetails from "./Pages/ProductDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
         path: "/orders",
         element: <Orders />,
       },
+      {
+        path: "/product/:id",
+        element: <ProductDetails />
+      }
     ],
   },
 ]);
