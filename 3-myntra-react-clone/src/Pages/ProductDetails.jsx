@@ -180,7 +180,6 @@ const ProductDetails = () => {
                     </Link>
                   </div>
                   
-                  {/* Rating Display */}
                   {item.rating && (
                     <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "12px", marginTop: "6px" }}>
                       <span style={{ fontWeight: "bold" }}>{item.rating.stars}</span>
