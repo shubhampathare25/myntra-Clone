@@ -154,12 +154,13 @@ const ProductDetails = () => {
         </div>
       </div>
 
+{/* Recently Viewed Section */}
       {recentlyViewed.length > 0 && (
         <div style={{ marginTop: "50px", borderTop: "1px solid #eaeaec", paddingTop: "30px" }}>
           <h3>CONTINUE EXPLORING</h3>
           <h4 style={{ color: "#282c3f", marginBottom: "15px" }}>Recently viewed</h4>
           <div style={{ display: "flex", gap: "20px", overflowX: "auto", paddingBottom: "10px" }}>
-            {recentlyViewed.map((item) => {
+            {recentlyViewed.slice(0, 4).map((item) => {
               const isItemWishlisted = wishlistItems.includes(item.id);
               return (
                 <div key={item.id} className="card_container">
@@ -179,6 +180,7 @@ const ProductDetails = () => {
                     </Link>
                   </div>
                   
+                  {/* Rating Display */}
                   {item.rating && (
                     <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "12px", marginTop: "6px" }}>
                       <span style={{ fontWeight: "bold" }}>{item.rating.stars}</span>
@@ -191,6 +193,7 @@ const ProductDetails = () => {
                     <p style={{ fontWeight: "bold", margin: "4px 0 2px 0", fontSize: "14px" }}>{item.company}</p>
                     <p style={{ color: "#777", fontSize: "12px", margin: "0 0 4px 0", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{item.item_name}</p>
                     
+                    {/* Proper Price Section */}
                     <div className="card_price_section">
                       <span className="card_current_price">Rs {item.current_price}</span>
                       {item.original_price && (
