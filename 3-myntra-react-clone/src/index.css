@@ -1085,6 +1085,7 @@ a.action_container:link {
   align-items: center;
   justify-content: center;
   gap: 6px;
+  margin-top: 10px;
 }
 
 .card_btn:hover {
@@ -1115,4 +1116,26 @@ a.action_container:link {
   font-size: 12px;
   color: #ff905a;
   font-weight: bold;
+}
+
+.product_info_box_card {
+  border: 1px solid #eaeaec;
+  border-radius: 12px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-top: 25px;
+}
+
+.product_info_title {
+  font-weight: bold;
+  font-size: 16px;
+  color: #282c3f;
+  margin-bottom: 12px;
+}
+
+.product_info_item {
+  color: #535766;
+  font-size: 14px;
+  margin: 8px 0;
 }
