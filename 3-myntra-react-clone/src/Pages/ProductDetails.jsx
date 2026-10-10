@@ -15,7 +15,7 @@ const ProductDetails = () => {
 
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("Black");
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(21);
   const [recentlyViewed, setRecentlyViewed] = useState([]);
 
   const bagItems = useSelector((store) => store.bag);
@@ -65,6 +65,7 @@ const ProductDetails = () => {
           </div>
         </div>
 
+        {/* Right: Info */}
         <div className="product_info_section">
           <h2>{product.company}</h2>
           <p style={{ fontSize: "18px", color: "#535766", margin: 0 }}>{product.item_name}</p>
@@ -86,13 +87,13 @@ const ProductDetails = () => {
 
           <div>
             <span style={{ color: "#03a685", fontWeight: "bold", fontSize: "15px" }}>In stock</span>
-            <span style={{ float: "right", color: "#777", fontSize: "13px" }}>21 available</span>
           </div>
 
+          {/* Size Selector */}
           <div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <span style={{ fontWeight: "bold", fontSize: "14px" }}>SELECT SIZE <span style={{ color: "#ff3f6c", fontSize: "12px" }}>Required</span></span>
-              <span style={{ color: "#ff3f6c", fontSize: "13px", fontWeight: "bold", cursor: "pointer" }}>SIZE CHART</span>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span style={{ fontWeight: "bold", fontSize: "14px" }}>Select size</span>
+              <span style={{ color: "#ff3f6c", fontSize: "12px", fontWeight: "500" }}>Required</span>
             </div>
             <div style={{ display: "flex", gap: "10px", marginTop: "8px" }}>
               {["7", "8", "9", "10"].map((size) => (
@@ -107,11 +108,14 @@ const ProductDetails = () => {
             </div>
           </div>
 
+          {/* Color Selector */}
           <div>
-            <p style={{ fontWeight: "bold", fontSize: "14px", marginBottom: "8px" }}>
-              SELECT COLOR: <span style={{ color: "#777" }}>{selectedColor}</span> 
-              <span style={{ color: "#ff3f6c", fontSize: "12px", float: "right" }}>Required</span>
-            </p>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
+              <span style={{ fontWeight: "bold", fontSize: "14px" }}>
+                Select color: <span style={{ color: "#777", fontWeight: "normal" }}>{selectedColor}</span>
+              </span>
+              <span style={{ color: "#ff3f6c", fontSize: "12px", fontWeight: "500" }}>Required</span>
+            </div>
             <div style={{ display: "flex", gap: "10px" }}>
               {["Black", "Grey"].map((color) => (
                 <button
@@ -125,15 +129,28 @@ const ProductDetails = () => {
             </div>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+{/* Quantity & Available in Single Line */}
+          <div style={{ display: "flex", alignItems: "center", gap: "15px", marginTop: "12px" }}>
             <span style={{ fontWeight: "bold", fontSize: "14px" }}>Quantity:</span>
             <div style={{ display: "flex", alignItems: "center", border: "1px solid #ccc", borderRadius: "4px" }}>
-              <button onClick={() => setQuantity(Math.max(1, quantity - 1))} style={{ padding: "5px 12px", background: "none", border: "none", cursor: "pointer" }}>-</button>
-              <span style={{ padding: "0 10px", fontWeight: "bold" }}>{quantity}</span>
-              <button onClick={() => setQuantity(quantity + 1)} style={{ padding: "5px 12px", background: "none", border: "none", cursor: "pointer" }}>+</button>
+              <button 
+                onClick={() => setQuantity(Math.max(1, quantity - 1))} 
+                style={{ padding: "5px 14px", background: "none", border: "none", cursor: "pointer", fontSize: "16px" }}
+              >
+                -
+              </button>
+              <span style={{ padding: "0 12px", fontWeight: "bold", fontSize: "14px" }}>{quantity}</span>
+              <button 
+                onClick={() => setQuantity(Math.min(21, quantity + 1))} 
+                style={{ padding: "5px 14px", background: "none", border: "none", cursor: "pointer", fontSize: "16px" }}
+              >
+                +
+              </button>
             </div>
+            <span style={{ color: "#777", fontSize: "13px" }}>21 available</span>
           </div>
 
+          {/* Buttons */}
           <div style={{ display: "flex", gap: "15px", marginTop: "10px" }}>
             <button className="add_to_cart_btn" onClick={() => dispatch(bagActions.addToBag(product.id))}>
               <GrAddCircle style={{ color: "#fff" }} /> {elementFoundInBag ? "REMOVE FROM BAG" : "ADD TO CART"}
@@ -144,23 +161,40 @@ const ProductDetails = () => {
             </button>
           </div>
 
-          <div style={{ marginTop: "15px", borderTop: "1px solid #eaeaec", paddingTop: "15px" }}>
-            <p style={{ fontWeight: "bold", marginBottom: "5px" }}>Product Information</p>
-            <p style={{ color: "#535766", margin: "0 0 5px 0" }}>Category: {product.category}</p>
-            <p style={{ color: "#535766", margin: "0 0 5px 0" }}>📦 Return policy: 14 days returnable</p>
-            <p style={{ color: "#535766", margin: 0 }}>🚚 Delivery: Expected by 13 Oct 2026</p>
+          {/* Product Information Box */}
+          <div className="product_info_box_card">
+            <p className="product_info_title">Product information</p>
+            <p className="product_info_item">Category: {product.category}</p>
+            <p className="product_info_item">Return policy: 14 day returns</p>
+            <p className="product_info_item">Delivery: 13 Oct 2026</p>
           </div>
 
         </div>
       </div>
 
-{/* Recently Viewed Section */}
-      {recentlyViewed.length > 0 && (
-        <div style={{ marginTop: "50px", borderTop: "1px solid #eaeaec", paddingTop: "30px" }}>
-          <h3>CONTINUE EXPLORING</h3>
-          <h4 style={{ color: "#282c3f", marginBottom: "15px" }}>Recently viewed</h4>
-          <div style={{ display: "flex", gap: "20px", overflowX: "auto", paddingBottom: "10px" }}>
-            {recentlyViewed.slice(0, 4).map((item) => {
+            {/* Reviews Section */}
+      <div style={{ marginTop: "40px", borderTop: "1px solid #eaeaec", paddingTop: "30px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div>
+          <span style={{ color: "#ff3f6c", fontSize: "15px", fontWeight: "bold", letterSpacing: "0.5px" }}>
+            VERIFIED CUSTOMER FEEDBACK
+          </span>
+          <h3 style={{ margin: "4px 0 0 0", color: "#282c3f", fontSize: "22px", fontWeight: "bold" }}>Reviews (0)</h3>
+          <p style={{ color: "#777", marginTop: "5px" }}>No reviews yet.</p>
+        </div>
+        <span style={{ color: "#ff3f6c", fontWeight: "bold", fontSize: "14px", cursor: "pointer" }}>
+          Log in to review after purchase
+        </span>
+      </div>
+
+      {/* Related Products Section */}
+      {relatedProducts.length > 0 && (
+        <div style={{ marginTop: "40px", borderTop: "1px solid #eaeaec", paddingTop: "30px" }}>
+          <span style={{ color: "#ff3f6c", fontSize: "15px", fontWeight: "bold", letterSpacing: "0.5px" }}>
+            YOU MAY ALSO LIKE
+          </span>                                  
+          <h4 style={{ margin: "4px 0 0 0", color: "#282c3f", fontSize: "22px", fontWeight: "bold" }}>Related products</h4>
+          <div style={{ display: "flex", gap: "20px", marginTop: "15px", overflowX: "auto", paddingBottom: "10px" }}>
+            {relatedProducts.map((item) => {
               const isItemWishlisted = wishlistItems.includes(item.id);
               return (
                 <div key={item.id} className="card_container">
@@ -192,7 +226,6 @@ const ProductDetails = () => {
                     <p style={{ fontWeight: "bold", margin: "4px 0 2px 0", fontSize: "14px" }}>{item.company}</p>
                     <p style={{ color: "#777", fontSize: "12px", margin: "0 0 4px 0", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{item.item_name}</p>
                     
-                    {/* Proper Price Section */}
                     <div className="card_price_section">
                       <span className="card_current_price">Rs {item.current_price}</span>
                       {item.original_price && (
@@ -214,22 +247,15 @@ const ProductDetails = () => {
         </div>
       )}
 
-      <div style={{ marginTop: "40px", borderTop: "1px solid #eaeaec", paddingTop: "30px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <div>
-          <h3>RATINGS & REVIEWS (0)</h3>
-          <p style={{ color: "#777", marginTop: "5px" }}>No reviews yet.</p>
-        </div>
-        <span style={{ color: "#ff3f6c", fontWeight: "bold", fontSize: "14px", cursor: "pointer" }}>
-          Log in to review after purchase
-        </span>
-      </div>
-
-      {relatedProducts.length > 0 && (
-        <div style={{ marginTop: "40px", borderTop: "1px solid #eaeaec", paddingTop: "30px" }}>
-          <h3>YOU MAY ALSO LIKE</h3>
-          <h4 style={{ color: "#777", marginBottom: "15px", fontWeight: "normal" }}>Related products</h4>
-          <div style={{ display: "flex", gap: "20px", marginTop: "15px", overflowX: "auto", paddingBottom: "10px" }}>
-            {relatedProducts.map((item) => {
+      {/* Recently Viewed Section */}
+      {recentlyViewed.length > 0 && (
+        <div style={{ marginTop: "50px", borderTop: "1px solid #eaeaec", paddingTop: "30px" }}>
+          <span style={{ color: "#ff3f6c", fontSize: "15px", fontWeight: "bold", letterSpacing: "0.5px" }}>
+            Continue Exploring
+          </span>
+          <h4 style={{ margin: "4px 0 0 0", color: "#282c3f", fontSize: "22px", fontWeight: "bold" }}>Recently viewed</h4>
+          <div style={{ display: "flex", gap: "20px", overflowX: "auto", paddingBottom: "10px" }}>
+            {recentlyViewed.slice(0, 4).map((item) => {
               const isItemWishlisted = wishlistItems.includes(item.id);
               return (
                 <div key={item.id} className="card_container">
