@@ -36,12 +36,14 @@ const ProductDetails = () => {
   }, [product]);
 
   if (!product) {
-    return <h2 style={{ textAlign: "center", marginTop: "50px" }}>Product not found!</h2>;
+    return <h2 className="product_not_found">Product not found!</h2>;
   }
 
-  const relatedProducts = items.filter(
-    (item) => item.category === product.category && item.id !== product.id
-  ).slice(0, 4);
+  const relatedProducts = items
+    .filter(
+      (item) => item.category === product.category && item.id !== product.id,
+    )
+    .slice(0, 4);
 
   return (
     <div className="product_details_container">
@@ -50,17 +52,25 @@ const ProductDetails = () => {
         {/* Left: Images */}
         <div className="product_image_wrapper">
           <div>
-            <img 
-              src={product.image.startsWith("http") ? product.image : `/${product.image}`} 
-              alt="thumb" 
-              className="thumbnail_img" 
+            <img
+              src={
+                product.image.startsWith("http")
+                  ? product.image
+                  : `/${product.image}`
+              }
+              alt="thumb"
+              className="thumbnail_img"
             />
           </div>
           <div className="main_img_container">
-            <img 
-              src={product.image.startsWith("http") ? product.image : `/${product.image}`} 
-              alt={product.item_name} 
-              className="main_product_img" 
+            <img
+              src={
+                product.image.startsWith("http")
+                  ? product.image
+                  : `/${product.image}`
+              }
+              alt={product.item_name}
+              className="main_product_img"
             />
           </div>
         </div>
@@ -68,34 +78,40 @@ const ProductDetails = () => {
         {/* Right: Info */}
         <div className="product_info_section">
           <h2>{product.company}</h2>
-          <p style={{ fontSize: "18px", color: "#535766", margin: 0 }}>{product.item_name}</p>
-          
-          <div style={{ display: "flex", alignItems: "center", gap: "10px", borderBottom: "1px solid #eaeaec", paddingBottom: "10px" }}>
-            <span style={{ background: "#f5f5f6", padding: "4px 8px", fontWeight: "bold", borderRadius: "4px" }}>
+          <p className="product_item_name_text">{product.item_name}</p>
+
+          <div className="product_rating_row">
+            <span className="product_rating_badge">
               {product.rating.stars} ⭐
             </span>
-            <span style={{ color: "#777" }}>| {product.rating.count} ratings</span>
+            <span className="product_rating_count">
+              | {product.rating.count} ratings
+            </span>
           </div>
 
-          <div style={{ display: "flex", alignItems: "baseline", gap: "15px" }}>
-            <span style={{ fontSize: "24px", fontWeight: "bold" }}>Rs {product.current_price}</span>
-            <span style={{ fontSize: "18px", color: "#7e818c", textDecoration: "line-through" }}>Rs {product.original_price}</span>
-            <span style={{ fontSize: "18px", color: "#ff905a", fontWeight: "bold" }}>({product.discount_percentage}% OFF)</span>
+          <div className="product_price_row">
+            <span className="product_current_price_text">
+              Rs {product.current_price}
+            </span>
+            <span className="product_original_price_text">
+              Rs {product.original_price}
+            </span>
+            <span className="product_discount_text">
+              ({product.discount_percentage}% OFF)
+            </span>
           </div>
 
-          <p style={{ color: "#03a685", fontWeight: "bold", margin: 0 }}>inclusive of all taxes</p>
-
-          <div>
-            <span style={{ color: "#03a685", fontWeight: "bold", fontSize: "15px" }}>In stock</span>
+          <div className="product_stock_row">
+            <span className="product_stock_text">In stock</span>
           </div>
 
           {/* Size Selector */}
-          <div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <span style={{ fontWeight: "bold", fontSize: "14px" }}>Select size</span>
-              <span style={{ color: "#ff3f6c", fontSize: "12px", fontWeight: "500" }}>Required</span>
+          <div className="product_selector_block">
+            <div className="selector_header">
+              <span className="selector_title">Select size</span>
+              <span className="selector_required">Required</span>
             </div>
-            <div style={{ display: "flex", gap: "10px", marginTop: "8px" }}>
+            <div className="selector_options_row">
               {["7", "8", "9", "10"].map((size) => (
                 <button
                   key={size}
@@ -109,14 +125,14 @@ const ProductDetails = () => {
           </div>
 
           {/* Color Selector */}
-          <div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-              <span style={{ fontWeight: "bold", fontSize: "14px" }}>
-                Select color: <span style={{ color: "#777", fontWeight: "normal" }}>{selectedColor}</span>
+          <div className="product_selector_block">
+            <div className="selector_header">
+              <span className="selector_title">
+                Select color: <span className="selected_color_span">{selectedColor}</span>
               </span>
-              <span style={{ color: "#ff3f6c", fontSize: "12px", fontWeight: "500" }}>Required</span>
+              <span className="selector_required">Required</span>
             </div>
-            <div style={{ display: "flex", gap: "10px" }}>
+            <div className="selector_options_row">
               {["Black", "Grey"].map((color) => (
                 <button
                   key={color}
@@ -129,34 +145,51 @@ const ProductDetails = () => {
             </div>
           </div>
 
-{/* Quantity & Available in Single Line */}
-          <div style={{ display: "flex", alignItems: "center", gap: "15px", marginTop: "12px" }}>
-            <span style={{ fontWeight: "bold", fontSize: "14px" }}>Quantity:</span>
-            <div style={{ display: "flex", alignItems: "center", border: "1px solid #ccc", borderRadius: "4px" }}>
-              <button 
-                onClick={() => setQuantity(Math.max(1, quantity - 1))} 
-                style={{ padding: "5px 14px", background: "none", border: "none", cursor: "pointer", fontSize: "16px" }}
+          {/* Quantity & Available */}
+          <div className="quantity_section_wrapper">
+            <div className="quantity_header_row">
+              <span className="quantity_label_text">Quantity:</span>
+              <span className="available_count_text">21 available</span>
+            </div>
+            <div className="quantity_box_control">
+              <button
+                onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                className="qty_btn"
               >
                 -
               </button>
-              <span style={{ padding: "0 12px", fontWeight: "bold", fontSize: "14px" }}>{quantity}</span>
-              <button 
-                onClick={() => setQuantity(Math.min(21, quantity + 1))} 
-                style={{ padding: "5px 14px", background: "none", border: "none", cursor: "pointer", fontSize: "16px" }}
+              <span className="qty_number_display">{quantity}</span>
+              <button
+                onClick={() => setQuantity(Math.min(21, quantity + 1))}
+                className="qty_btn"
               >
                 +
               </button>
             </div>
-            <span style={{ color: "#777", fontSize: "13px" }}>21 available</span>
           </div>
 
           {/* Buttons */}
-          <div style={{ display: "flex", gap: "15px", marginTop: "10px" }}>
-            <button className="add_to_cart_btn" onClick={() => dispatch(bagActions.addToBag(product.id))}>
-              <GrAddCircle style={{ color: "#fff" }} /> {elementFoundInBag ? "REMOVE FROM BAG" : "ADD TO CART"}
+          <div className="product_action_buttons_row">
+            <button
+              className="add_to_cart_btn"
+              onClick={() => dispatch(bagActions.addToBag(product.id))}
+            >
+              <GrAddCircle className="btn_icon_white" />{" "}
+              {elementFoundInBag ? "REMOVE FROM BAG" : "ADD TO CART"}
             </button>
-            <button className="wishlist_btn" onClick={() => isWishlisted ? dispatch(wishlistActions.removeFromWishlist(product.id)) : dispatch(wishlistActions.addToWishlist(product.id))}>
-              {isWishlisted ? <AiFillHeart style={{ color: "#ff3f6c" }} /> : <AiOutlineHeart />} 
+            <button
+              className="wishlist_btn"
+              onClick={() =>
+                isWishlisted
+                  ? dispatch(wishlistActions.removeFromWishlist(product.id))
+                  : dispatch(wishlistActions.addToWishlist(product.id))
+              }
+            >
+              {isWishlisted ? (
+                <AiFillHeart className="wishlist_icon_active" />
+              ) : (
+                <AiOutlineHeart />
+              )}
               {isWishlisted ? "WISHLISTED" : "ADD TO WISHLIST"}
             </button>
           </div>
@@ -168,77 +201,110 @@ const ProductDetails = () => {
             <p className="product_info_item">Return policy: 14 day returns</p>
             <p className="product_info_item">Delivery: 13 Oct 2026</p>
           </div>
-
         </div>
       </div>
 
-            {/* Reviews Section */}
-      <div style={{ marginTop: "40px", borderTop: "1px solid #eaeaec", paddingTop: "30px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      {/* Reviews Section */}
+      <div className="reviews_section_wrapper">
         <div>
-          <span style={{ color: "#ff3f6c", fontSize: "15px", fontWeight: "bold", letterSpacing: "0.5px" }}>
+          <span className="section_tag_title">
             VERIFIED CUSTOMER FEEDBACK
           </span>
-          <h3 style={{ margin: "4px 0 0 0", color: "#282c3f", fontSize: "22px", fontWeight: "bold" }}>Reviews (0)</h3>
-          <p style={{ color: "#777", marginTop: "5px" }}>No reviews yet.</p>
+          <h3 className="section_main_heading">
+            Reviews (0)
+          </h3>
+          <p className="no_reviews_text">No reviews yet.</p>
         </div>
-        <span style={{ color: "#ff3f6c", fontWeight: "bold", fontSize: "14px", cursor: "pointer" }}>
+        <span className="review_login_prompt">
           Log in to review after purchase
         </span>
       </div>
 
       {/* Related Products Section */}
       {relatedProducts.length > 0 && (
-        <div style={{ marginTop: "40px", borderTop: "1px solid #eaeaec", paddingTop: "30px" }}>
-          <span style={{ color: "#ff3f6c", fontSize: "15px", fontWeight: "bold", letterSpacing: "0.5px" }}>
+        <div className="related_products_section">
+          <span className="section_tag_title">
             YOU MAY ALSO LIKE
-          </span>                                  
-          <h4 style={{ margin: "4px 0 0 0", color: "#282c3f", fontSize: "22px", fontWeight: "bold" }}>Related products</h4>
-          <div style={{ display: "flex", gap: "20px", marginTop: "15px", overflowX: "auto", paddingBottom: "10px" }}>
+          </span>
+          <h4 className="section_main_heading">
+            Related products
+          </h4>
+          <div className="scrollable_cards_container">
             {relatedProducts.map((item) => {
               const isItemWishlisted = wishlistItems.includes(item.id);
               return (
                 <div key={item.id} className="card_container">
                   <div className="card_img_wrapper">
-                    <div 
-                      className="card_wishlist_icon" 
-                      onClick={() => isItemWishlisted ? dispatch(wishlistActions.removeFromWishlist(item.id)) : dispatch(wishlistActions.addToWishlist(item.id))}
+                    <div
+                      className="card_wishlist_icon"
+                      onClick={() =>
+                        isItemWishlisted
+                          ? dispatch(
+                              wishlistActions.removeFromWishlist(item.id),
+                            )
+                          : dispatch(wishlistActions.addToWishlist(item.id))
+                      }
                     >
                       {isItemWishlisted ? (
-                        <AiFillHeart style={{ fontSize: "18px", color: "#ff3f6c" }} />
+                        <AiFillHeart className="card_heart_filled" />
                       ) : (
-                        <AiOutlineHeart style={{ fontSize: "18px", color: "#282c3f" }} />
+                        <AiOutlineHeart className="card_heart_outline" />
                       )}
                     </div>
                     <Link to={`/product/${item.id}`}>
-                      <img src={item.image.startsWith("http") ? item.image : `/${item.image}`} alt={item.item_name} className="card_img" />
+                      <img
+                        src={
+                          item.image.startsWith("http")
+                            ? item.image
+                            : `/${item.image}`
+                        }
+                        alt={item.item_name}
+                        className="card_img"
+                      />
                     </Link>
                   </div>
-                  
+
                   {item.rating && (
-                    <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "12px", marginTop: "6px" }}>
-                      <span style={{ fontWeight: "bold" }}>{item.rating.stars}</span>
-                      <span style={{ color: "#149544" }}>⭐</span>
-                      <span style={{ color: "#777" }}>| {item.rating.count}</span>
+                    <div className="card_rating_row">
+                      <span className="card_rating_stars">
+                        {item.rating.stars}
+                      </span>
+                      <span className="card_rating_star_icon">⭐</span>
+                      <span className="card_rating_count_text">
+                        | {item.rating.count}
+                      </span>
                     </div>
                   )}
 
-                  <Link to={`/product/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
-                    <p style={{ fontWeight: "bold", margin: "4px 0 2px 0", fontSize: "14px" }}>{item.company}</p>
-                    <p style={{ color: "#777", fontSize: "12px", margin: "0 0 4px 0", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{item.item_name}</p>
-                    
+                  <Link
+                    to={`/product/${item.id}`}
+                    className="card_link_wrapper"
+                  >
+                    <p className="card_company_title">{item.company}</p>
+                    <p className="card_item_subtitle">{item.item_name}</p>
+
                     <div className="card_price_section">
-                      <span className="card_current_price">Rs {item.current_price}</span>
+                      <span className="card_current_price">
+                        Rs {item.current_price}
+                      </span>
                       {item.original_price && (
-                        <span className="card_original_price">Rs {item.original_price}</span>
+                        <span className="card_original_price">
+                          Rs {item.original_price}
+                        </span>
                       )}
                       {item.discount_percentage && (
-                        <span className="card_discount">({item.discount_percentage}% OFF)</span>
+                        <span className="card_discount">
+                          ({item.discount_percentage}% OFF)
+                        </span>
                       )}
                     </div>
                   </Link>
 
-                  <button className="card_btn" onClick={() => dispatch(bagActions.addToBag(item.id))}>
-                    <GrAddCircle style={{ color: "#fff", fontSize: "15px" }} /> Add to Bag
+                  <button
+                    className="card_btn"
+                    onClick={() => dispatch(bagActions.addToBag(item.id))}
+                  >
+                    <GrAddCircle className="card_btn_icon" /> Add to Bag
                   </button>
                 </div>
               );
@@ -249,57 +315,89 @@ const ProductDetails = () => {
 
       {/* Recently Viewed Section */}
       {recentlyViewed.length > 0 && (
-        <div style={{ marginTop: "50px", borderTop: "1px solid #eaeaec", paddingTop: "30px" }}>
-          <span style={{ color: "#ff3f6c", fontSize: "15px", fontWeight: "bold", letterSpacing: "0.5px" }}>
+        <div className="recently_viewed_section">
+          <span className="section_tag_title">
             Continue Exploring
           </span>
-          <h4 style={{ margin: "4px 0 0 0", color: "#282c3f", fontSize: "22px", fontWeight: "bold" }}>Recently viewed</h4>
-          <div style={{ display: "flex", gap: "20px", overflowX: "auto", paddingBottom: "10px" }}>
+          <h4 className="section_main_heading">
+            Recently viewed
+          </h4>
+          <div className="scrollable_cards_container">
             {recentlyViewed.slice(0, 4).map((item) => {
               const isItemWishlisted = wishlistItems.includes(item.id);
               return (
                 <div key={item.id} className="card_container">
                   <div className="card_img_wrapper">
-                    <div 
-                      className="card_wishlist_icon" 
-                      onClick={() => isItemWishlisted ? dispatch(wishlistActions.removeFromWishlist(item.id)) : dispatch(wishlistActions.addToWishlist(item.id))}
+                    <div
+                      className="card_wishlist_icon"
+                      onClick={() =>
+                        isItemWishlisted
+                          ? dispatch(
+                              wishlistActions.removeFromWishlist(item.id),
+                            )
+                          : dispatch(wishlistActions.addToWishlist(item.id))
+                      }
                     >
                       {isItemWishlisted ? (
-                        <AiFillHeart style={{ fontSize: "18px", color: "#ff3f6c" }} />
+                        <AiFillHeart className="card_heart_filled" />
                       ) : (
-                        <AiOutlineHeart style={{ fontSize: "18px", color: "#282c3f" }} />
+                        <AiOutlineHeart className="card_heart_outline" />
                       )}
                     </div>
                     <Link to={`/product/${item.id}`}>
-                      <img src={item.image.startsWith("http") ? item.image : `/${item.image}`} alt={item.item_name} className="card_img" />
+                      <img
+                        src={
+                          item.image.startsWith("http")
+                            ? item.image
+                            : `/${item.image}`
+                        }
+                        alt={item.item_name}
+                        className="card_img"
+                      />
                     </Link>
                   </div>
-                  
+
                   {item.rating && (
-                    <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "12px", marginTop: "6px" }}>
-                      <span style={{ fontWeight: "bold" }}>{item.rating.stars}</span>
-                      <span style={{ color: "#149544" }}>⭐</span>
-                      <span style={{ color: "#777" }}>| {item.rating.count}</span>
+                    <div className="card_rating_row">
+                      <span className="card_rating_stars">
+                        {item.rating.stars}
+                      </span>
+                      <span className="card_rating_star_icon">⭐</span>
+                      <span className="card_rating_count_text">
+                        | {item.rating.count}
+                      </span>
                     </div>
                   )}
 
-                  <Link to={`/product/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
-                    <p style={{ fontWeight: "bold", margin: "4px 0 2px 0", fontSize: "14px" }}>{item.company}</p>
-                    <p style={{ color: "#777", fontSize: "12px", margin: "0 0 4px 0", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{item.item_name}</p>
-                    
+                  <Link
+                    to={`/product/${item.id}`}
+                    className="card_link_wrapper"
+                  >
+                    <p className="card_company_title">{item.company}</p>
+                    <p className="card_item_subtitle">{item.item_name}</p>
+
                     <div className="card_price_section">
-                      <span className="card_current_price">Rs {item.current_price}</span>
+                      <span className="card_current_price">
+                        Rs {item.current_price}
+                      </span>
                       {item.original_price && (
-                        <span className="card_original_price">Rs {item.original_price}</span>
+                        <span className="card_original_price">
+                          Rs {item.original_price}
+                        </span>
                       )}
                       {item.discount_percentage && (
-                        <span className="card_discount">({item.discount_percentage}% OFF)</span>
+                        <span className="card_discount">
+                          ({item.discount_percentage}% OFF)
+                        </span>
                       )}
                     </div>
                   </Link>
 
-                  <button className="card_btn" onClick={() => dispatch(bagActions.addToBag(item.id))}>
-                    <GrAddCircle style={{ color: "#fff", fontSize: "15px" }} /> Add to Bag
+                  <button
+                    className="card_btn"
+                    onClick={() => dispatch(bagActions.addToBag(item.id))}
+                  >
+                    <GrAddCircle className="card_btn_icon" /> Add to Bag
                   </button>
                 </div>
               );
@@ -307,7 +405,6 @@ const ProductDetails = () => {
           </div>
         </div>
       )}
-
     </div>
   );
 };
