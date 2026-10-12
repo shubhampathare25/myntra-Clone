@@ -9,7 +9,7 @@ const HelpContact = () => {
       <div className="help-header">
         <span className="help-sub-title">HELP CENTRE</span>
         <h1>How can we help?</h1>
-        <p>Find quick answers below, or reach out our team. We are happy to help with orders, returns, payments and anything else.</p>
+        <p>Find quick answers below, or reach out our team. We are happy to help with orders, returns, payments and anything else[cite: 4].</p>
         
         <div className="help-search-box">
           <span className="material-symbols-outlined">search</span>
@@ -21,7 +21,7 @@ const HelpContact = () => {
         <div className="help-card">
           <div className="help-icon-circle"><FaEnvelope /></div>
           <h3>Email us</h3>
-          <p className="help-highlight">support@stylekart.com</p>
+          <p className="help-highlight">support@Myntra.com</p>
           <span className="help-sub-text">We reply within 24 hours</span>
         </div>
 
@@ -61,6 +61,10 @@ const HelpContact = () => {
           <div className="faq-item">How long does delivery take?</div>
           <div className="faq-item">Is there a delivery charge?</div>
           <div className="faq-item">How do I return an item?</div>
+          <div className="faq-item">When will i get my refund?</div>
+          <div className="faq-item">Which payment methods do you accept?</div>
+          <div className="faq-item">My payment failed but money was deducted.</div>
+          <div className="faq-item">How do I update my profile or address?</div>
         </div>
       </div>
 
