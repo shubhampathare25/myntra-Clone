@@ -597,48 +597,121 @@ a.action_container:link {
   color: #7e818c;
 }
 
+/* Ekach motha clean white card container */
+.faq-list {
+  background: #ffffff;
+  border: 1px solid #f0f0f5;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pratyek FAQ row chi styling (Separate box border kadhli ahe) */
+/* ---- FAQ SECTION STYLING ---- */
 .faq-section {
   margin-bottom: 50px;
 }
 
+/* Tab Category Buttons */
 .faq-tabs {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   margin: 20px 0;
   flex-wrap: wrap;
 }
 
 .faq-tab-btn {
-  padding: 8px 16px;
+  padding: 8px 18px;
   border: 1px solid #d4d5d9;
   border-radius: 20px;
-  background: #fff;
+  background: #ffffff;
   cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
+  color: #282c3f;
+  transition: all 0.2s ease;
+}
+
+.faq-tab-btn:hover {
+  border-color: #282c3f;
 }
 
 .faq-tab-btn.active {
   background: #282c3f;
-  color: #fff;
+  color: #ffffff;
   border-color: #282c3f;
 }
 
-.faq-list {
+/* FAQ Card Container (Ekach main outer card) */
+.faq-card-container, .faq-list {
+  background: #ffffff;
+  border: 1px solid #eaeaec;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
-.faq-item {
-  padding: 15px;
-  border: 1px solid #eaeaec;
-  border-radius: 4px;
-  font-size: 14px;
+/* FAQ Item Row */
+.faq-row-item, .faq-item {
+  padding: 18px 24px;
+  border-bottom: 1px solid #eaeaec;
   cursor: pointer;
-  background: #fff;
+  background: #ffffff;
+  transition: background-color 0.15s ease;
 }
 
+.faq-row-item:last-child, .faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-row-item:hover, .faq-item:hover {
+  background-color: #fafafa;
+}
+
+.faq-question-header, .faq-question-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.faq-question-text, .faq-question {
+  font-size: 15px;
+  font-weight: 500;
+  color: #282c3f;
+  transition: color 0.2s ease;
+}
+
+.faq-arrow, .faq-arrow-icon {
+  font-size: 13px;
+  color: #535766;
+}
+
+/* Open Accordion State (Red Question & Arrow) */
+.faq-row-item.open .faq-question-text,
+.faq-item.open .faq-question {
+  color: #ff3f6c; /* StyleKart / Myntra Red Theme */
+  font-weight: 600;
+}
+
+.faq-row-item.open .faq-arrow,
+.faq-item.open .faq-arrow-icon {
+  color: #ff3f6c;
+}
+
+.faq-answer-content, .faq-answer {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #f5f5f6;
+  font-size: 14px;
+  color: #535766;
+  line-height: 1.6;
+}
 .help-message-section {
   background: #f9f9f9;
   padding: 30px;
