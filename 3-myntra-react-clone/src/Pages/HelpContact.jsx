@@ -1,8 +1,83 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaPhoneAlt, FaClock } from 'react-icons/fa';
+import { FaEnvelope, FaPhoneAlt, FaClock, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+
+const FAQS = [
+  {
+    topic: "orders",
+    q: "How do I track my order?",
+    a: "Open Orders from your account menu and select the order. You will see its current status and tracking details once it has shipped.",
+  },
+  {
+    topic: "orders",
+    q: "Can I cancel or change my order?",
+    a: "You can cancel an order from the Orders page until it is shipped. If it has already shipped, please wait for delivery and use the return option instead.",
+  },
+  {
+    topic: "shipping",
+    q: "How long does delivery take?",
+    a: "Most orders arrive in 3 to 7 working days depending on your pincode. The estimated date is shown at checkout.",
+  },
+  {
+    topic: "shipping",
+    q: "Is there a delivery charge?",
+    a: "Delivery charges, if any, are shown in your bag before you pay. Some orders qualify for free delivery.",
+  },
+  {
+    topic: "returns",
+    q: "How do I return an item?",
+    a: "Go to Orders, choose the item and tap Return. Pack it in its original condition with tags, and we will arrange a pickup.",
+  },
+  {
+    topic: "returns",
+    q: "When will I get my refund?",
+    a: "Refunds are issued to your original payment method after the returned item passes quality check. Banks may take a few extra days to show it.",
+  },
+  {
+    topic: "payments",
+    q: "Which payment methods do you accept?",
+    a: "We accept UPI, debit and credit cards, net banking and, where available, cash on delivery.",
+  },
+  {
+    topic: "payments",
+    q: "My payment failed but money was deducted.",
+    a: "Do not worry. Amounts from failed payments are usually returned to your account within 5 to 7 working days. If not, contact us with your transaction ID.",
+  },
+  {
+    topic: "account",
+    q: "How do I update my profile or address?",
+    a: "Open the account menu, choose Edit profile to change your details and Saved addresses to manage delivery addresses.",
+  },
+  {
+    topic: "account",
+    q: "I forgot my password.",
+    a: "On the login page choose the forgot password option and follow the steps sent to your registered email.",
+  },
+];
 
 const HelpContact = () => {
   const [activeTab, setActiveTab] = useState('All');
+  const [openIndex, setOpenIndex] = useState(null); // Konta FAQ open ahe te track karnyasathi
+
+  // Tab Filtering Logic
+  const filteredFaqs = activeTab === 'All'
+    ? FAQS
+    : FAQS.filter(faq => {
+        if (activeTab === 'Orders') return faq.topic === 'orders';
+        if (activeTab === 'Shipping') return faq.topic === 'shipping';
+        if (activeTab === 'Returns and refunds') return faq.topic === 'returns';
+        if (activeTab === 'Payments') return faq.topic === 'payments';
+        if (activeTab === 'Account') return faq.topic === 'account';
+        return true;
+      });
+
+  // Toggle Accordion Open/Close
+  const toggleFaq = (index) => {
+    if (openIndex === index) {
+      setOpenIndex(null); // Jar toch item opend asel tar close kara
+    } else {
+      setOpenIndex(index); // Navin item open kara
+    }
+  };
 
   return (
     <div className="help-contact-container">
@@ -10,7 +85,7 @@ const HelpContact = () => {
         <span className="help-sub-title">HELP CENTRE</span>
         <h1>How can we help?</h1>
         <p>Find quick answers below, or reach out our team. We are happy to help with orders, returns, payments and anything else[cite: 4].</p>
-        
+
         <div className="help-search-box">
           <span className="material-symbols-outlined">search</span>
           <input type="text" placeholder="Search for answers, e.g. refund" />
@@ -21,7 +96,7 @@ const HelpContact = () => {
         <div className="help-card">
           <div className="help-icon-circle"><FaEnvelope /></div>
           <h3>Email us</h3>
-          <p className="help-highlight">support@Myntra.com</p>
+          <p className="help-highlight">support@stylekart.com</p>
           <span className="help-sub-text">We reply within 24 hours</span>
         </div>
 
@@ -45,10 +120,13 @@ const HelpContact = () => {
         <h2>Frequently asked questions</h2>
         <div className="faq-tabs">
           {['All', 'Orders', 'Shipping', 'Returns and refunds', 'Payments', 'Account'].map((tab) => (
-            <button 
-              key={tab} 
+            <button
+              key={tab}
               className={`faq-tab-btn ${activeTab === tab ? 'active' : ''}`}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => {
+                setActiveTab(tab);
+                setOpenIndex(null); // Tab change kelyanantar open accordion reset kara
+              }}
             >
               {tab}
             </button>
@@ -56,15 +134,28 @@ const HelpContact = () => {
         </div>
 
         <div className="faq-list">
-          <div className="faq-item">How do I track my order?</div>
-          <div className="faq-item">Can I cancel or change my order?</div>
-          <div className="faq-item">How long does delivery take?</div>
-          <div className="faq-item">Is there a delivery charge?</div>
-          <div className="faq-item">How do I return an item?</div>
-          <div className="faq-item">When will i get my refund?</div>
-          <div className="faq-item">Which payment methods do you accept?</div>
-          <div className="faq-item">My payment failed but money was deducted.</div>
-          <div className="faq-item">How do I update my profile or address?</div>
+          {filteredFaqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div 
+                key={index} 
+                className={`faq-item ${isOpen ? 'open' : ''}`}
+                onClick={() => toggleFaq(index)}
+              >
+                <div className="faq-question-row">
+                  <span className="faq-question">{faq.q}</span>
+                  <span className="faq-arrow-icon">
+                    {isOpen ? <FaChevronUp /> : <FaChevronDown />}
+                  </span>
+                </div>
+                {isOpen && (
+                  <div className="faq-answer">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
 
