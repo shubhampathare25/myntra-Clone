@@ -420,7 +420,6 @@ a.action_container:link {
   border-color: #ff3f6c;
 }
 
-/* ---- Bag page (custom layout variant) ---- */
 .bag-custom-page {
   margin-top: 40px;
   padding: 0 40px;
@@ -471,7 +470,6 @@ a.action_container:link {
   box-sizing: border-box;
 }
 
-/* ---- Generic collection page (unused sidebar variant) ---- */
 .collection-page-container {
   padding: 20px;
 }
@@ -587,8 +585,13 @@ a.action_container:link {
   border: 1px solid #eaeaec;
   border-radius: 8px;
   background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
-
+.help-card:hover {
+  border-color: #ff3f6c; 
+  box-shadow: 0 4px 12px rgba(255, 63, 108, 0.08); 
+}
 .help-icon-circle {
   font-size: 20px;
   color: #ff3f6c;
@@ -598,6 +601,7 @@ a.action_container:link {
 .help-highlight {
   color: #ff3f6c;
   font-weight: 700;
+  font-size: 14px;
   margin: 8px 0;
 }
 
@@ -618,13 +622,10 @@ a.action_container:link {
   flex-direction: column;
 }
 
-/* Pratyek FAQ row chi styling (Separate box border kadhli ahe) */
-/* ---- FAQ SECTION STYLING ---- */
 .faq-section {
   margin-bottom: 50px;
 }
 
-/* Tab Category Buttons */
 .faq-tabs {
   display: flex;
   gap: 12px;
@@ -633,6 +634,9 @@ a.action_container:link {
 }
 
 .faq-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 8px 18px;
   border: 1px solid #d4d5d9;
   border-radius: 20px;
@@ -641,17 +645,34 @@ a.action_container:link {
   font-size: 14px;
   font-weight: 500;
   color: #282c3f;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-in-out;
+}
+
+.tab-icon {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: inherit; 
 }
 
 .faq-tab-btn:hover {
-  border-color: #282c3f;
+  border-color: #ff3f6c;
+  color: #ff3f6c;
 }
 
+.faq-tab-btn:hover .tab-icon {
+  color: #ff3f6c;
+}
+
+/* Active Selected Tab Styling */
 .faq-tab-btn.active {
-  background: #282c3f;
+  background: #0f172a; 
   color: #ffffff;
-  border-color: #282c3f;
+  border-color: #0f172a;
+}
+
+.faq-tab-btn.active .tab-icon {
+  color: #ffffff;
 }
 
 /* FAQ Card Container (Ekach main outer card) */
@@ -701,6 +722,22 @@ a.action_container:link {
   color: #535766;
 }
 
+.faq-sub-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #ff3f6c; /* StyleKart Pink/Red */
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+.faq-section h2 {
+  font-size: 32px;         
+  font-weight: 800;       
+  color: #0f172a;         
+  margin-top: 0;
+  margin-bottom: 20px;
+}
 /* Open Accordion State (Red Question & Arrow) */
 .faq-row-item.open .faq-question-text,
 .faq-item.open .faq-question {
@@ -1295,7 +1332,6 @@ a.action_container:link {
   margin: 8px 0;
 }
 
-/* --- Added Extra Classes for Product Details --- */
 .product_not_found {
   text-align: center;
   margin-top: 50px;
