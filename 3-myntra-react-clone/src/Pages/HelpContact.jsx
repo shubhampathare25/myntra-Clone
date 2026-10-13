@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaPhoneAlt, FaClock, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { 
+  FaEnvelope, 
+  FaPhoneAlt, 
+  FaClock, 
+  FaChevronDown, 
+  FaChevronUp, 
+  FaBox, 
+  FaTruck, 
+  FaUndoAlt, 
+  FaCreditCard, 
+  FaUser 
+} from 'react-icons/fa';
 
 const FAQS = [
   {
@@ -72,18 +83,28 @@ const HelpContact = () => {
   // Toggle Accordion Open/Close
   const toggleFaq = (index) => {
     if (openIndex === index) {
-      setOpenIndex(null); // Jar toch item opend asel tar close kara
+      setOpenIndex(null);
     } else {
-      setOpenIndex(index); // Navin item open kara
+      setOpenIndex(index);
     }
   };
+
+  // Icons sobat tabs array (5 buttons madhe icons sathi)
+  const tabs = [
+    { name: 'All', icon: null },
+    { name: 'Orders', icon: <FaBox /> },
+    { name: 'Shipping', icon: <FaTruck /> },
+    { name: 'Returns and refunds', icon: <FaUndoAlt /> },
+    { name: 'Payments', icon: <FaCreditCard /> },
+    { name: 'Account', icon: <FaUser /> }
+  ];
 
   return (
     <div className="help-contact-container">
       <div className="help-header">
         <span className="help-sub-title">HELP CENTRE</span>
         <h1>How can we help?</h1>
-        <p>Find quick answers below, or reach out our team. We are happy to help with orders, returns, payments and anything else</p>
+        <p>Find quick answers below, or reach out our team. <br />We are happy to help with orders, returns, payments and anything else</p>
 
         <div className="help-search-box">
           <span className="material-symbols-outlined">search</span>
@@ -116,18 +137,20 @@ const HelpContact = () => {
 
       {/* FAQ Section */}
       <div className="faq-section">
+        <span className="faq-sub-title">QUICK ANSWERS</span>
         <h2>Frequently asked questions</h2>
         <div className="faq-tabs">
-          {['All', 'Orders', 'Shipping', 'Returns and refunds', 'Payments', 'Account'].map((tab) => (
+          {tabs.map((tab) => (
             <button
-              key={tab}
-              className={`faq-tab-btn ${activeTab === tab ? 'active' : ''}`}
+              key={tab.name}
+              className={`faq-tab-btn ${activeTab === tab.name ? 'active' : ''}`}
               onClick={() => {
-                setActiveTab(tab);
-                setOpenIndex(null); // Tab change kelyanantar open accordion reset kara
+                setActiveTab(tab.name);
+                setOpenIndex(null);
               }}
             >
-              {tab}
+              {tab.icon && <span className="tab-icon">{tab.icon}</span>}
+              {tab.name}
             </button>
           ))}
         </div>
