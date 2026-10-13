@@ -56,9 +56,8 @@ const FAQS = [
 
 const HelpContact = () => {
   const [activeTab, setActiveTab] = useState('All');
-  const [openIndex, setOpenIndex] = useState(null); // Konta FAQ open ahe te track karnyasathi
-
-  // Tab Filtering Logic
+  const [openIndex, setOpenIndex] = useState(null);
+  
   const filteredFaqs = activeTab === 'All'
     ? FAQS
     : FAQS.filter(faq => {
@@ -84,7 +83,7 @@ const HelpContact = () => {
       <div className="help-header">
         <span className="help-sub-title">HELP CENTRE</span>
         <h1>How can we help?</h1>
-        <p>Find quick answers below, or reach out our team. We are happy to help with orders, returns, payments and anything else[cite: 4].</p>
+        <p>Find quick answers below, or reach out our team. We are happy to help with orders, returns, payments and anything else</p>
 
         <div className="help-search-box">
           <span className="material-symbols-outlined">search</span>
@@ -96,7 +95,7 @@ const HelpContact = () => {
         <div className="help-card">
           <div className="help-icon-circle"><FaEnvelope /></div>
           <h3>Email us</h3>
-          <p className="help-highlight">support@stylekart.com</p>
+          <p className="help-highlight">support@Myntra.com</p>
           <span className="help-sub-text">We reply within 24 hours</span>
         </div>
 
