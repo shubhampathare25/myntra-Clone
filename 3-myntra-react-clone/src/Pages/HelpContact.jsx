@@ -181,49 +181,55 @@ const HelpContact = () => {
         </div>
       </div>
 
-      {/* Send Message Form */}
-      <div className="help-message-section">
-        <h3>Still need help?</h3>
-        <h2>Send us a message</h2>
-        <p>Share as much detail as you can. If your question is about an order, add the order ID so we can look it up faster.</p>
+      {/* Send Message Section */}
+<div className="help-message-section">
+  <div className="help-message-left">
+    <span className="help-pink-sub">STILL NEED HELP?</span>
+    <h2>Send us a message</h2>
+    <p>
+      Share as much detail as you can. If your question is about an order, add the order ID so we can look it up faster.
+    </p>
+  </div>
 
-        <form className="help-form" onSubmit={(e) => e.preventDefault()}>
-          <div className="form-row">
-            <div className="form-group">
-              <label>Name</label>
-              <input type="text" placeholder="Your full name" />
-            </div>
-            <div className="form-group">
-              <label>Email</label>
-              <input type="email" placeholder="you@example.com" />
-            </div>
-          </div>
-
-          <div className="form-row">
-            <div className="form-group">
-              <label>Topic</label>
-              <select>
-                <option>Orders</option>
-                <option>Payments</option>
-                <option>Returns</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label>Order ID (optional)</label>
-              <input type="text" placeholder="e.g. SK123456" />
-            </div>
-          </div>
-
-          <div className="form-group full-width">
-            <label>How can we help?</label>
-            <textarea placeholder="Tell us what happened"></textarea>
-          </div>
-
-          <button type="submit" className="send-msg-btn">Send message</button>
-        </form>
+  <div className="help-message-right-card">
+    <form className="help-form" onSubmit={(e) => e.preventDefault()}>
+      <div className="form-row">
+        <div className="form-group">
+          <label>Name</label>
+          <input type="text" placeholder="Your full name" />
+        </div>
+        <div className="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com" />
+        </div>
       </div>
-    </div>
-  );
+
+      <div className="form-row">
+        <div className="form-group">
+          <label>Topic</label>
+          <select>
+            <option>Orders</option>
+            <option>Payments</option>
+            <option>Returns</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <label>Order ID (optional)</label>
+          <input type="text" placeholder="e.g. SK123456" />
+        </div>
+      </div>
+
+      <div className="form-group full-width">
+        <label>How can we help?</label>
+        <textarea placeholder="Tell us what happened" rows="4"></textarea>
+      </div>
+
+      <button type="submit" className="send-msg-btn">Send message</button>
+    </form>
+  </div>
+</div>
+</div>
+);
 };
 
 export default HelpContact;
