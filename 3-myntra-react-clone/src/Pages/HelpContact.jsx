@@ -80,7 +80,6 @@ const HelpContact = () => {
         return true;
       });
 
-  // Toggle Accordion Open/Close
   const toggleFaq = (index) => {
     if (openIndex === index) {
       setOpenIndex(null);
@@ -89,7 +88,6 @@ const HelpContact = () => {
     }
   };
 
-  // Icons sobat tabs array (5 buttons madhe icons sathi)
   const tabs = [
     { name: 'All', icon: null },
     { name: 'Orders', icon: <FaBox /> },
@@ -211,6 +209,9 @@ const HelpContact = () => {
             <option>Orders</option>
             <option>Payments</option>
             <option>Returns</option>
+            <option>Shipping</option>
+            <option>Account</option>
+            <option>Something else</option>
           </select>
         </div>
         <div className="form-group">
