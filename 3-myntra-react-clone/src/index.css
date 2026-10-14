@@ -741,7 +741,7 @@ a.action_container:link {
 /* Open Accordion State (Red Question & Arrow) */
 .faq-row-item.open .faq-question-text,
 .faq-item.open .faq-question {
-  color: #ff3f6c; /* StyleKart / Myntra Red Theme */
+  color: #ff3f6c; 
   font-weight: 600;
 }
 
@@ -811,7 +811,7 @@ a.action_container:link {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  margin-top: 0; /* Margin kadhli karan card madhe padding ahe */
+  margin-top: 0; 
 }
 
 .form-row {
@@ -835,6 +835,7 @@ a.action_container:link {
 .form-group input, 
 .form-group select, 
 .form-group textarea {
+  height: 120;
   padding: 12px 14px;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
@@ -851,8 +852,17 @@ a.action_container:link {
 }
 
 .form-group textarea {
-  height: 100px;
+  height: 120px;      
+  min-height: 120px !important;  
+  max-height: 250px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
   resize: vertical;
+  box-sizing: border-box;        
 }
 
 /* StyleKart Sarka Dark Pill Button */
@@ -861,7 +871,7 @@ a.action_container:link {
   color: #ffffff;
   border: none;
   padding: 14px 28px;
-  border-radius: 30px; /* Pill shape */
+  border-radius: 30px; 
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
@@ -871,7 +881,7 @@ a.action_container:link {
 }
 
 .send-msg-btn:hover {
-  background-color: #1e293b;
+  background-color: #ff3f6c !important;
 }
 
 /* Responsive design sathi */
