@@ -9,7 +9,8 @@ import {
   FaTruck, 
   FaUndoAlt, 
   FaCreditCard, 
-  FaUser 
+  FaUser,
+  FaCheckCircle 
 } from 'react-icons/fa';
 
 const FAQS = [
@@ -68,6 +69,30 @@ const FAQS = [
 const HelpContact = () => {
   const [activeTab, setActiveTab] = useState('All');
   const [openIndex, setOpenIndex] = useState(null);
+
+  // States for message, validation, and submission
+  const [message, setMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isSending, setIsSending] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // 10 characters validation check
+    if (message.trim().length < 10) {
+      setErrorMessage('Tell us a little more (at least 10 characters).');
+      return;
+    }
+
+    setErrorMessage('');
+    setIsSending(true);
+    setTimeout(() => {
+      setIsSending(false);
+      setIsSubmitted(true);
+      setMessage(''); // Reset message after success
+    }, 1000);
+  };
   
   const filteredFaqs = activeTab === 'All'
     ? FAQS
@@ -180,57 +205,86 @@ const HelpContact = () => {
       </div>
 
       {/* Send Message Section */}
-<div className="help-message-section">
-  <div className="help-message-left">
-    <span className="help-pink-sub">STILL NEED HELP?</span>
-    <h2>Send us a message</h2>
-    <p>
-      Share as much detail as you can. If your question is about an order, add the order ID so we can look it up faster.
-    </p>
-  </div>
-
-  <div className="help-message-right-card">
-    <form className="help-form" onSubmit={(e) => e.preventDefault()}>
-      <div className="form-row">
-        <div className="form-group">
-          <label>Name</label>
-          <input type="text" placeholder="Your full name" />
+      <div className="help-message-section">
+        <div className="help-message-left">
+          <span className="help-pink-sub">STILL NEED HELP?</span>
+          <h2>Send us a message</h2>
+          <p>
+            Share as much detail as you can. If your question is about an order, add the order ID so we can look it up faster.
+          </p>
         </div>
-        <div className="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="you@example.com" />
+
+        <div className="help-message-right-card">
+          {isSubmitted ? (
+            <div className="success-message-container">
+              <FaCheckCircle className="success-icon" />
+              <h2>Message sent</h2>
+              <p>Thanks for reaching out. We reply within 24 hours.</p>
+              <button 
+                type="button" 
+                className="send-another-btn" 
+                onClick={() => setIsSubmitted(false)}
+              >
+                Send another message
+              </button>
+            </div>
+          ) : (
+            <form className="help-form" onSubmit={handleSubmit}>
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Name</label>
+                  <input type="text" placeholder="Your full name" required />
+                </div>
+                <div className="form-group">
+                  <label>Email</label>
+                  <input type="email" placeholder="you@example.com" required />
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Topic</label>
+                  <select>
+                    <option>Orders</option>
+                    <option>Shipping</option>
+                    <option>Returns and refunds</option>
+                    <option>Payments</option>
+                    <option>Account</option>
+                    <option>Something else</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label>Order ID (optional)</label>
+                  <input type="text" placeholder="e.g. SK123456" />
+                </div>
+              </div>
+
+              <div className="form-group full-width">
+                <label>How can we help?</label>
+                <textarea 
+                  placeholder="Tell us what happened" 
+                  rows="4" 
+                  value={message}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                    if (e.target.value.trim().length >= 10) {
+                      setErrorMessage('');
+                    }
+                  }}
+                  required
+                ></textarea>
+                {errorMessage && <span className="error-text">{errorMessage}</span>}
+              </div>
+
+              <button type="submit" className="send-msg-btn" disabled={isSending}>
+                {isSending ? 'Sending...' : 'Send message'}
+              </button>
+            </form>
+          )}
         </div>
       </div>
-
-      <div className="form-row">
-        <div className="form-group">
-          <label>Topic</label>
-          <select>
-            <option>Orders</option>
-            <option>Payments</option>
-            <option>Returns</option>
-            <option>Shipping</option>
-            <option>Account</option>
-            <option>Something else</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label>Order ID (optional)</label>
-          <input type="text" placeholder="e.g. SK123456" />
-        </div>
-      </div>
-
-      <div className="form-group full-width">
-        <label>How can we help?</label>
-        <textarea placeholder="Tell us what happened" rows="4"></textarea>
-      </div>
-
-      <button type="submit" className="send-msg-btn">Send message</button>
-    </form>
-  </div>
-</div>
-</div>
-);
+    </div>
+  );
 };
 
 export default HelpContact;
