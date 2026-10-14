@@ -1683,3 +1683,59 @@ a.action_container:link {
   color: #fff;
   font-size: 15px;
 }
+
+/* ---- Success Message View (StyleKart Match) ---- */
+.success-message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  height: 100%;
+}
+
+.success-icon {
+  font-size: 50px !important; /* Green check icon motha kela */
+  color: #10b981 !important;
+  margin-bottom: 16px;
+}
+
+.success-message-container h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.success-message-container p {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+/* StyleKart sarka pill button */
+.send-another-btn {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  padding: 12px 28px;
+  border-radius: 30px; /* Pill shape */
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.send-another-btn:hover {
+  background: #f8fafc;
+  border-color: #0f172a;
+}
+/* Error message style */
+.error-text {
+  color: #ef4444; /* Red color */
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 4px;
+  display: block;
+}
