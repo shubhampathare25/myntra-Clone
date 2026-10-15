@@ -44,11 +44,12 @@ const Header = () => {
         <span className="search_icon material-symbols-outlined">search</span>
         <input
           className="search_input"
-          placeholder="Search products...."
+          placeholder="Search products, brands and more"
           onChange={handleSearchChange}
         />
       </div>
 
+      {/* Profile/Log in section moved right after Search Bar */}
       <div className="action_bar">
         <div
           className="action_container profile-menu-wrapper"
@@ -56,7 +57,9 @@ const Header = () => {
           onMouseLeave={() => setShowDropdown(false)}
         >
           <div className="profile-trigger">
-            <CgProfile className="profile-icon" />
+            <div className="profile-icon-circle">
+              <CgProfile className="profile-icon" />
+            </div>
             <span className="action_name">Log in</span>
             <FaChevronDown className="chevron-icon" />
           </div>
@@ -64,7 +67,7 @@ const Header = () => {
           {showDropdown && (
             <div className="profile-dropdown">
               <div className="profile-welcome-title">
-                Welcome to Myntra
+                Welcome to StyleKart
               </div>
               <p className="profile-welcome-desc">
                 Log in to track orders, save favourites and check out faster.
