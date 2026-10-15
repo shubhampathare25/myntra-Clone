@@ -51,139 +51,65 @@ const Header = () => {
 
       <div className="action_bar">
         <div
-          className="action_container"
-          style={{ position: "relative", cursor: "pointer" }}
+          className="action_container profile-menu-wrapper"
           onMouseEnter={() => setShowDropdown(true)}
           onMouseLeave={() => setShowDropdown(false)}
         >
-          <div
-            style={{
-              textDecoration: "none",
-              color: "black",
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              gap: "4px",
-            }}
-          >
-            <CgProfile style={{ fontSize: "20px" }} />
-            <span className="action_name" style={{ fontWeight: "600" }}>Log in</span>
-            <FaChevronDown style={{ fontSize: "10px", marginTop: "2px" }} />
+          <div className="profile-trigger">
+            <CgProfile className="profile-icon" />
+            <span className="action_name">Log in</span>
+            <FaChevronDown className="chevron-icon" />
           </div>
 
           {showDropdown && (
-            <div
-              style={{
-                position: "absolute",
-                top: "100%",
-                right: 0,
-                backgroundColor: "white",
-                boxShadow: "0px 4px 12px rgba(0,0,0,0.15)",
-                borderRadius: "8px",
-                width: "240px",
-                padding: "16px",
-                zIndex: 1000,
-                textAlign: "left",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: "15px",
-                  fontWeight: "bold",
-                  color: "#282c3f",
-                  marginBottom: "4px",
-                }}
-              >
-                Welcome to StyleKart
+            <div className="profile-dropdown">
+              <div className="profile-welcome-title">
+                Welcome to Myntra
               </div>
-              <p style={{ fontSize: "12px", color: "#696e79", margin: "0 0 14px 0", lineHeight: "1.4" }}>
+              <p className="profile-welcome-desc">
                 Log in to track orders, save favourites and check out faster.
               </p>
 
               <Link
                 to="/login?type=user"
                 onClick={() => setShowDropdown(false)}
-                style={{
-                  display: "block",
-                  textAlign: "center",
-                  background: "#141b2d",
-                  color: "#fff",
-                  padding: "10px",
-                  borderRadius: "6px",
-                  textDecoration: "none",
-                  fontWeight: "bold",
-                  fontSize: "13px",
-                  marginBottom: "12px",
-                }}
+                className="login-signup-btn"
               >
                 Log in or sign up
               </Link>
 
-              <div style={{ borderTop: "1px solid #eaeaec", paddingTop: "8px", display: "flex", flexDirection: "column", gap: "2px" }}>
+              <div className="profile-links-group">
                 <Link
                   to="/orders"
                   onClick={() => setShowDropdown(false)}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    padding: "8px 4px",
-                    color: "#282c3f",
-                    textDecoration: "none",
-                    fontSize: "13px",
-                  }}
+                  className="profile-dropdown-link"
                 >
-                  <FaBox style={{ fontSize: "13px", color: "#535766" }} /> Orders
+                  <FaBox className="link-icon" /> Orders
                 </Link>
 
                 <Link
                   to="/wishlist"
                   onClick={() => setShowDropdown(false)}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    padding: "8px 4px",
-                    color: "#282c3f",
-                    textDecoration: "none",
-                    fontSize: "13px",
-                  }}
+                  className="profile-dropdown-link"
                 >
-                  <IoHeart style={{ fontSize: "14px", color: "#535766" }} /> Wishlist
+                  <IoHeart className="link-icon" /> Wishlist
                 </Link>
 
                 <Link
                   to="/contact"
                   onClick={() => setShowDropdown(false)}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    padding: "8px 4px",
-                    color: "#282c3f",
-                    textDecoration: "none",
-                    fontSize: "13px",
-                  }}
+                  className="profile-dropdown-link"
                 >
-                  <FaHeadset style={{ fontSize: "13px", color: "#535766" }} /> Help and contact
+                  <FaHeadset className="link-icon" /> Help and contact
                 </Link>
 
-                <div style={{ borderTop: "1px solid #eaeaec", marginTop: "4px", paddingTop: "4px" }}>
+                <div className="admin-link-wrapper">
                   <Link
                     to="/admin/login"
                     onClick={() => setShowDropdown(false)}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "12px",
-                      padding: "8px 4px",
-                      color: "#282c3f",
-                      textDecoration: "none",
-                      fontSize: "13px",
-                      fontWeight: "500",
-                    }}
+                    className="profile-dropdown-link admin-link"
                   >
-                    <FaShieldAlt style={{ fontSize: "13px", color: "#535766" }} /> Admin login
+                    <FaShieldAlt className="link-icon" /> Admin login
                   </Link>
                 </div>
               </div>
@@ -191,24 +117,16 @@ const Header = () => {
           )}
         </div>
 
-        <Link
-          to="/wishlist"
-          className="action_container"
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          <IoHeart style={{ fontSize: "22px" }} />
+        <Link to="/wishlist" className="action_container">
+          <IoHeart className="action-icon-svg" />
           <span className="action_name">Wishlist</span>
           {wishlist.length > 0 && (
             <span className="count_badge">{wishlist.length}</span>
           )}
         </Link>
 
-        <Link
-          to="/bag"
-          className="action_container"
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          <RiShoppingBagFill style={{ fontSize: "20px" }} />
+        <Link to="/bag" className="action_container">
+          <RiShoppingBagFill className="action-icon-svg" />
           <span className="action_name">Bag</span>
           {bag.length > 0 && <span className="count_badge">{bag.length}</span>}
         </Link>
