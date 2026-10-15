@@ -3,8 +3,7 @@ import { bagActions } from "../store/bagSlice";
 import { wishlistActions } from "../store/wishlistSlice"; 
 import { GrAddCircle } from "react-icons/gr";
 import { AiFillDelete, AiFillHeart, AiOutlineHeart } from "react-icons/ai"; 
-import { Link } from "react-router-dom"; // 1. Link import kela ahe
-
+import { Link } from "react-router-dom"; 
 const HomeItem = ({ item }) => {
   const dispatch = useDispatch();
 
@@ -33,7 +32,6 @@ const HomeItem = ({ item }) => {
   return (
     <div className="item-container">
       <div style={{ position: "relative", width: "100%" }}>
-        {/* 2. Image la Link madhe wrap kele ahe jine click kel ki product detail page open hoil */}
         <Link to={`/product/${item.id}`}>
           <img 
             className="item-image" 
