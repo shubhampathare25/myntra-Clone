@@ -239,7 +239,8 @@ header {
 /* ---- Header action icons (wishlist/bag) ---- */
 .action_container {
   display: flex;
-  flex-direction: row;
+  color: #282c3f !important;
+  flex-direction: column;
   align-items: center;
   position: relative;
   text-decoration: none;
@@ -1696,7 +1697,7 @@ a.action_container:link {
 }
 
 .success-icon {
-  font-size: 50px !important; /* Green check icon motha kela */
+  font-size: 50px !important; 
   color: #10b981 !important;
   margin-bottom: 16px;
 }
@@ -1720,7 +1721,7 @@ a.action_container:link {
   color: #0f172a;
   border: 1px solid #cbd5e1;
   padding: 12px 28px;
-  border-radius: 30px; /* Pill shape */
+  border-radius: 30px; 
   font-weight: 700;
   font-size: 14px;
   cursor: pointer;
@@ -1733,9 +1734,131 @@ a.action_container:link {
 }
 /* Error message style */
 .error-text {
-  color: #ef4444; /* Red color */
+  color: #ef4444; 
   font-size: 13px;
   font-weight: 500;
   margin-top: 4px;
   display: block;
+}
+
+/* ---- Profile Dropdown Styles ---- */
+.profile-menu-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-trigger {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.profile-trigger .action_name {
+  font-weight: 600;
+}
+
+.profile-icon {
+  font-size: 20px;
+}
+
+.chevron-icon {
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  width: 240px;
+  padding: 16px;
+  z-index: 1000;
+  text-align: left;
+}
+
+.profile-welcome-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #282c3f;
+  margin-bottom: 4px;
+}
+
+.profile-welcome-desc {
+  font-size: 12px;
+  color: #696e79;
+  margin: 0 0 14px 0;
+  line-height: 1.4;
+}
+
+/* "Log in or sign up" Button & Hover Effect */
+.login-signup-btn {
+  display: block;
+  text-align: center;
+  background: #141b2d;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.login-signup-btn:hover {
+  background-color: #f54e77 !important; 
+}
+
+.profile-links-group {
+  border-top: 1px solid #eaeaec;
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Dropdown Links & Hover Effect */
+.profile-dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 4px;
+  color: #282c3f;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.profile-dropdown-link .link-icon {
+  font-size: 13px;
+  color: #535766;
+  transition: color 0.2s ease;
+}
+
+.profile-dropdown-link:hover {
+  color: #f54e77 !important;
+}
+
+.profile-dropdown-link:hover .link-icon {
+  color: #f54e77 !important;
+}
+
+.admin-link-wrapper {
+  border-top: 1px solid #eaeaec;
+  margin-top: 4px;
+  padding-top: 4px;
+}
+
+.admin-link {
+  font-weight: 500;
+}
+
+.action-icon-svg {
+  font-size: 22px;
 }
