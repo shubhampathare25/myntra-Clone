@@ -13,6 +13,25 @@ function App() {
       <Header />
       <FetchItems />
       {fetchStatus.currentlyFetching ? <LoadingSpinner /> : <Outlet />}
+      
+      {/* --- STAY IN THE LOOP BANNER */}
+      <div className="footer-newsletter-banner">
+        <div className="newsletter-left">
+          <span className="newsletter-subtitle">STAY IN THE LOOP</span>
+          <h2>Style inspiration, delivered.</h2>
+          <p>Get early access to fresh arrivals and exclusive offers.</p>
+        </div>
+        <div className="newsletter-right">
+          <div className="newsletter-input-group">
+            <input 
+              type="email" 
+              placeholder="Enter your email address" 
+            />
+            <button type="button">Subscribe</button>
+          </div>
+        </div>
+      </div>
+
       <Footer />
     </>
   );
