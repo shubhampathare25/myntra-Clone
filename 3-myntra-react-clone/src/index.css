@@ -101,29 +101,104 @@ header {
   width: 250px;
 }
 
-.footer_container {
-  padding: 30px 0px 40px 0px;
-  background: #FAFBFC;
-  display: flex;
-  justify-content: space-evenly;
+/* ---- StyleKart Professional Footer Styles ---- */
+footer {
+  background-color: #0b0f19 !important;
+  color: #94a3b8 !important;
+  padding: 60px 20px 20px 20px;
+  margin-top: 60px;
+  font-family: Arial, sans-serif;
 }
 
-.footer_column {
-  display: flex;
-  flex-direction: column;
+.footer_container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #1e293b;
 }
 
 .footer_column h3 {
-  color: #282c3f;
-  font-size: 14px;
-  margin-bottom: 25px;
+  color: #ffffff !important;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
 .footer_column a {
-  color: #696b79;
-  font-size: 15px;
+  display: block;
+  color: #94a3b8 !important;
   text-decoration: none;
-  padding-bottom: 5px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  transition: color 0.2s;
+}
+
+.footer_column a:hover {
+  color: #ffffff !important;
+}
+
+.footer-logo-text {
+  color: #ffffff !important; 
+  font-size: 24px;
+  font-weight: 800;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.footer-bio, 
+.footer-promise-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #94a3b8 !important;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 25px;
+  font-size: 13px;
+  color: #64748b !important;
+}
+/* Footer Brand Logo Flex Alignment */
+.footer-logo-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.footer-bag-icon {
+  font-size: 32px;
+  color: #ffffff !important;
+}
+
+.footer-logo-text {
+  color: #ffffff !important;
+  font-size: 24px;
+  font-weight: 800;
+}
+/* Footer Brand Logo Flex Alignment (Myntra 'M' Icon + Text) */
+.footer-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.footer-myntra-logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-brand-title {
+  color: #ffffff !important;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 .copyright {
