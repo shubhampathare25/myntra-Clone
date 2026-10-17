@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import { 
-  FaEnvelope, 
-  FaPhoneAlt, 
-  FaClock, 
-  FaChevronDown, 
-  FaChevronUp, 
-  FaBox, 
-  FaTruck, 
-  FaUndoAlt, 
-  FaCreditCard, 
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  FaEnvelope,
+  FaPhoneAlt,
+  FaClock,
+  FaChevronDown,
+  FaChevronUp,
+  FaBox,
+  FaTruck,
+  FaUndoAlt,
+  FaCreditCard,
   FaUser,
-  FaCheckCircle 
-} from 'react-icons/fa';
+  FaCheckCircle,
+} from "react-icons/fa";
 
 const FAQS = [
   {
@@ -67,12 +68,12 @@ const FAQS = [
 ];
 
 const HelpContact = () => {
-  const [activeTab, setActiveTab] = useState('All');
+  const [activeTab, setActiveTab] = useState("All");
   const [openIndex, setOpenIndex] = useState(null);
 
   // States for message, validation, and submission
-  const [message, setMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [message, setMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -81,29 +82,31 @@ const HelpContact = () => {
 
     // 10 characters validation check
     if (message.trim().length < 10) {
-      setErrorMessage('Tell us a little more (at least 10 characters).');
+      setErrorMessage("Tell us a little more (at least 10 characters).");
       return;
     }
 
-    setErrorMessage('');
+    setErrorMessage("");
     setIsSending(true);
     setTimeout(() => {
       setIsSending(false);
       setIsSubmitted(true);
-      setMessage(''); // Reset message after success
+      setMessage(""); // Reset message after success
     }, 1000);
   };
-  
-  const filteredFaqs = activeTab === 'All'
-    ? FAQS
-    : FAQS.filter(faq => {
-        if (activeTab === 'Orders') return faq.topic === 'orders';
-        if (activeTab === 'Shipping') return faq.topic === 'shipping';
-        if (activeTab === 'Returns and refunds') return faq.topic === 'returns';
-        if (activeTab === 'Payments') return faq.topic === 'payments';
-        if (activeTab === 'Account') return faq.topic === 'account';
-        return true;
-      });
+
+  const filteredFaqs =
+    activeTab === "All"
+      ? FAQS
+      : FAQS.filter((faq) => {
+          if (activeTab === "Orders") return faq.topic === "orders";
+          if (activeTab === "Shipping") return faq.topic === "shipping";
+          if (activeTab === "Returns and refunds")
+            return faq.topic === "returns";
+          if (activeTab === "Payments") return faq.topic === "payments";
+          if (activeTab === "Account") return faq.topic === "account";
+          return true;
+        });
 
   const toggleFaq = (index) => {
     if (openIndex === index) {
@@ -114,12 +117,12 @@ const HelpContact = () => {
   };
 
   const tabs = [
-    { name: 'All', icon: null },
-    { name: 'Orders', icon: <FaBox /> },
-    { name: 'Shipping', icon: <FaTruck /> },
-    { name: 'Returns and refunds', icon: <FaUndoAlt /> },
-    { name: 'Payments', icon: <FaCreditCard /> },
-    { name: 'Account', icon: <FaUser /> }
+    { name: "All", icon: null },
+    { name: "Orders", icon: <FaBox /> },
+    { name: "Shipping", icon: <FaTruck /> },
+    { name: "Returns and refunds", icon: <FaUndoAlt /> },
+    { name: "Payments", icon: <FaCreditCard /> },
+    { name: "Account", icon: <FaUser /> },
   ];
 
   return (
@@ -127,7 +130,10 @@ const HelpContact = () => {
       <div className="help-header">
         <span className="help-sub-title">HELP CENTRE</span>
         <h1>How can we help?</h1>
-        <p>Find quick answers below, or reach out our team. <br />We are happy to help with orders, returns, payments and anything else</p>
+        <p>
+          Find quick answers below, or reach out our team. <br />
+          We are happy to help with orders, returns, payments and anything else
+        </p>
 
         <div className="help-search-box">
           <span className="material-symbols-outlined">search</span>
@@ -137,24 +143,34 @@ const HelpContact = () => {
 
       <div className="help-cards-section">
         <div className="help-card">
-          <div className="help-icon-circle"><FaEnvelope /></div>
+          <div className="help-icon-circle">
+            <FaEnvelope />
+          </div>
           <h3>Email us</h3>
           <p className="help-highlight">support@Myntra.com</p>
           <span className="help-sub-text">We reply within 24 hours</span>
         </div>
 
         <div className="help-card">
-          <div className="help-icon-circle"><FaPhoneAlt /></div>
-          <h3>Call us</h3>
-          <p className="help-highlight">+91 00000 00000</p>
-          <span className="help-sub-text">Speak to a support executive</span>
-        </div>
+  <div className="help-icon-circle">
+    <FaPhoneAlt />
+  </div>
+  <h3>Call us</h3>
+  <a href="tel:+910000000000" className="help-highlight help-link-block">
+    +91 00000 00000
+  </a>
+  <span className="help-sub-text">Speak to a support executive</span>
+</div>
 
         <div className="help-card">
-          <div className="help-icon-circle"><FaClock /></div>
+          <div className="help-icon-circle">
+            <FaClock />
+          </div>
           <h3>Support hours</h3>
-          <p className="help-highlight">Mon to Sat, 9 AM to 8 PM IST</p>
-          <span className="help-sub-text">Track an order instead</span>
+          <p className="help-sub-text">Mon to Sat, 9 AM to 8 PM IST</p>
+          <Link to="/login" className="help-highlight help-link-block">
+            Track an order instead
+          </Link>
         </div>
       </div>
 
@@ -166,7 +182,7 @@ const HelpContact = () => {
           {tabs.map((tab) => (
             <button
               key={tab.name}
-              className={`faq-tab-btn ${activeTab === tab.name ? 'active' : ''}`}
+              className={`faq-tab-btn ${activeTab === tab.name ? "active" : ""}`}
               onClick={() => {
                 setActiveTab(tab.name);
                 setOpenIndex(null);
@@ -182,9 +198,9 @@ const HelpContact = () => {
           {filteredFaqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
-              <div 
-                key={index} 
-                className={`faq-item ${isOpen ? 'open' : ''}`}
+              <div
+                key={index}
+                className={`faq-item ${isOpen ? "open" : ""}`}
                 onClick={() => toggleFaq(index)}
               >
                 <div className="faq-question-row">
@@ -193,11 +209,7 @@ const HelpContact = () => {
                     {isOpen ? <FaChevronUp /> : <FaChevronDown />}
                   </span>
                 </div>
-                {isOpen && (
-                  <div className="faq-answer">
-                    {faq.a}
-                  </div>
-                )}
+                {isOpen && <div className="faq-answer">{faq.a}</div>}
               </div>
             );
           })}
@@ -210,7 +222,8 @@ const HelpContact = () => {
           <span className="help-pink-sub">STILL NEED HELP?</span>
           <h2>Send us a message</h2>
           <p>
-            Share as much detail as you can. If your question is about an order, add the order ID so we can look it up faster.
+            Share as much detail as you can. If your question is about an order,
+            add the order ID so we can look it up faster.
           </p>
         </div>
 
@@ -220,9 +233,9 @@ const HelpContact = () => {
               <FaCheckCircle className="success-icon" />
               <h2>Message sent</h2>
               <p>Thanks for reaching out. We reply within 24 hours.</p>
-              <button 
-                type="button" 
-                className="send-another-btn" 
+              <button
+                type="button"
+                className="send-another-btn"
                 onClick={() => setIsSubmitted(false)}
               >
                 Send another message
@@ -261,23 +274,29 @@ const HelpContact = () => {
 
               <div className="form-group full-width">
                 <label>How can we help?</label>
-                <textarea 
-                  placeholder="Tell us what happened" 
-                  rows="4" 
+                <textarea
+                  placeholder="Tell us what happened"
+                  rows="4"
                   value={message}
                   onChange={(e) => {
                     setMessage(e.target.value);
                     if (e.target.value.trim().length >= 10) {
-                      setErrorMessage('');
+                      setErrorMessage("");
                     }
                   }}
                   required
                 ></textarea>
-                {errorMessage && <span className="error-text">{errorMessage}</span>}
+                {errorMessage && (
+                  <span className="error-text">{errorMessage}</span>
+                )}
               </div>
 
-              <button type="submit" className="send-msg-btn" disabled={isSending}>
-                {isSending ? 'Sending...' : 'Send message'}
+              <button
+                type="submit"
+                className="send-msg-btn"
+                disabled={isSending}
+              >
+                {isSending ? "Sending..." : "Send message"}
               </button>
             </form>
           )}
