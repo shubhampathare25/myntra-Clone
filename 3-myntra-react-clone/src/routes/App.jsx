@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation} from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import FetchItems from "../components/Fetchitems";
@@ -7,6 +7,7 @@ import LoadingSpinner from "../components/LoadingSpinner";
 
 function App() {
   const fetchStatus = useSelector((store) => store.fetchStatus);
+  const location = useLocation();
 
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
       {fetchStatus.currentlyFetching ? <LoadingSpinner /> : <Outlet />}
       
       {/* --- STAY IN THE LOOP BANNER */}
+      {location.pathname === "/" && (
       <div className="footer-newsletter-banner">
         <div className="newsletter-left">
           <span className="newsletter-subtitle">STAY IN THE LOOP</span>
@@ -31,7 +33,7 @@ function App() {
           </div>
         </div>
       </div>
-
+      )}
       <Footer />
     </>
   );
