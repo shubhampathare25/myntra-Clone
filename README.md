@@ -50,13 +50,11 @@ The **Myntra React Clone** is a fully responsive, feature-rich front-end web app
 
 ## Project Structure
 ```
-## Project Structure
+## 📁 Project Structure
 
+```text
 3-myntra-react-clone/
-│
 ├── public/
-│   └── images/
-│
 ├── src/
 │   ├── components/
 │   │   ├── BagItem.jsx
@@ -67,19 +65,43 @@ The **Myntra React Clone** is a fully responsive, feature-rich front-end web app
 │   │   ├── HomeItem.jsx
 │   │   └── LoadingSpinner.jsx
 │   │
+│   ├── Pages/
+│   │   ├── AdminLogin.jsx
+│   │   ├── Beauty.jsx
+│   │   ├── Checkout.jsx
+│   │   ├── HelpContact.jsx
+│   │   ├── Home&Living.jsx
+│   │   ├── Kids.jsx
+│   │   ├── Men.jsx
+│   │   ├── Orders.jsx
+│   │   ├── ProductDetails.jsx
+│   │   ├── UserLogin.jsx
+│   │   └── Women.jsx
+│   │
 │   ├── routes/
 │   │   ├── App.jsx
 │   │   ├── Bag.jsx
-│   │   └── Home.jsx
+│   │   ├── Home.jsx
+│   │   └── Wishlist.jsx
 │   │
 │   ├── store/
 │   │   ├── bagSlice.js
 │   │   ├── fetchStatusSlice.js
 │   │   ├── index.js
-│   │   └── itemsSlice.js
+│   │   ├── itemsSlice.js
+│   │   ├── searchSlice.js
+│   │   └── wishlistSlice.js
 │   │
 │   ├── index.css
 │   └── main.jsx
+│
+├── .eslintrc.cjs
+├── .gitignore
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
 ```
 ## Getting Started Locally
 
@@ -121,10 +143,10 @@ To run the backend server locally, follow these steps:
 ## Preview
 
 ### Home page
-<img width="960" height="505" alt="Screenshot 2026-08-25 221108" src="https://github.com/user-attachments/assets/75db59bb-010f-447c-b483-e396289fd32c" />
+<img width="941" height="420" alt="Screenshot 2026-10-19 111800" src="https://github.com/user-attachments/assets/4f5eef25-652c-4fe6-84d3-064848303efa" />
 
 ### Bag page
-<img width="949" height="392" alt="Screenshot 2026-08-25 221921" src="https://github.com/user-attachments/assets/e3796698-a4fa-45e6-805e-1efe58f07ff6" />
+<img width="932" height="420" alt="Screenshot 2026-10-19 111843" src="https://github.com/user-attachments/assets/557fc5d3-7419-406e-84d4-336fe5a55fdd" />
 
 ## Usage
 
