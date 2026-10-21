@@ -1229,7 +1229,11 @@ a.action_container:link {
   background: #fff;
   border: 1px solid #eaeaec;
   border-radius: 8px;
-  padding: 24px;
+  padding: 20px; 
+  position: sticky;
+  top: 90px; 
+  max-height: calc(100vh - 110px); 
+  overflow-y: auto; 
 }
 
 .filter_heading_box {
