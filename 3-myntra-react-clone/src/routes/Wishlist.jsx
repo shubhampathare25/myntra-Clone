@@ -9,7 +9,7 @@ const Wishlist = () => {
 
   const wishlistItems = items.filter((item) => wishlistIds.includes(item.id));
 
-  const handleMoveToCart = (itemId) => {
+  const handleMoveToBag = (itemId) => {
     dispatch(bagActions.addToBag(itemId));
     dispatch(wishlistActions.removeFromWishlist(itemId));
   };
@@ -21,97 +21,56 @@ const Wishlist = () => {
   return (
     <>
       <main>
-        <div
-          className="wishlist-page"
-          style={{ padding: "40px 20px", minHeight: "400px", maxWidth: "1200px", margin: "0 auto" }}
-        >
-          <h2 style={{ marginBottom: "20px", fontWeight: "bold" }}>
+        <div className="wishlist-page">
+          <h2 className="wishlist-page-heading">
             My Wishlist ({wishlistItems.length} items)
           </h2>
 
           {wishlistItems.length === 0 ? (
-            <p style={{ fontSize: "18px", color: "#717171" }}>
+            <p className="wishlist-empty-text">
               Your Wishlist is empty!
             </p>
           ) : (
-            <div
-              className="items-container"
-              style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}
-            >
+            <div className="wishlist-items-grid">
               {wishlistItems.map((item) => (
-                <div 
-                  key={item.id} 
-                  className="item-container"
-                  style={{
-                    width: "220px",
-                    border: "1px solid #eaeaec",
-                    borderRadius: "4px",
-                    padding: "10px",
-                    backgroundColor: "#fff",
-                    position: "relative"
-                  }}
-                >
-                  <img 
-                    className="item-image" 
-                    src={item.image} 
-                    alt={item.item_name}
-                    style={{ width: "100%", height: "260px", objectFit: "cover" }} 
-                  />
-                  
-                  <div className="company-name" style={{ fontWeight: "bold", fontSize: "14px", marginTop: "10px" }}>
-                    {item.company}
-                  </div>
-                  <div className="item-name" style={{ color: "#535766", fontSize: "14px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                    {item.item_name}
-                  </div>
-                  <div className="price" style={{ marginTop: "5px", marginBottom: "10px" }}>
-                    <span className="current-price" style={{ fontWeight: "bold", fontSize: "14px" }}>Rs {item.current_price} </span>
-                    <span className="original-price" style={{ textDecoration: "line-through", color: "#7e818c", fontSize: "12px", marginLeft: "5px" }}>Rs {item.original_price} </span>
-                    <span className="discount" style={{ color: "#ff905a", fontSize: "12px", marginLeft: "5px" }}>({item.discount_percentage}% OFF)</span>
-                  </div>
-
+                <div key={item.id} className="wishlist-card">
+                  {/* Top Right Cross / Remove Icon Button */}
                   <button
                     type="button"
-                    onClick={() => handleMoveToCart(item.id)}
-                    style={{
-                      width: "100%",
-                      backgroundColor: "#03a685",
-                      color: "#fff",
-                      border: "none",
-                      padding: "10px 0",
-                      borderRadius: "4px",
-                      fontWeight: "bold",
-                      cursor: "pointer",
-                      marginBottom: "8px"
-                    }}
+                    className="wishlist-cross-remove-btn"
+                    onClick={() => handleRemoveFromWishlist(item.id)}
+                    title="Remove"
                   >
-                    Move to Cart
+                    &#10005;
                   </button>
 
+                  <img 
+                    className="wishlist-card-image" 
+                    src={item.image} 
+                    alt={item.item_name}
+                  />
+                  
+                  <div className="wishlist-card-details">
+                    <div className="wishlist-company-title">
+                      {item.company}
+                    </div>
+                    <div className="wishlist-item-desc">
+                      {item.item_name}
+                    </div>
+                    <div className="wishlist-price-box">
+                      <span className="wishlist-current-price">Rs {item.current_price} </span>
+                      <span className="wishlist-original-price">Rs {item.original_price} </span>
+                      <span className="wishlist-discount-tag">({item.discount_percentage}% OFF)</span>
+                    </div>
+                  </div>
+
+                  {/* Myntra Styled MOVE TO BAG Button */}
                   <button
                     type="button"
-                    onClick={() => handleRemoveFromWishlist(item.id)}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#fff5f7";
-                      e.currentTarget.style.borderColor = "#ff3f6c";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "#fff";
-                      e.currentTarget.style.borderColor = "#d4d5d9";
-                    }}
-                    style={{
-                      width: "100%",
-                      backgroundColor: "#fff",
-                      color: "#ff3f6c",
-                      border: "1px solid #d4d5d9",
-                      padding: "8px 0",
-                      borderRadius: "4px",
-                      fontWeight: "bold",
-                      cursor: "pointer",
-                      transition: "background-color 0.2s, border-color 0.2s"
-                    }}
+                    className="wishlist-move-to-bag-btn"
+                    onClick={() => handleMoveToBag(item.id)}
                   >
-                    Remove
+                    MOVE TO BAG
                   </button>
                 </div>
               ))}
