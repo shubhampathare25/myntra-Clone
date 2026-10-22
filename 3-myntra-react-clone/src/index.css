@@ -2197,3 +2197,157 @@ button.btn-add-bag:hover,
 .action-icon-svg {
   font-size: 22px;
 }
+/* ---- Professional Bag Item Card Styles ---- */
+.bag-item-card {
+  display: flex;
+  padding: 15px;
+  border: 1px solid #eaeaec;
+  background-color: #fff;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top-Right Cross Icon Button */
+.bag-item-cross-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: #535766;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.2s ease;
+}
+
+.bag-item-cross-btn:hover {
+  color: #ff3f6c;
+}
+
+.bag-item-left {
+  flex-shrink: 0;
+}
+
+.bag-item-img {
+  width: 110px;
+  height: 148px;
+  object-fit: cover;
+  display: block;
+}
+
+.bag-item-right {
+  padding-left: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bag-item-company {
+  font-weight: bold;
+  font-size: 14px;
+  color: #282c3f;
+}
+
+.bag-item-title {
+  color: #535766;
+  font-size: 14px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 350px;
+}
+
+.bag-item-price-box {
+  margin-bottom: 8px;
+}
+
+.bag-current-price {
+  font-weight: bold;
+  font-size: 14px;
+  color: #282c3f;
+}
+
+.bag-original-price {
+  text-decoration: line-through;
+  color: #7e818c;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.bag-discount-tag {
+  color: #ff905a;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.bag-quantity-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.bag-qty-label {
+  color: #535766;
+  font-size: 13px;
+}
+
+.bag-qty-btn {
+  border: 1px solid #d4d5d9;
+  background: #fff;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  border-radius: 2px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bag-qty-btn:hover {
+  border-color: #282c3f;
+}
+
+.bag-qty-value {
+  font-weight: bold;
+  padding: 0 4px;
+}
+
+.bag-item-actions {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.bag-action-wishlist {
+  color: #282c3f;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.bag-action-wishlist:hover {
+  color: #ff3f6c;
+}
+
+.bag-action-separator {
+  color: #d4d5d9;
+}
+
+.bag-action-remove {
+  color: #ff3f6c;
+  cursor: pointer;
+}
+
+.bag-action-remove:hover {
+  opacity: 0.8;
+}
