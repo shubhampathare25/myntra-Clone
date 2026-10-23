@@ -4,6 +4,7 @@ import { wishlistActions } from "../store/wishlistSlice";
 import { GrAddCircle } from "react-icons/gr";
 import { AiFillDelete, AiFillHeart, AiOutlineHeart } from "react-icons/ai"; 
 import { Link } from "react-router-dom"; 
+
 const HomeItem = ({ item }) => {
   const dispatch = useDispatch();
 
@@ -29,40 +30,25 @@ const HomeItem = ({ item }) => {
     }
   };
 
+  // Image path la root pasun load karnyasathi leading '/' ensure करतो
+  const imagePath = item.image.startsWith('/') ? item.image : `/${item.image}`;
+
   return (
     <div className="item-container">
-      <div style={{ position: "relative", width: "100%" }}>
+      <div className="item-image-wrapper">
         <Link to={`/product/${item.id}`}>
           <img 
             className="item-image" 
-            src={item.image} 
-            alt="item image" 
-            style={{ width: "100%", display: "block", cursor: "pointer" }} 
+            src={imagePath} 
+            alt={item.item_name} 
           />
         </Link>
         
-        <div 
-          onClick={handleToggleWishlist}
-          style={{
-            position: "absolute",
-            top: "10px",
-            right: "10px",
-            backgroundColor: "#ffffff",
-            borderRadius: "50%",
-            width: "32px",
-            height: "32px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
-            cursor: "pointer",
-            zIndex: 2
-          }}
-        >
+        <div className="item-wishlist-icon" onClick={handleToggleWishlist}>
           {isWishlisted ? (
-            <AiFillHeart style={{ fontSize: "18px", color: "#ff3f6c" }} />
+            <AiFillHeart className="wishlist-icon-filled" />
           ) : (
-            <AiOutlineHeart style={{ fontSize: "18px", color: "#282c3f" }} />
+            <AiOutlineHeart className="wishlist-icon-outline" />
           )}
         </div>
       </div>
