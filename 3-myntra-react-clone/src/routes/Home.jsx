@@ -1,5 +1,6 @@
-import HomeItem from "../components/HomeItem";
 import { useSelector } from "react-redux";
+import HomeItem from "../components/HomeItem";
+import HomeCategory from "../components/HomeCategory";
 
 const Home = () => {
   const items = useSelector((store) => store.items);
@@ -10,24 +11,20 @@ const Home = () => {
     return (
       item.item_name.toLowerCase().includes(query) ||
       item.company.toLowerCase().includes(query) ||
-      item.category.toLowerCase().includes(query)
+      (item.category && item.category.toLowerCase().includes(query))
     );
   });
 
   return (
     <main>
+      {/* Search active nasel tevha fukt Shop by Category section disel */}
+      {!searchQuery && <HomeCategory />}
+
+      {/* Featured Products / Filtered Items Grid */}
       <div className="items-container">
         {filteredItems.length === 0 ? (
-          <p
-            style={{
-              textAlign: "center",
-              width: "100%",
-              fontSize: "18px",
-              color: "#717171",
-              padding: "40px",
-            }}
-          >
-            No product found matcing "{searchQuery}"
+          <p className="no-products-text">
+            No product found matching "{searchQuery}"
           </p>
         ) : (
           filteredItems.map((item) => <HomeItem key={item.id} item={item} />)
