@@ -21,6 +21,7 @@ import Checkout from "./Pages/Checkout.jsx";
 import HelpContact from "./Pages/HelpContact.jsx";
 import Orders from "./Pages/Orders.jsx";
 import ProductDetails from "./Pages/ProductDetails.jsx";
+import CategoryPage from "./routes/CategoryPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <ProductDetails />
+      },
+      {
+        path: "/category/:categoryName",
+        element: <CategoryPage />
       }
     ],
   },
