@@ -7,35 +7,35 @@ const HomeCategory = () => {
       title: "Men",
       subtitle: "Everyday essentials and standout styles",
       image: "https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?q=80&w=600",
-      path: "/category/men"
+      path: "/men" // Direct path to Men page
     },
     {
       id: "women",
       title: "Women",
       subtitle: "Fresh fashion for every moment",
       image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=600",
-      path: "/category/women"
+      path: "/women" // Direct path to Women page
     },
     {
       id: "kids",
       title: "Kids",
       subtitle: "Big style for little trendsetters",
       image: "https://images.unsplash.com/photo-1514090458221-65bb69cf63e6?q=80&w=600",
-      path: "/category/kids"
+      path: "/kids" // Direct path to Kids page
     },
     {
       id: "beauty",
       title: "Beauty",
       subtitle: "Beauty picks made for you",
       image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600",
-      path: "/category/beauty"
+      path: "/beauty" // Direct path to Beauty page
     },
     {
       id: "home-living",
       title: "Home & Living",
       subtitle: "Elevate your living spaces",
       image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=600",
-      path: "/category/home-living"
+      path: "/home-living" // Direct path to Home & Living page
     }
   ];
 
