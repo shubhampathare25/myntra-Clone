@@ -6,7 +6,7 @@ const Beauty = () => {
   const items = useSelector((store) => store.items || []);
   
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All"); 
+  const [selectedCategory, setSelectedCategory] = useState("Beauty"); 
   const [selectedBrand, setSelectedBrand] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState("");
