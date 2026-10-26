@@ -38,7 +38,7 @@ The **Myntra React Clone** is a fully responsive, feature-rich front-end web app
 * Node.js
 * Express.js
 
-### Development Tools
+### Services & Tools
 * Git
 * GitHub
 * VS Code
@@ -145,8 +145,18 @@ To run the backend server locally, follow these steps:
 ### Home page
 <img width="941" height="420" alt="Screenshot 2026-10-19 111800" src="https://github.com/user-attachments/assets/4f5eef25-652c-4fe6-84d3-064848303efa" />
 
-### Bag page
-<img width="932" height="420" alt="Screenshot 2026-10-19 111843" src="https://github.com/user-attachments/assets/557fc5d3-7419-406e-84d4-336fe5a55fdd" />
+### Product Listing
+<img width="937" height="443" alt="Screenshot 2026-10-26 213301" src="https://github.com/user-attachments/assets/ed760f9e-d33f-46d7-854e-c81c6c8fa2c0" />
+
+### Product Details
+<img width="937" height="441" alt="Screenshot 2026-10-26 213402" src="https://github.com/user-attachments/assets/b10abe32-951f-4b87-9a8b-3518bc6f6c21" />
+
+### Shopping Bag
+<img width="937" height="377" alt="Screenshot 2026-10-26 213504" src="https://github.com/user-attachments/assets/6c533a25-e3bf-4672-b89b-6b1dec712529" />
+
+### Wishlist
+<img width="939" height="404" alt="Screenshot 2026-10-26 213554" src="https://github.com/user-attachments/assets/0f438f06-c30f-4b23-9c3d-6a1cbe903837" />
+
 
 ## Usage
 
