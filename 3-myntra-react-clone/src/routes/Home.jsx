@@ -4,6 +4,7 @@ import HomeCategory from "../components/HomeCategory";
 import FeaturedProducts from "../components/FeaturedProducts";
 import TrendingProducts from "../components/TrendingProducts";
 import BestDeals from "../components/BestDeals";
+import RecentlyAdded from "../components/RecentlyAdded";
 
 const Home = () => {
   const items = useSelector((store) => store.items || []);
@@ -29,6 +30,8 @@ const Home = () => {
           <TrendingProducts />
 
           <BestDeals />
+
+          <RecentlyAdded />
         </>
       ) : (
         <div className="search-results-container">
