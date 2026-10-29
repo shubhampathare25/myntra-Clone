@@ -31,7 +31,7 @@ const FeaturedProducts = () => {
           <h2 className="featured-title">Featured products</h2>
           <p className="featured-subtitle">Top-rated favourites from every category.</p>
         </div>
-        <Link to="/men" className="view-all-link">
+        <Link to="/categories" className="view-all-link">
           View all
         </Link>
       </div>
