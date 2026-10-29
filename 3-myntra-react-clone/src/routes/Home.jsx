@@ -3,6 +3,7 @@ import HomeItem from "../components/HomeItem";
 import HomeCategory from "../components/HomeCategory";
 import FeaturedProducts from "../components/FeaturedProducts";
 import TrendingProducts from "../components/TrendingProducts";
+import BestDeals from "../components/BestDeals";
 
 const Home = () => {
   const items = useSelector((store) => store.items || []);
@@ -21,14 +22,13 @@ const Home = () => {
     <main>
       {!searchQuery ? (
         <>
-          {/* Section 1: Shop by category */}
           <HomeCategory />
 
-          {/* Section 2: Featured products */}
           <FeaturedProducts />
 
-          {/* Section 3: Trending now (Beauty Selection) */}
           <TrendingProducts />
+
+          <BestDeals />
         </>
       ) : (
         <div className="search-results-container">
