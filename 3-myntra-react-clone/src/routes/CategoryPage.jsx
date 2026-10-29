@@ -10,12 +10,11 @@ const CategoryPage = () => {
     ? categoryName.toLowerCase().replace(/[^a-z0-9]/g, "") 
     : "";
 
- 
   const filteredItems = items.filter((item) => {
     if (!item || !item.category) return false;
+    if (!categoryName) return true; // Sagle items show hotil
     
     const normalizedItemCat = item.category.toLowerCase().replace(/[^a-z0-9]/g, "");
-    
     
     return (
       normalizedItemCat === normalizedCategory ||
@@ -28,7 +27,9 @@ const CategoryPage = () => {
     <main className="category-page-main">
       <div className="category-heading-section" style={{ padding: "20px" }}>
         <h2 className="category-main-title">
-          {categoryName ? categoryName.toUpperCase().replace("-", " & ") : ""}&apos;s Collection
+          {categoryName 
+            ? `${categoryName.toUpperCase().replace("-", " & ")}'S COLLECTION` 
+            : "ALL PRODUCTS COLLECTION"}
         </h2>
         <p className="category-count">{filteredItems.length} products found</p>
       </div>
