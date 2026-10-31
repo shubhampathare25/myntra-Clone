@@ -1,50 +1,62 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const HomeCategory = () => {
+  const location = useLocation();
+  const isCategoriesPage = location.pathname === "/categories";
+
   const categories = [
     {
       id: "men",
       title: "Men",
       subtitle: "Everyday essentials and standout styles",
       image: "https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?q=80&w=600",
-      path: "/men" // Direct path to Men page
+      path: "/men"
     },
     {
       id: "women",
       title: "Women",
       subtitle: "Fresh fashion for every moment",
       image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=600",
-      path: "/women" // Direct path to Women page
+      path: "/women"
     },
     {
       id: "kids",
       title: "Kids",
       subtitle: "Big style for little trendsetters",
       image: "https://images.unsplash.com/photo-1514090458221-65bb69cf63e6?q=80&w=600",
-      path: "/kids" // Direct path to Kids page
+      path: "/kids"
     },
     {
       id: "beauty",
       title: "Beauty",
       subtitle: "Beauty picks made for you",
       image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600",
-      path: "/beauty" // Direct path to Beauty page
+      path: "/beauty"
     },
     {
       id: "home-living",
       title: "Home & Living",
       subtitle: "Elevate your living spaces",
       image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=600",
-      path: "/home-living" // Direct path to Home & Living page
+      path: "/home-living"
     }
   ];
 
   return (
     <div className="shop-by-category-container">
-      <div className="category-header">
-        <span className="category-tagline">FIND YOUR STYLE</span>
-        <h2 className="category-title">Shop by category</h2>
-      </div>
+      {/* Route nusar header change hoil */}
+      {isCategoriesPage ? (
+        <div className="category-header centered-header">
+          <span className="category-tagline">DISCOVER MYNTRA</span>
+          <h2 className="category-title">Shop by category</h2>
+          <p className="category-subtitle">Find fashion and beauty picks curated around the way you shop.</p>
+        </div>
+      ) : (
+        <div className="category-header">
+          <span className="category-tagline">FIND YOUR STYLE</span>
+          <h2 className="category-title">Shop by category</h2>
+        </div>
+      )}
 
       <div className="category-grid">
         {categories.map((cat) => (
