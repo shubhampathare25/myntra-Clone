@@ -21,7 +21,8 @@ const TrendingProducts = () => {
           <h2 className="featured-title">Trending now</h2>
           <p className="featured-subtitle">Styles customers are loving right now.</p>
         </div>
-        <Link to="/beauty" className="view-all-link">
+        {/* Ithe /beauty aivji /categories takle ahe */}
+        <Link to="/categories" className="view-all-link">
           View all
         </Link>
       </div>
