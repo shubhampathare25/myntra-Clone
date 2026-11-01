@@ -21,7 +21,7 @@ const BestDeals = () => {
           <h2 className="featured-title">Best deals</h2>
           <p className="featured-subtitle">More style, less spend.</p>
         </div>
-        <Link to="/men" className="view-all-link">
+        <Link to="/categories" className="view-all-link">
           View all
         </Link>
       </div>
