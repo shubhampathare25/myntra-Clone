@@ -15,7 +15,7 @@ const RecentlyAdded = () => {
           <h2 className="featured-title">Recently added</h2>
           <p className="featured-subtitle">The latest additions to the StyleKart catalogue.</p>
         </div>
-        <Link to="/men" className="view-all-link">
+        <Link to="/categories" className="view-all-link">
           View all
         </Link>
       </div>
