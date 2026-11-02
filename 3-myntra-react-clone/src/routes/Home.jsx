@@ -5,6 +5,7 @@ import FeaturedProducts from "../components/FeaturedProducts";
 import TrendingProducts from "../components/TrendingProducts";
 import BestDeals from "../components/BestDeals";
 import RecentlyAdded from "../components/RecentlyAdded";
+import HeroBanner from "../components/HeroBanner";
 
 const Home = () => {
   const items = useSelector((store) => store.items || []);
@@ -23,6 +24,8 @@ const Home = () => {
     <main>
       {!searchQuery ? (
         <>
+          <HeroBanner />
+
           <HomeCategory />
 
           <FeaturedProducts />
