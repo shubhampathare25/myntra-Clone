@@ -2365,7 +2365,7 @@ button.btn-add-bag:hover,
   width: 100%;
   max-width: 100%;
   margin: 40px 0;
-  padding: 0 10px;
+  padding: 0 24px;
 }
 
 .category-header.centered-header {
@@ -2391,9 +2391,8 @@ button.btn-add-bag:hover,
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 16px;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 20px;
+  width:100%;
+  padding: 0;
 }
 
 .category-card {
@@ -2508,9 +2507,10 @@ button.btn-add-bag:hover,
 }
 
 .featured-section-container {
-  max-width: 1300px;
-  margin: 40px auto;
-  padding: 0 20px;
+  width: 100%;
+  max-width: 100%;
+  margin: 40px 0;
+  padding: 0 10px;
 }
 
 .featured-header-row {
@@ -2563,12 +2563,12 @@ button.btn-add-bag:hover,
 
 .featured-items-container {
   width: 100%;
-  max-width: 1400px !important;
-  margin: 0 auto !important;
-  padding: 0 10px !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
   display: grid;
   grid-template-columns: repeat(5, 1fr) !important;
-  gap: 15px;
+  gap: 10px;
 }
 
 @media (max-width: 1100px) {
@@ -2581,4 +2581,88 @@ button.btn-add-bag:hover,
   .featured-items-container {
     grid-template-columns: repeat(2, 1fr) !important;
   }
+}
+
+.hero-banner-container {
+  width: 100%;
+  max-width: 100%;
+  background-color: #fdfbf7; /* Varchya image sarkha soft background */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 60px;
+  margin-bottom: 30px;
+  border-radius: 16px;
+}
+
+.hero-banner-content {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero-tag {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #8c7b6b;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: #282c3f;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: #535766;
+  line-height: 1.5;
+}
+
+.hero-btn-group {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.hero-btn-explore {
+  background-color: #282c3f;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.hero-btn-explore:hover {
+  background-color: #ff3f6c;
+}
+
+.hero-btn-shop {
+  background-color: transparent;
+  color: #282c3f;
+  border: 2px solid #282c3f;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.hero-btn-shop:hover {
+  background-color: #282c3f;
+  color: #ffffff;
+}
+
+.hero-banner-image img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  object-fit: cover;
 }
