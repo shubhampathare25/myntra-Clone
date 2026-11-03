@@ -310,6 +310,19 @@
       "return_period": 14,
       "delivery_date": "14 Oct 2023",
       "rating": { "stars": 4.6, "count": 1250 }
+    },
+    {
+      "id": "025",
+      "category": "beauty",
+      "image": "images/beauty5.jpg",
+      "company": "Plum",
+      "item_name": "Green Tea Renewed Clarity Night Gel",
+      "original_price": 575,
+      "current_price": 460,
+      "discount_percentage": 20,
+      "return_period": 14,
+      "delivery_date": "15 Nov 2026",
+      "rating": { "stars": 4.5, "count": 1820 }
     }
   ]
 ]
