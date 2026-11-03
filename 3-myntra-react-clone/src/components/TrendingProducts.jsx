@@ -11,7 +11,7 @@ const TrendingProducts = () => {
   });
 
   // 2. Continuous 5 Beauty items ghetle
-  const trendingBeautyItems = beautyItems.slice(0, 4);
+  const trendingBeautyItems = beautyItems.slice(0, 5);
 
   return (
     <div className="featured-section-container">
