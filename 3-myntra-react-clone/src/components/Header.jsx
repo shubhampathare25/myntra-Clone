@@ -105,16 +105,6 @@ const Header = () => {
                 >
                   <FaHeadset className="link-icon" /> Help and contact
                 </Link>
-
-                <div className="admin-link-wrapper">
-                  <Link
-                    to="/admin/login"
-                    onClick={() => setShowDropdown(false)}
-                    className="profile-dropdown-link admin-link"
-                  >
-                    <FaShieldAlt className="link-icon" /> Admin login
-                  </Link>
-                </div>
               </div>
             </div>
           )}
