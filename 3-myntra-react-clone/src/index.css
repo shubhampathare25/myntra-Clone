@@ -16,10 +16,17 @@ header {
   z-index: 1000;
 }
 .myntra_home {
-  height: 45px;
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  border: none;        
+  background: none;    
+  outline: none;
 }
 .logo_container {
   margin-left: 4%;
+  display: flex;
+  align-items: center;
 }
 .action_bar {
   display: flex;
