@@ -14,7 +14,7 @@ const FetchItems = () => {
     const signal = controller.signal;
 
     dispatch(fetchStatusActions.markFetchingStarted());
-    fetch("https://myntra-clone-4vsm.onrender.com", { signal }) //https://myntra-clone-4vsm.onrender.com
+    fetch("https://myntra-clone-4vsm.onrender.com/", { signal }) //https://myntra-clone-4vsm.onrender.com
       .then((res) => res.json())
       .then(({ items }) => {
         dispatch(fetchStatusActions.markFetchDone());
