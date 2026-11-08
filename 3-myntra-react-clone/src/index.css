@@ -22,6 +22,7 @@ header {
   border: none;        
   background: none;    
   outline: none;
+  mix-blend-mode: multiply;
 }
 .logo_container {
   margin-left: 4%;
