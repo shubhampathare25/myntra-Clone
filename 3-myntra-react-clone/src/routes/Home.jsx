@@ -8,15 +8,16 @@ import RecentlyAdded from "../components/RecentlyAdded";
 import HeroBanner from "../components/HeroBanner";
 
 const Home = () => {
-  const items = useSelector((store) => store.items || []);
+  const itemsStore = useSelector((store) => store.items);
+  const items = Array.isArray(itemsStore) ? itemsStore : (itemsStore?.items || []);
   const searchQuery = useSelector((store) => store.search || "");
 
   const filteredItems = items.filter((item) => {
     const query = searchQuery.toLowerCase();
     return (
-      item.item_name.toLowerCase().includes(query) ||
-      item.company.toLowerCase().includes(query) ||
-      (item.category && item.category.toLowerCase().includes(query))
+      item?.item_name?.toLowerCase().includes(query) ||
+      item?.company?.toLowerCase().includes(query) ||
+      (item?.category && item.category.toLowerCase().includes(query))
     );
   });
 
@@ -25,15 +26,10 @@ const Home = () => {
       {!searchQuery ? (
         <>
           <HeroBanner />
-
           <HomeCategory />
-
           <FeaturedProducts />
-
           <TrendingProducts />
-
           <BestDeals />
-
           <RecentlyAdded />
         </>
       ) : (
