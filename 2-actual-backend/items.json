@@ -1,329 +1,438 @@
 {
   "items": [
     [
-    {
-      "id": "001",
-      "category": "men",
-      "image": "images/men1.jpg",
-      "company": "ADIDAS",
-      "item_name": "Indian Cricket ODI Jersey",
-      "original_price": 999,
-      "current_price": 999,
-      "discount_percentage": 0,
-      "return_period": 14,
-      "delivery_date": "10 Oct 2023",
-      "rating": { "stars": 5, "count": 10 }
-    },
-    {
-      "id": "002",
-      "category": "men",
-      "image": "images/men2.jpg",
-      "company": "Roadster",
-      "item_name": "Pure Cotton T-shirt",
-      "original_price": 1399,
-      "current_price": 489,
-      "discount_percentage": 65,
-      "return_period": 14,
-      "delivery_date": "10 Oct 2023",
-      "rating": { "stars": 4.2, "count": 3500 }
-    },
-    {
-      "id": "003",
-      "category": "men",
-      "image": "images/men3.jpg",
-      "company": "The Indian Garage Co",
-      "item_name": "Men Slim Fit Regular Shorts",
-      "original_price": 1599,
-      "current_price": 639,
-      "discount_percentage": 60,
-      "rating": { "stars": 4.2, "count": 388 }
-    },
-    {
-      "id": "004",
-      "category": "men",
-      "image": "images/men4.jpg",
-      "company": "Louis Philippe",
-      "item_name": "Slim Fit Formal Shirt",
-      "original_price": 2499,
-      "current_price": 1699,
-      "discount_percentage": 32,
-      "return_period": 14,
-      "delivery_date": "11 Oct 2023",
-      "rating": { "stars": 4.6, "count": 1875 }
-    },
-    {
-      "id": "005",
-      "category": "men",
-      "image": "images/men5.jpg",
-      "company": "Puma",
-      "item_name": "Sports Training Jacket",
-      "original_price": 4599,
-      "current_price": 2999,
-      "discount_percentage": 35,
-      "return_period": 14,
-      "delivery_date": "14 Oct 2023",
-      "rating": { "stars": 4.7, "count": 980 }
-    },
-    {
-      "id": "006",
-      "category": "women",
-      "image": "images/women1.jpg",
-      "company": "CUKOO",
-      "item_name": "Women Padded Halter Neck Swimming Dress",
-      "original_price": 2599,
-      "current_price": 1507,
-      "discount_percentage": 42,
-      "return_period": 14,
-      "delivery_date": "10 Oct 2023",
-      "rating": { "stars": 4.3, "count": 24 }
-    },
-    {
-      "id": "007",
-      "category": "women",
-      "image": "images/women2.jpg",
-      "company": "NUEVOSDAMAS",
-      "item_name": "Women Red & White Printed A-Line Knee-Length Skirts",
-      "original_price": 1599,
-      "current_price": 495,
-      "discount_percentage": 69,
-      "return_period": 14,
-      "delivery_date": "10 Oct 2023",
-      "rating": { "stars": 4.1, "count": 249 }
-    },
-    {
-      "id": "008",
-      "category": "women",
-      "image": "images/women3.jpg",
-      "company": "Zara",
-      "item_name": "Elegant Midi Dress",
-      "original_price": 2999,
-      "current_price": 1999,
-      "discount_percentage": 33,
-      "return_period": 14,
-      "delivery_date": "11 Oct 2023",
-      "rating": { "stars": 4.6, "count": 980 }
-    },
-    {
-      "id": "009",
-      "category": "women",
-      "image": "images/women4.jpg",
-      "company": "Adidas",
-      "item_name": "Running Sports Shoes",
-      "original_price": 4999,
-      "current_price": 3499,
-      "discount_percentage": 30,
-      "return_period": 14,
-      "delivery_date": "13 Oct 2023",
-      "rating": { "stars": 4.7, "count": 2100 }
-    },
-    {
-      "id": "010",
-      "category": "women",
-      "image": "images/women5.jpg",
-      "company": "Anouk",
-      "item_name": "Mustard Embroidered Kurta with Palazzo & Dupatta",
-      "original_price": 2999,
-      "current_price": 1199,
-      "discount_percentage": 60,
-      "return_period": 14,
-      "delivery_date": "24 Oct 2023",
-      "rating": { "stars": 4.5, "count": 420 }
-    },
-    {
-      "id": "011",
-      "category": "kids",
-      "image": "images/kids1.jpg",
-      "company": "Nike",
-      "item_name": "Men ReactX Running Shoes",
-      "original_price": 14995,
-      "current_price": 14995,
-      "discount_percentage": 0,
-      "return_period": 14,
-      "delivery_date": "10 Oct 2023",
-      "rating": { "stars": 0, "count": 0 }
-    },
-    {
-      "id": "012",
-      "category": "kids",
-      "image": "images/kids2.jpg",
-      "company": "Max",
-      "item_name": "Kids Printed T-Shirt",
-      "original_price": 799,
-      "current_price": 399,
-      "discount_percentage": 50,
-      "return_period": 7,
-      "delivery_date": "10 Oct 2023",
-      "rating": { "stars": 4.4, "count": 560 }
-    },
-    {
-      "id": "013",
-      "category": "kids",
-      "image": "images/kids3.jpg",
-      "company": "Babyhug",
-      "item_name": "Kids Clothing Set",
-      "original_price": 1299,
-      "current_price": 799,
-      "discount_percentage": 38,
-      "return_period": 7,
-      "delivery_date": "11 Oct 2023",
-      "rating": { "stars": 4.5, "count": 430 }
-    },
-    {
-      "id": "014",
-      "category": "kids",
-      "image": "images/kids4.jpg",
-      "company": "Hopscotch",
-      "item_name": "Kids Winter Jacket",
-      "original_price": 1599,
-      "current_price": 999,
-      "discount_percentage": 38,
-      "return_period": 7,
-      "delivery_date": "13 Oct 2023",
-      "rating": { "stars": 4.3, "count": 320 }
-    },
-    {
-      "id": "015",
-      "category": "kids",
-      "image": "images/kids5.jpg",
-      "company": "HRX Kids",
-      "item_name": "Colorblocked Hooded Sweatshirt & Joggers Set",
-      "original_price": 1999,
-      "current_price": 799,
-      "discount_percentage": 16,
-      "return_period": 14,
-      "delivery_date": "25 Oct 2023",
-      "rating": { "stars": 4.6, "count": 230 }
-    },
-    {
-      "id": "016",
-      "category": "HomeLiving",
-      "image": "images/HomeLiving1.jpg",
-      "company": "Carlton London",
-      "item_name": "Rhodium-Plated CZ Floral Studs",
-      "original_price": 1045,
-      "current_price": 606,
-      "discount_percentage": 42,
-      "return_period": 14,
-      "delivery_date": "10 Oct 2023",
-      "rating": { "stars": 4.5, "count": 1400 }
-    },
-    {
-      "id": "017",
-      "category": "HomeLiving",
-      "image": "images/HomeLiving2.jpg",
-      "company": "Nilkamal",
-      "item_name": "Nilkamal Sierra 1 Seater Manual Recliner Sofa",
-      "original_price": 47900,
-      "current_price": 18890,
-      "discount_percentage": 60,
-      "return_period": 7,
-      "delivery_date": "18 Oct 2023",
-      "rating": { "stars": 5.0, "count": 57 }
-    },
-    {
-      "id": "018",
-      "category": "HomeLiving",
-      "image": "images/HomeLiving3.jpg",
-      "company": "Nilkamal",
-      "item_name": "Nilkamal Goa sofa set with Cushion (3+1+1 Seater)",
-      "original_price": 43000,
-      "current_price": 33130,
-      "discount_percentage": 22,
-      "return_period": 7,
-      "delivery_date": "18 Oct 2023",
-      "rating": { "stars": 5.0, "count": 5 }
-    },
-    {
-      "id": "019",
-      "category": "HomeLiving",
-      "image": "images/HomeLiving4.jpg",
-      "company": "Home Center",
-      "item_name": "Modern Marble Finish Sideboard Cabinet",
-      "original_price": 28999,
-      "current_price": 16499,
-      "discount_percentage": 43,
-      "return_period": 7,
-      "delivery_date": "20 Oct 2023",
-      "rating": { "stars": 4.7, "count": 112 }
-    },
-    {
-      "id": "020",
-      "category": "HomeLiving",
-      "image": "images/HomeLiving5.jpg",
-      "company": "Urban Living",
-      "item_name": "Modern Complete Living Room Setup Set",
-      "original_price": 65000,
-      "current_price": 38999,
-      "discount_percentage": 40,
-      "return_period": 7,
-      "delivery_date": "22 Oct 2023",
-      "rating": { "stars": 4.8, "count": 84 }
-    },
-    {
-      "id": "021",
-      "category": "Beauty",
-      "image": "images/beauty1.jpg",
-      "company": "Nivea",
-      "item_name": "Men Fresh Deodrant 150ml",
-      "original_price": 285,
-      "current_price": 142,
-      "discount_percentage": 50,
-      "return_period": 14,
-      "delivery_date": "10 Oct 2023",
-      "rating": { "stars": 4.2, "count": 5200 }
-    },
-    {
-      "id": "022",
-      "category": "Beauty",
-      "image": "images/beauty2.jpg",
-      "company": "Engage",
-      "item_name": "Perfume Spray",
-      "original_price": 699,
-      "current_price": 399,
-      "discount_percentage": 43,
-      "return_period": 14,
-      "delivery_date": "12 Oct 2023",
-      "rating": { "stars": 4.3, "count": 2100 }
-    },
-    {
-      "id": "023",
-      "category": "beauty",
-      "image": "images/beauty3.jpg",
-      "company": "Garnier",
-      "item_name": "Face Wash",
-      "original_price": 249,
-      "current_price": 149,
-      "discount_percentage": 40,
-      "return_period": 14,
-      "delivery_date": "14 Oct 2023",
-      "rating": { "stars": 4.5, "count": 6800 }
-    },
-    {
-      "id": "024",
-      "category": "beauty",
-      "image": "images/beauty4.jpg",
-      "company": "Glamveda",
-      "item_name": "Rice & Ceramide Skincare Kit",
-      "original_price": 1299,
-      "current_price": 799,
-      "discount_percentage": 38,
-      "return_period": 14,
-      "delivery_date": "14 Oct 2023",
-      "rating": { "stars": 4.6, "count": 1250 }
-    },
-    {
-      "id": "025",
-      "category": "beauty",
-      "image": "images/beauty5.jpg",
-      "company": "Plum",
-      "item_name": "Green Tea Renewed Clarity Night Gel",
-      "original_price": 575,
-      "current_price": 460,
-      "discount_percentage": 20,
-      "return_period": 14,
-      "delivery_date": "15 Nov 2026",
-      "rating": { "stars": 4.5, "count": 1820 }
-    }
+      {
+        "id": "001",
+        "category": "men",
+        "image": "images/men1.jpg",
+        "company": "ADIDAS",
+        "item_name": "Indian Cricket ODI Jersey",
+        "original_price": 999,
+        "current_price": 999,
+        "discount_percentage": 0,
+        "return_period": 14,
+        "delivery_date": "10 Oct 2023",
+        "rating": {
+          "stars": 5,
+          "count": 10
+        }
+      },
+      {
+        "id": "002",
+        "category": "men",
+        "image": "images/men2.jpg",
+        "company": "Roadster",
+        "item_name": "Pure Cotton T-shirt",
+        "original_price": 1399,
+        "current_price": 489,
+        "discount_percentage": 65,
+        "return_period": 14,
+        "delivery_date": "10 Oct 2023",
+        "rating": {
+          "stars": 4.2,
+          "count": 3500
+        }
+      },
+      {
+        "id": "003",
+        "category": "men",
+        "image": "images/men3.jpg",
+        "company": "The Indian Garage Co",
+        "item_name": "Men Slim Fit Regular Shorts",
+        "original_price": 1599,
+        "current_price": 639,
+        "discount_percentage": 60,
+        "rating": {
+          "stars": 4.2,
+          "count": 388
+        }
+      },
+      {
+        "id": "004",
+        "category": "men",
+        "image": "images/men4.jpg",
+        "company": "Louis Philippe",
+        "item_name": "Slim Fit Formal Shirt",
+        "original_price": 2499,
+        "current_price": 1699,
+        "discount_percentage": 32,
+        "return_period": 14,
+        "delivery_date": "11 Oct 2023",
+        "rating": {
+          "stars": 4.6,
+          "count": 1875
+        }
+      },
+      {
+        "id": "005",
+        "category": "men",
+        "image": "images/men5.jpg",
+        "company": "Puma",
+        "item_name": "Sports Training Jacket",
+        "original_price": 4599,
+        "current_price": 2999,
+        "discount_percentage": 35,
+        "return_period": 14,
+        "delivery_date": "14 Oct 2023",
+        "rating": {
+          "stars": 4.7,
+          "count": 980
+        }
+      },
+      {
+        "id": "006",
+        "category": "men",
+        "image": "images/men6.jpg",
+        "company": "ZEVORA",
+        "item_name": "Men Accessory Gift Set of",
+        "original_price": 2999,
+        "current_price": 617,
+        "discount_percentage": 79,
+        "return_period": 14,
+        "delivery_date": "10 Oct 2026",
+        "rating": {
+          "stars": 4.2,
+          "count": 13
+        },
+        "inStock": true
+      },
+      {
+        "id": "007",
+        "category": "women",
+        "image": "images/women1.jpg",
+        "company": "CUKOO",
+        "item_name": "Women Padded Halter Neck Swimming Dress",
+        "original_price": 2599,
+        "current_price": 1507,
+        "discount_percentage": 42,
+        "return_period": 14,
+        "delivery_date": "10 Oct 2023",
+        "rating": {
+          "stars": 4.3,
+          "count": 24
+        }
+      },
+      {
+        "id": "008",
+        "category": "women",
+        "image": "images/women2.jpg",
+        "company": "NUEVOSDAMAS",
+        "item_name": "Women Red & White Printed A-Line Knee-Length Skirts",
+        "original_price": 1599,
+        "current_price": 495,
+        "discount_percentage": 69,
+        "return_period": 14,
+        "delivery_date": "10 Oct 2023",
+        "rating": {
+          "stars": 4.1,
+          "count": 249
+        }
+      },
+      {
+        "id": "009",
+        "category": "women",
+        "image": "images/women3.jpg",
+        "company": "Zara",
+        "item_name": "Elegant Midi Dress",
+        "original_price": 2999,
+        "current_price": 1999,
+        "discount_percentage": 33,
+        "return_period": 14,
+        "delivery_date": "11 Oct 2023",
+        "rating": {
+          "stars": 4.6,
+          "count": 980
+        }
+      },
+      {
+        "id": "010",
+        "category": "women",
+        "image": "images/women4.jpg",
+        "company": "Adidas",
+        "item_name": "Running Sports Shoes",
+        "original_price": 4999,
+        "current_price": 3499,
+        "discount_percentage": 30,
+        "return_period": 14,
+        "delivery_date": "13 Oct 2023",
+        "rating": {
+          "stars": 4.7,
+          "count": 2100
+        }
+      },
+      {
+        "id": "011",
+        "category": "women",
+        "image": "images/women5.jpg",
+        "company": "Anouk",
+        "item_name": "Mustard Embroidered Kurta with Palazzo & Dupatta",
+        "original_price": 2999,
+        "current_price": 1199,
+        "discount_percentage": 60,
+        "return_period": 14,
+        "delivery_date": "24 Oct 2023",
+        "rating": {
+          "stars": 4.5,
+          "count": 420
+        }
+      },
+      {
+        "id": "012",
+        "category": "kids",
+        "image": "images/kids1.jpg",
+        "company": "Nike",
+        "item_name": "Men ReactX Running Shoes",
+        "original_price": 14995,
+        "current_price": 14995,
+        "discount_percentage": 0,
+        "return_period": 14,
+        "delivery_date": "10 Oct 2023",
+        "rating": {
+          "stars": 0,
+          "count": 0
+        }
+      },
+      {
+        "id": "013",
+        "category": "kids",
+        "image": "images/kids2.jpg",
+        "company": "Max",
+        "item_name": "Kids Printed T-Shirt",
+        "original_price": 799,
+        "current_price": 399,
+        "discount_percentage": 50,
+        "return_period": 7,
+        "delivery_date": "10 Oct 2023",
+        "rating": {
+          "stars": 4.4,
+          "count": 560
+        }
+      },
+      {
+        "id": "014",
+        "category": "kids",
+        "image": "images/kids3.jpg",
+        "company": "Babyhug",
+        "item_name": "Kids Clothing Set",
+        "original_price": 1299,
+        "current_price": 799,
+        "discount_percentage": 38,
+        "return_period": 7,
+        "delivery_date": "11 Oct 2023",
+        "rating": {
+          "stars": 4.5,
+          "count": 430
+        }
+      },
+      {
+        "id": "015",
+        "category": "kids",
+        "image": "images/kids4.jpg",
+        "company": "Hopscotch",
+        "item_name": "Kids Winter Jacket",
+        "original_price": 1599,
+        "current_price": 999,
+        "discount_percentage": 38,
+        "return_period": 7,
+        "delivery_date": "13 Oct 2023",
+        "rating": {
+          "stars": 4.3,
+          "count": 320
+        }
+      },
+      {
+        "id": "016",
+        "category": "kids",
+        "image": "images/kids5.jpg",
+        "company": "HRX Kids",
+        "item_name": "Colorblocked Hooded Sweatshirt & Joggers Set",
+        "original_price": 1999,
+        "current_price": 799,
+        "discount_percentage": 16,
+        "return_period": 14,
+        "delivery_date": "25 Oct 2023",
+        "rating": {
+          "stars": 4.6,
+          "count": 230
+        }
+      },
+      {
+        "id": "017",
+        "category": "kids",
+        "image": "images/kids6.jpg",
+        "company": "Hopscotch",
+        "item_name": "Kids Party Wear Ethnic Set",
+        "original_price": 1799,
+        "current_price": 799,
+        "discount_percentage": 55,
+        "return_period": 14,
+        "delivery_date": "10 Oct 2026",
+        "rating": {
+          "stars": 4.4,
+          "count": 85
+        },
+        "inStock": true
+      },
+      {
+        "id": "018",
+        "category": "HomeLiving",
+        "image": "images/HomeLiving1.jpg",
+        "company": "Carlton London",
+        "item_name": "Rhodium-Plated CZ Floral Studs",
+        "original_price": 1045,
+        "current_price": 606,
+        "discount_percentage": 42,
+        "return_period": 14,
+        "delivery_date": "10 Oct 2023",
+        "rating": {
+          "stars": 4.5,
+          "count": 1400
+        }
+      },
+      {
+        "id": "019",
+        "category": "HomeLiving",
+        "image": "images/HomeLiving2.jpg",
+        "company": "Nilkamal",
+        "item_name": "Nilkamal Sierra 1 Seater Manual Recliner Sofa",
+        "original_price": 47900,
+        "current_price": 18890,
+        "discount_percentage": 60,
+        "return_period": 7,
+        "delivery_date": "18 Oct 2023",
+        "rating": {
+          "stars": 5.0,
+          "count": 57
+        }
+      },
+      {
+        "id": "020",
+        "category": "HomeLiving",
+        "image": "images/HomeLiving3.jpg",
+        "company": "Nilkamal",
+        "item_name": "Nilkamal Goa sofa set with Cushion (3+1+1 Seater)",
+        "original_price": 43000,
+        "current_price": 33130,
+        "discount_percentage": 22,
+        "return_period": 7,
+        "delivery_date": "18 Oct 2023",
+        "rating": {
+          "stars": 5.0,
+          "count": 5
+        }
+      },
+      {
+        "id": "021",
+        "category": "HomeLiving",
+        "image": "images/HomeLiving4.jpg",
+        "company": "Home Center",
+        "item_name": "Modern Marble Finish Sideboard Cabinet",
+        "original_price": 28999,
+        "current_price": 16499,
+        "discount_percentage": 43,
+        "return_period": 7,
+        "delivery_date": "20 Oct 2023",
+        "rating": {
+          "stars": 4.7,
+          "count": 112
+        }
+      },
+      {
+        "id": "022",
+        "category": "HomeLiving",
+        "image": "images/HomeLiving5.jpg",
+        "company": "Urban Living",
+        "item_name": "Modern Complete Living Room Setup Set",
+        "original_price": 65000,
+        "current_price": 38999,
+        "discount_percentage": 40,
+        "return_period": 7,
+        "delivery_date": "22 Oct 2023",
+        "rating": {
+          "stars": 4.8,
+          "count": 84
+        }
+      },
+      {
+        "id": "023",
+        "category": "Beauty",
+        "image": "images/beauty1.jpg",
+        "company": "Nivea",
+        "item_name": "Men Fresh Deodrant 150ml",
+        "original_price": 285,
+        "current_price": 142,
+        "discount_percentage": 50,
+        "return_period": 14,
+        "delivery_date": "10 Oct 2023",
+        "rating": {
+          "stars": 4.2,
+          "count": 5200
+        }
+      },
+      {
+        "id": "024",
+        "category": "Beauty",
+        "image": "images/beauty2.jpg",
+        "company": "Engage",
+        "item_name": "Perfume Spray",
+        "original_price": 699,
+        "current_price": 399,
+        "discount_percentage": 43,
+        "return_period": 14,
+        "delivery_date": "12 Oct 2023",
+        "rating": {
+          "stars": 4.3,
+          "count": 2100
+        }
+      },
+      {
+        "id": "025",
+        "category": "beauty",
+        "image": "images/beauty3.jpg",
+        "company": "Garnier",
+        "item_name": "Face Wash",
+        "original_price": 249,
+        "current_price": 149,
+        "discount_percentage": 40,
+        "return_period": 14,
+        "delivery_date": "14 Oct 2023",
+        "rating": {
+          "stars": 4.5,
+          "count": 6800
+        }
+      },
+      {
+        "id": "026",
+        "category": "beauty",
+        "image": "images/beauty4.jpg",
+        "company": "Glamveda",
+        "item_name": "Rice & Ceramide Skincare Kit",
+        "original_price": 1299,
+        "current_price": 799,
+        "discount_percentage": 38,
+        "return_period": 14,
+        "delivery_date": "14 Oct 2023",
+        "rating": {
+          "stars": 4.6,
+          "count": 1250
+        }
+      },
+      {
+        "id": "027",
+        "category": "beauty",
+        "image": "images/beauty5.jpg",
+        "company": "Plum",
+        "item_name": "Green Tea Renewed Clarity Night Gel",
+        "original_price": 575,
+        "current_price": 460,
+        "discount_percentage": 20,
+        "return_period": 14,
+        "delivery_date": "15 Nov 2026",
+        "rating": {
+          "stars": 4.5,
+          "count": 1820
+        }
+      }
+    ]
   ]
-]
 }
