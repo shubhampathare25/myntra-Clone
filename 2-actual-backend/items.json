@@ -178,6 +178,40 @@
       },
       {
         "id": "012",
+        "category": "women",
+        "image": "images/women6.jpg",
+        "company": "TOTE PURSE",
+        "item_name": "Leopard Print Shoulder Bag Trendy Womens Handbag",
+        "original_price": 2999,
+        "current_price": 799,
+        "discount_percentage": 73,
+        "return_period": 14,
+        "delivery_date": "15 Oct 2026",
+        "rating": {
+          "stars": 4.4,
+          "count": 18
+        },
+        "inStock": true
+      },
+      {
+        "id": "013",
+        "category": "women",
+        "image": "images/women7.jpg",
+        "company": "Bewakoof",
+        "item_name": "Women Black The Real Boss Typography Boyfriend T-Shirt",
+        "original_price": 1299,
+        "current_price": 449,
+        "discount_percentage": 65,
+        "return_period": 14,
+        "delivery_date": "16 Oct 2026",
+        "rating": {
+          "stars": 4.6,
+          "count": 120
+        },
+        "inStock": true
+      },
+      {
+        "id": "014",
         "category": "kids",
         "image": "images/kids1.jpg",
         "company": "Nike",
@@ -193,7 +227,7 @@
         }
       },
       {
-        "id": "013",
+        "id": "015",
         "category": "kids",
         "image": "images/kids2.jpg",
         "company": "Max",
@@ -209,7 +243,7 @@
         }
       },
       {
-        "id": "014",
+        "id": "016",
         "category": "kids",
         "image": "images/kids3.jpg",
         "company": "Babyhug",
@@ -225,7 +259,7 @@
         }
       },
       {
-        "id": "015",
+        "id": "017",
         "category": "kids",
         "image": "images/kids4.jpg",
         "company": "Hopscotch",
@@ -241,7 +275,7 @@
         }
       },
       {
-        "id": "016",
+        "id": "018",
         "category": "kids",
         "image": "images/kids5.jpg",
         "company": "HRX Kids",
@@ -257,7 +291,7 @@
         }
       },
       {
-        "id": "017",
+        "id": "019",
         "category": "kids",
         "image": "images/kids6.jpg",
         "company": "Hopscotch",
@@ -274,7 +308,7 @@
         "inStock": true
       },
       {
-        "id": "018",
+        "id": "020",
         "category": "HomeLiving",
         "image": "images/HomeLiving1.jpg",
         "company": "Carlton London",
@@ -290,7 +324,7 @@
         }
       },
       {
-        "id": "019",
+        "id": "021",
         "category": "HomeLiving",
         "image": "images/HomeLiving2.jpg",
         "company": "Nilkamal",
@@ -306,7 +340,7 @@
         }
       },
       {
-        "id": "020",
+        "id": "022",
         "category": "HomeLiving",
         "image": "images/HomeLiving3.jpg",
         "company": "Nilkamal",
@@ -322,7 +356,7 @@
         }
       },
       {
-        "id": "021",
+        "id": "023",
         "category": "HomeLiving",
         "image": "images/HomeLiving4.jpg",
         "company": "Home Center",
@@ -338,7 +372,7 @@
         }
       },
       {
-        "id": "022",
+        "id": "024",
         "category": "HomeLiving",
         "image": "images/HomeLiving5.jpg",
         "company": "Urban Living",
@@ -354,7 +388,7 @@
         }
       },
       {
-        "id": "023",
+        "id": "025",
         "category": "Beauty",
         "image": "images/beauty1.jpg",
         "company": "Nivea",
@@ -370,7 +404,7 @@
         }
       },
       {
-        "id": "024",
+        "id": "026",
         "category": "Beauty",
         "image": "images/beauty2.jpg",
         "company": "Engage",
@@ -386,7 +420,7 @@
         }
       },
       {
-        "id": "025",
+        "id": "027",
         "category": "beauty",
         "image": "images/beauty3.jpg",
         "company": "Garnier",
@@ -402,7 +436,7 @@
         }
       },
       {
-        "id": "026",
+        "id": "028",
         "category": "beauty",
         "image": "images/beauty4.jpg",
         "company": "Glamveda",
@@ -418,7 +452,7 @@
         }
       },
       {
-        "id": "027",
+        "id": "029",
         "category": "beauty",
         "image": "images/beauty5.jpg",
         "company": "Plum",
