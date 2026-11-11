@@ -212,6 +212,23 @@
       },
       {
         "id": "014",
+        "category": "women",
+        "image": "images/women8.jpg",
+        "company": "Sangria",
+        "item_name": "Ethnic Motif Woven Design Heels",
+        "original_price": 2499,
+        "current_price": 749,
+        "discount_percentage": 70,
+        "return_period": 14,
+        "delivery_date": "18 Oct 2026",
+        "rating": {
+          "stars": 4.3,
+          "count": 45
+        },
+        "inStock": true
+      },
+      {
+        "id": "015",
         "category": "kids",
         "image": "images/kids1.jpg",
         "company": "Nike",
@@ -227,7 +244,7 @@
         }
       },
       {
-        "id": "015",
+        "id": "016",
         "category": "kids",
         "image": "images/kids2.jpg",
         "company": "Max",
@@ -243,7 +260,7 @@
         }
       },
       {
-        "id": "016",
+        "id": "017",
         "category": "kids",
         "image": "images/kids3.jpg",
         "company": "Babyhug",
@@ -259,7 +276,7 @@
         }
       },
       {
-        "id": "017",
+        "id": "018",
         "category": "kids",
         "image": "images/kids4.jpg",
         "company": "Hopscotch",
@@ -275,7 +292,7 @@
         }
       },
       {
-        "id": "018",
+        "id": "019",
         "category": "kids",
         "image": "images/kids5.jpg",
         "company": "HRX Kids",
@@ -291,7 +308,7 @@
         }
       },
       {
-        "id": "019",
+        "id": "020",
         "category": "kids",
         "image": "images/kids6.jpg",
         "company": "Hopscotch",
@@ -308,7 +325,7 @@
         "inStock": true
       },
       {
-        "id": "020",
+        "id": "021",
         "category": "HomeLiving",
         "image": "images/HomeLiving1.jpg",
         "company": "Carlton London",
@@ -324,7 +341,7 @@
         }
       },
       {
-        "id": "021",
+        "id": "022",
         "category": "HomeLiving",
         "image": "images/HomeLiving2.jpg",
         "company": "Nilkamal",
@@ -340,7 +357,7 @@
         }
       },
       {
-        "id": "022",
+        "id": "023",
         "category": "HomeLiving",
         "image": "images/HomeLiving3.jpg",
         "company": "Nilkamal",
@@ -356,7 +373,7 @@
         }
       },
       {
-        "id": "023",
+        "id": "024",
         "category": "HomeLiving",
         "image": "images/HomeLiving4.jpg",
         "company": "Home Center",
@@ -372,7 +389,7 @@
         }
       },
       {
-        "id": "024",
+        "id": "025",
         "category": "HomeLiving",
         "image": "images/HomeLiving5.jpg",
         "company": "Urban Living",
@@ -388,7 +405,7 @@
         }
       },
       {
-        "id": "025",
+        "id": "026",
         "category": "Beauty",
         "image": "images/beauty1.jpg",
         "company": "Nivea",
@@ -404,7 +421,7 @@
         }
       },
       {
-        "id": "026",
+        "id": "027",
         "category": "Beauty",
         "image": "images/beauty2.jpg",
         "company": "Engage",
@@ -420,7 +437,7 @@
         }
       },
       {
-        "id": "027",
+        "id": "028",
         "category": "beauty",
         "image": "images/beauty3.jpg",
         "company": "Garnier",
@@ -436,7 +453,7 @@
         }
       },
       {
-        "id": "028",
+        "id": "029",
         "category": "beauty",
         "image": "images/beauty4.jpg",
         "company": "Glamveda",
@@ -452,7 +469,7 @@
         }
       },
       {
-        "id": "029",
+        "id": "030",
         "category": "beauty",
         "image": "images/beauty5.jpg",
         "company": "Plum",
@@ -466,6 +483,40 @@
           "stars": 4.5,
           "count": 1820
         }
+      },
+      {
+        "id": "031",
+        "category": "Beauty",
+        "image": "images/beauty6.jpg",
+        "company": "ESSENT PERFUMES",
+        "item_name": "Spice And Wood Long Lasting Eau De Parfum - 50 ml",
+        "original_price": 1999,
+        "current_price": 799,
+        "discount_percentage": 60,
+        "return_period": 14,
+        "delivery_date": "20 Oct 2026",
+        "rating": {
+          "stars": 4.5,
+          "count": 64
+        },
+        "inStock": true
+      },
+      {
+        "id": "032",
+        "category": "Beauty",
+        "image": "images/beauty7.jpg",
+        "company": "FACES CANADA",
+        "item_name": "Rose Glow Kit - Strobe Cream & Hydra Matte Foundation",
+        "original_price": 999,
+        "current_price": 499,
+        "discount_percentage": 50,
+        "return_period": 14,
+        "delivery_date": "22 Nov 2026",
+        "rating": {
+          "stars": 4.6,
+          "count": 85
+        },
+        "inStock": true
       }
     ]
   ]
