@@ -19,7 +19,7 @@ const Women = () => {
   const [sortBy, setSortBy] = useState("Recommended");
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6; 
+  const itemsPerPage = 8; 
 
   const filteredWomenItems = items.filter((item) => {
     const query = searchQuery.toLowerCase();
