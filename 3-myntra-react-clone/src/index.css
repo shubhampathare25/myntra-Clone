@@ -423,6 +423,7 @@ footer {
   align-items: center;
   position: relative;
   text-decoration: none;
+  white-space: nowrap;
 }
 a.action_container:link {
   color: black;
