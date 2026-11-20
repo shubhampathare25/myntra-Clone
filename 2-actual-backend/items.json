@@ -97,6 +97,40 @@
         "inStock": true
       },
       {
+        "id": "men7",
+        "category": "men",
+        "image": "images/men7.jpg",
+        "company": "Arrow",
+        "item_name": "Men Mid Rise Tailored Fit Formal Trousers",
+        "original_price": 2599,
+        "current_price": 1299,
+        "discount_percentage": 50,
+        "return_period": 14,
+        "delivery_date": "25 Nov 2026",
+        "rating": {
+          "stars": 4.4,
+          "count": 78
+        },
+        "inStock": true
+      },
+      {
+        "id": "men8",
+        "category": "men",
+        "image": "images/men8.jpg",
+        "company": "ARBOUR",
+        "item_name": "Men Solid Polo Collar Cotton Slim Fit T-Shirt",
+        "original_price": 1799,
+        "current_price": 629,
+        "discount_percentage": 65,
+        "return_period": 14,
+        "delivery_date": "25 Nov 2026",
+        "rating": {
+          "stars": 4.2,
+          "count": 53
+        },
+        "inStock": true
+      },
+      {
         "id": "007",
         "category": "women",
         "image": "images/women1.jpg",
