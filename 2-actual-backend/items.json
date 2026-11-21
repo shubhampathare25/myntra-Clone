@@ -359,6 +359,40 @@
         "inStock": true
       },
       {
+        "id": "kids7",
+        "category": "kids",
+        "image": "images/kids7.jpg",
+        "company": "MAX",
+        "item_name": "Boys Relaxed Fit Cargo Joggers",
+        "original_price": 999,
+        "current_price": 699,
+        "discount_percentage": 30,
+        "return_period": 14,
+        "delivery_date": "25 Nov 2026",
+        "rating": {
+          "stars": 4.3,
+          "count": 64
+        },
+        "inStock": true
+      },
+      {
+        "id": "kids8",
+        "category": "kids",
+        "image": "images/kids8.jpg",
+        "company": "KUCHIPOO",
+        "item_name": "Girls Printed T-Shirt & Track Pants Clothing Set",
+        "original_price": 1499,
+        "current_price": 599,
+        "discount_percentage": 60,
+        "return_period": 14,
+        "delivery_date": "25 Nov 2026",
+        "rating": {
+          "stars": 4.4,
+          "count": 82
+        },
+        "inStock": true
+      },
+      {
         "id": "021",
         "category": "HomeLiving",
         "image": "images/HomeLiving1.jpg",
