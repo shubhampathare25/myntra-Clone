@@ -475,6 +475,57 @@
       },
       {
         "id": "026",
+        "category": "HomeLiving",
+        "image": "images/HomeLiving6.jpg",
+        "company": "COTTON SERIES",
+        "item_name": "100% Cotton Printed King Size Bedsheet with Pillow Covers",
+        "original_price": 1299,
+        "current_price": 525,
+        "discount_percentage": 60,
+        "return_period": 14,
+        "delivery_date": "25 Nov 2026",
+        "rating": {
+          "stars": 4.4,
+          "count": 76
+        },
+        "inStock": true
+      },
+      {
+        "id": "027",
+        "category": "HomeLiving",
+        "image": "images/HomeLiving7.jpg",
+        "company": "Pure Home and Living",
+        "item_name": "Modern Multi-Light Hanging Chandelier & Living Room Decor Set",
+        "original_price": 6999,
+        "current_price": 3499,
+        "discount_percentage": 50,
+        "return_period": 14,
+        "delivery_date": "25 Nov 2026",
+        "rating": {
+          "stars": 4.6,
+          "count": 48
+        },
+        "inStock": true
+      },
+      {
+        "id": "028",
+        "category": "HomeLiving",
+        "image": "images/HomeLiving8.jpg",
+        "company": "PROVINCIAL",
+        "item_name": "Classic Fabric Sofa Set & Wooden Center Table Combo",
+        "original_price": 49999,
+        "current_price": 24999,
+        "discount_percentage": 50,
+        "return_period": 14,
+        "delivery_date": "25 Nov 2026",
+        "rating": {
+          "stars": 4.5,
+          "count": 41
+        },
+        "inStock": true
+      },
+      {
+        "id": "029",
         "category": "Beauty",
         "image": "images/beauty1.jpg",
         "company": "Nivea",
@@ -490,7 +541,7 @@
         }
       },
       {
-        "id": "027",
+        "id": "030",
         "category": "Beauty",
         "image": "images/beauty2.jpg",
         "company": "Engage",
@@ -506,7 +557,7 @@
         }
       },
       {
-        "id": "028",
+        "id": "031",
         "category": "beauty",
         "image": "images/beauty3.jpg",
         "company": "Garnier",
@@ -522,7 +573,7 @@
         }
       },
       {
-        "id": "029",
+        "id": "032",
         "category": "beauty",
         "image": "images/beauty4.jpg",
         "company": "Glamveda",
@@ -538,7 +589,7 @@
         }
       },
       {
-        "id": "030",
+        "id": "033",
         "category": "beauty",
         "image": "images/beauty5.jpg",
         "company": "Plum",
@@ -554,7 +605,7 @@
         }
       },
       {
-        "id": "031",
+        "id": "034",
         "category": "Beauty",
         "image": "images/beauty6.jpg",
         "company": "ESSENT PERFUMES",
@@ -571,7 +622,7 @@
         "inStock": true
       },
       {
-        "id": "032",
+        "id": "035",
         "category": "Beauty",
         "image": "images/beauty7.jpg",
         "company": "FACES CANADA",
