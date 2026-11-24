@@ -637,6 +637,23 @@
           "count": 85
         },
         "inStock": true
+      },
+      {
+        "id": "036",
+        "category": "Beauty",
+        "image": "images/beauty8.jpg",
+        "company": "Ajmal",
+        "item_name": "White Oud Long Lasting Eau De Parfum - 100 ml",
+        "original_price": 1800,
+        "current_price": 990,
+        "discount_percentage": 45,
+        "return_period": 14,
+        "delivery_date": "25 Nov 2026",
+        "rating": {
+          "stars": 4.4,
+          "count": 115
+        },
+        "inStock": true
       }
     ]
   ]
