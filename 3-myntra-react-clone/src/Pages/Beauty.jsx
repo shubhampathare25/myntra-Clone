@@ -19,7 +19,7 @@ const Beauty = () => {
   const [sortBy, setSortBy] = useState("Recommended");
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 7; 
+  const itemsPerPage = 8; 
 
   const filteredBeautyItems = items.filter((item) => {
     const query = searchQuery.toLowerCase();
