@@ -1,8 +1,9 @@
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const Login = () => {
+const UserLogin = () => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const loginType = searchParams.get("type") || "user";
 
   const [email, setEmail] = useState("");
@@ -14,61 +15,86 @@ const Login = () => {
     setLoading(true);
 
     setTimeout(() => {
-    alert(`${loginType === "admin" ? "Admin" : "User"} login successful for: ${email}`);
-    setLoading(false);
-  }, 1500);
-};
+      alert(
+        `${loginType === "admin" ? "Admin" : "User"} login successful for: ${email}`
+      );
+      setLoading(false);
+      navigate("/");
+    }, 1000);
+  };
+
+  const handleGoogleLogin = () => {
+    alert("Google login successful!");
+    navigate("/");
+  };
+
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "75vh", backgroundColor: "#ffffff" }}>
-      <div style={{ backgroundColor: "white", padding: "40px", width: "400px", textAlign: "left" }}>
-        
-        <h2 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "8px", color: "#282c3f" }}>
-          Welcome back
-        </h2>
-        <p style={{ fontSize: "14px", color: "#535766", marginBottom: "25px" }}>
-          Sign in to continue shopping.
-        </p>
-        
-        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-          
-          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "600", color: "#282c3f" }}>Email</label>
+    <div className="user-login-wrapper">
+      <div className="user-login-card">
+        <h2 className="user-login-title">Welcome back</h2>
+        <p className="user-login-subtitle">Sign in to continue shopping.</p>
+
+        <form onSubmit={handleSubmit} className="user-login-form">
+          <div className="user-login-field">
+            <label htmlFor="user-email">Email</label>
             <input
+              id="user-email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              style={{ padding: "10px 12px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", outline: "none" }}
             />
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-            <label style={{ fontSize: "13px", fontWeight: "600", color: "#282c3f" }}>Password</label>
+          <div className="user-login-field">
+            <label htmlFor="user-password">Password</label>
             <input
+              id="user-password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              style={{ padding: "10px 12px", borderRadius: "4px", border: "1px solid #d4d5d9", fontSize: "14px", outline: "none" }}
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            style={{ padding: "12px", backgroundColor: "#2874f0", color: "white", border: "none", borderRadius: "4px", fontWeight: "600",cursor: loading ? "not-allowed" : "pointer", fontSize: "15px", marginTop: "5px", opacity: loading ? 0.7 : 1 }}
+            className="user-login-submit-btn"
           >
             {loading ? "Please wait..." : "Login"}
           </button>
         </form>
 
-        <div style={{ marginTop: "20px", textAlign: "center", fontSize: "13px", color: "#535766" }}>
-          New to Myntra-Clone <span style={{ color: "#ff3f6c", fontWeight: "bold", cursor: "pointer" }}>Create an account</span>
+        <div className="user-login-divider">
+          <span>OR CONTINUE WITH</span>
         </div>
 
+        <button
+          type="button"
+          onClick={handleGoogleLogin}
+          className="user-google-login-btn"
+        >
+          <img
+            src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+            alt="Google"
+            className="user-google-icon"
+          />
+          <span>Continue with Google</span>
+        </button>
+
+        <div className="user-login-footer">
+          New to Myntra?{" "}
+          <span
+            onClick={() => navigate("/signup")}
+            className="user-create-account-link"
+          >
+            Create an account
+          </span>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default UserLogin;
