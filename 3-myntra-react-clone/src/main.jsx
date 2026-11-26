@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import App from "./routes/App.jsx";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -83,21 +84,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:id",
-        element: <ProductDetails />
+        element: <ProductDetails />,
       },
       {
         path: "/categories",
-        element: <HomeCategory />
-      }
+        element: <HomeCategory />,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(getElementByIdOrThrow("root")).render(
   <React.StrictMode>
-    <Provider store={myntraStore}>
-      <RouterProvider router={router} />
-    </Provider>
+    <GoogleOAuthProvider clientId="213032316782-0hp4570s591erkkeaeod65fc7o0bvcre.apps.googleusercontent.com">
+      <Provider store={myntraStore}>
+        <RouterProvider router={router} />
+      </Provider>
+    </GoogleOAuthProvider>
   </React.StrictMode>,
 );
 
