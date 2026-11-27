@@ -68,7 +68,8 @@ header {
   align-items: center;
   background-color: #f0f4f9;        
   border-radius: 50px;             
-  padding: 0 12px;                  
+  padding: 0 12px;
+  margin-right: 20px;                  
 }
 
 .search_icon {
